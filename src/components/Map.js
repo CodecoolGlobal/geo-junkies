@@ -18,13 +18,24 @@ const Map = (props) => {
     const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
-        center: [0, 0],
-        zoom: 5,
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [25, 55],
+        zoom: 2.75,
       });
 
       map.on("load", () => {
         setMap(map);
+        map.scrollZoom.disable();
+        map.doubleClickZoom.disable();
+        map.dragPan.disable();
+        map.style.stylesheet.layers.forEach(function (layer) {
+          if (layer.type === "symbol") {
+            map.removeLayer(layer.id);
+          }
+        });
+        map.on("click", function (e) {
+          console.log(JSON.stringify(e.lngLat.wrap()));
+        });
         map.resize();
       });
     };
