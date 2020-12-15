@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import mapboxgl from "mapbox-gl";
+import mapboxgl, { LngLat } from "mapbox-gl";
 
 const styles = {
   width: "80vw",
@@ -37,11 +37,14 @@ const Map = (props) => {
         document
           .querySelector("#clearButton")
           .addEventListener("click", function () {
+            document.querySelector("result").innerHTML = "result";
             marker.remove();
           });
 
         map.on("click", function (e) {
           console.log(JSON.stringify(e.lngLat.wrap()));
+          const paris = new LngLat(19, 47.5);
+          console.log(Math.round(paris.distanceTo(e.lngLat) / 1000));
           if (marker) {
             marker.remove();
           }
@@ -58,8 +61,9 @@ const Map = (props) => {
 
   return (
     <div>
-      <div ref={(el) => (mapContainer.current = el)} style={styles} />;
+      <div ref={(el) => (mapContainer.current = el)} style={styles} />
       <button id="clearButton">Evaluate</button>
+      <div id="result"></div>
     </div>
   );
 };
