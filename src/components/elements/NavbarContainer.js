@@ -7,8 +7,12 @@ const NavbarContainer = styled.div`
   left: 0;
   top: 0;
   width: 10%;
-  height: 95%;
-  background-color: lightgreen;
+  height: 50%;
+  background-color: lightgrey;
+  opacity: 0.6;
+  z-index: 9999;
+  border-radius: 0 0 20px 0;
+  border: 1px solid darkgrey;
 `;
 
 export default NavbarContainer;
