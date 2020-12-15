@@ -8,6 +8,8 @@ const styles = {
   // position: "absolute",
 };
 
+let isPointSelected = false;
+
 const Map = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
@@ -56,12 +58,12 @@ const Map = (props) => {
         setMap(map);
         disableInteractives(map);
 
-        let guessMarker = null;
-        let cityMarker = null;
-        let popup = null;
-
         map.on("click", (e) => {
-          mapClickHandler(e, map, guessMarker, cityMarker, popup, currentCity);
+          if (isPointSelected) {
+            e.preventDefault();
+          } else {
+            mapClickHandler(e, map, currentCity);
+          }
         });
         map.resize();
       });
@@ -81,12 +83,6 @@ const Map = (props) => {
   );
 };
 
-const buttonHandler = (e, elements) => {
-  elements.forEach((element) => {
-    element.remove();
-  });
-};
-
 function disableInteractives(map) {
   map.scrollZoom.disable();
   map.doubleClickZoom.disable();
@@ -98,34 +94,27 @@ function disableInteractives(map) {
   });
 }
 
-const mapClickHandler = (
-  e,
-  map,
-  guessMarker,
-  cityMarker,
-  popup,
-  currentCity
-) => {
+const mapClickHandler = (e, map, currentCity) => {
   const city = new LngLat(currentCity.longitude, currentCity.latitude);
   let message = Math.round(city.distanceTo(e.lngLat) / 1000) + " km away.";
-  if (guessMarker) {
-    guessMarker.remove();
-  }
-  guessMarker = new mapboxgl.Marker()
+  let guessMarker = new mapboxgl.Marker()
     .setLngLat([e.lngLat.lng, e.lngLat.lat])
     .addTo(map);
-  popup = new mapboxgl.Popup({ offset: 38 })
+  let popup = new mapboxgl.Popup({ offset: 38 })
     .setLngLat(city)
     .setHTML(`<h3 class="popup">${message}</h3>`)
     .addTo(map);
-  cityMarker = new mapboxgl.Marker({ color: "green" })
+  let cityMarker = new mapboxgl.Marker({ color: "green" })
     .setLngLat(city)
     .addTo(map);
+
+  isPointSelected = true;
 
   document.querySelector("#clearButton").addEventListener("click", function () {
     guessMarker.remove();
     cityMarker.remove();
     popup.remove();
+    isPointSelected = false;
   });
 };
 
