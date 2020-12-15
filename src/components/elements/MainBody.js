@@ -1,13 +1,14 @@
 import styled from "styled-components";
+import img from "../images/back1opac.jpg";
 
-// background;
-//   color:;
 const MainBody = styled.div`
+  background-image: url(${img});
   background-size: cover;
-  min-height: 100%;
+  background-repeat: no-repeat;
+  height: 100%;
   width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.4;
-  box-sizing: border-box;
 `;
+
 export default MainBody;
