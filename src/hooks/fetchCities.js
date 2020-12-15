@@ -1,12 +1,20 @@
+import { useEffect, useContext } from "react";
+import data from "../components/files/europeanCities.json";
 import { CityContext } from "../contexts/CityContext";
-import { useContext } from "react";
 
-export const GetCities = () => {
+const GetCities = () => {
   const setCities = useContext(CityContext)[1];
-
-  var cityData = require("../components/files/europeanCities.json")
-    .european_cities;
-  setCities(cityData);
+  useEffect(() => {
+    let selectedCities = [];
+    while (selectedCities.length < 5) {
+      let cityIndex = Math.floor(Math.random() * data.european_cities.length);
+      let actualCity = data.european_cities[cityIndex];
+      if (!selectedCities.includes(actualCity)) {
+        selectedCities.push(actualCity);
+      }
+    }
+    setCities(selectedCities);
+  }, []);
 };
 
 export default GetCities;
