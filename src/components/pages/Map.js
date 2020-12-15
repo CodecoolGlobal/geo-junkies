@@ -25,43 +25,14 @@ const Map = (props) => {
 
       map.on("load", () => {
         setMap(map);
-        map.scrollZoom.disable();
-        map.doubleClickZoom.disable();
-        map.dragPan.disable();
-        map.style.stylesheet.layers.forEach(function (layer) {
-          if (layer.type === "symbol") {
-            map.removeLayer(layer.id);
-          }
-        });
+        disableInteractives(map);
 
         let guessMarker = null;
         let cityMarker = null;
         let popup = null;
-        document
-          .querySelector("#clearButton")
-          .addEventListener("click", function () {
-            guessMarker.remove();
-            cityMarker.remove();
-            popup.remove();
-          });
 
-        map.on("click", function (e) {
-          const budapest = new LngLat(19, 47.5);
-          let message =
-            Math.round(budapest.distanceTo(e.lngLat) / 1000) + " km away.";
-          if (guessMarker) {
-            guessMarker.remove();
-          }
-          guessMarker = new mapboxgl.Marker()
-            .setLngLat([e.lngLat.lng, e.lngLat.lat])
-            .addTo(map);
-          popup = new mapboxgl.Popup({ offset: 38 })
-            .setLngLat(budapest)
-            .setHTML(`<h3 class="popup">${message}</h3>`)
-            .addTo(map);
-          cityMarker = new mapboxgl.Marker({ color: "green" })
-            .setLngLat(budapest)
-            .addTo(map);
+        map.on("click", (e) => {
+          mapClickHandler(e, map, guessMarker, cityMarker, popup);
         });
         map.resize();
       });
@@ -78,6 +49,47 @@ const Map = (props) => {
       </div>
     </div>
   );
+};
+
+const buttonHandler = (e, elements) => {
+  elements.forEach((element) => {
+    element.remove();
+  });
+};
+
+function disableInteractives(map) {
+  map.scrollZoom.disable();
+  map.doubleClickZoom.disable();
+  map.dragPan.disable();
+  map.style.stylesheet.layers.forEach(function (layer) {
+    if (layer.type === "symbol") {
+      map.removeLayer(layer.id);
+    }
+  });
+}
+
+const mapClickHandler = (e, map, guessMarker, cityMarker, popup) => {
+  const budapest = new LngLat(19, 47.5);
+  let message = Math.round(budapest.distanceTo(e.lngLat) / 1000) + " km away.";
+  if (guessMarker) {
+    guessMarker.remove();
+  }
+  guessMarker = new mapboxgl.Marker()
+    .setLngLat([e.lngLat.lng, e.lngLat.lat])
+    .addTo(map);
+  popup = new mapboxgl.Popup({ offset: 38 })
+    .setLngLat(budapest)
+    .setHTML(`<h3 class="popup">${message}</h3>`)
+    .addTo(map);
+  cityMarker = new mapboxgl.Marker({ color: "green" })
+    .setLngLat(budapest)
+    .addTo(map);
+
+  document.querySelector("#clearButton").addEventListener("click", function () {
+    guessMarker.remove();
+    cityMarker.remove();
+    popup.remove();
+  });
 };
 
 export default Map;
