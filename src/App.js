@@ -1,10 +1,17 @@
-import Map from "./components/Map";
+import MainComponent from "./components/MainComponent";
+import { CityContextProvider } from "./contexts/CityContext";
+import { HighScoreContextProvider } from "./contexts/HighScoreContext";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Map />
-    </div>
+    <CityContextProvider>
+      <HighScoreContextProvider>
+        <Router>
+          <MainComponent />
+        </Router>
+      </HighScoreContextProvider>
+    </CityContextProvider>
   );
 }
 
