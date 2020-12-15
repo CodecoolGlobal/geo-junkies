@@ -1,5 +1,6 @@
 import React from "react";
+import NavbarContainer from "./elements/NavbarContainer";
 
 export default function Navbar() {
-  return <div>Navbar</div>;
+  return <NavbarContainer>Navbar</NavbarContainer>;
 }
