@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import mapboxgl, { LngLat } from "mapbox-gl";
+import "../../style/marker.css";
 
 const styles = {
   width: "80vw",
@@ -35,11 +36,13 @@ const Map = (props) => {
 
         let guessMarker = null;
         let cityMarker = null;
+        let popup = null;
         document
           .querySelector("#clearButton")
           .addEventListener("click", function () {
             guessMarker.remove();
             cityMarker.remove();
+            popup.remove();
           });
 
         map.on("click", function (e) {
@@ -51,6 +54,10 @@ const Map = (props) => {
           }
           guessMarker = new mapboxgl.Marker()
             .setLngLat([e.lngLat.lng, e.lngLat.lat])
+            .addTo(map);
+          popup = new mapboxgl.Popup({ offset: 38 })
+            .setLngLat(budapest)
+            .setHTML(`<h3 class="popup">${message}</h3>`)
             .addTo(map);
           cityMarker = new mapboxgl.Marker({ color: "green" })
             .setLngLat(budapest)
@@ -67,7 +74,7 @@ const Map = (props) => {
     <div>
       <div ref={(el) => (mapContainer.current = el)} style={styles} />
       <div>
-      <button id="clearButton">Evaluate</button>
+        <button id="clearButton">Evaluate</button>
       </div>
     </div>
   );
