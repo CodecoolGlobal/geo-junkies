@@ -8,3 +8,26 @@ body,
 #root {
   height: 100%;
 }
+
+#globe {
+  margin-top: 2%;
+  width: 33%;
+  height: calc(100vw * 0.28); /*450*/
+  background: url("./components/images/Earth2.jpg");
+  border-radius: 50%;
+  background-size: calc(100vw * 0.58);
+  box-shadow: inset 8px 36px 80px 36px rgb(0, 0, 0),
+    inset -6px 0 12px 4px rgba(255, 255, 255, 0.3);
+  animation-name: rotate;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes rotate {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: calc(100vw * 0.58) 0px; /*905*/
+  }
+}
