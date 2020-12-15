@@ -1,0 +1,1279 @@
+﻿{
+    "european_cities": [
+        {
+            "city": "Tirana",
+            "latitude": "41.33",
+            "longitude": "19.82"
+        },
+        {
+            "city": "Andorra la Vella",
+            "latitude": "42.5",
+            "longitude": "1.5"
+        },
+        {
+            "city": "Yerevan",
+            "latitude": "40.1814",
+            "longitude": "44.5144"
+        },
+        {
+            "city": "Wien",
+            "latitude": "48.2083",
+            "longitude": "16.3731"
+        },
+        {
+            "city": "Graz",
+            "latitude": "47.0667",
+            "longitude": "15.4333"
+        },
+        {
+            "city": "Linz",
+            "latitude": "48.3",
+            "longitude": "14.2833"
+        },
+        {
+            "city": "Salzburg",
+            "latitude": "47.7972",
+            "longitude": "13.0477"
+        },
+        {
+            "city": "Innsbruck",
+            "latitude": "47.2683",
+            "longitude": "11.3933"
+        },
+        {
+            "city": "Klagenfurt",
+            "latitude": "46.6167",
+            "longitude": "14.3"
+        },
+        {
+            "city": "Sankt Pölten",
+            "latitude": "48.2",
+            "longitude": "15.6167"
+        },
+        {
+            "city": "Baku",
+            "latitude": "40.3667",
+            "longitude": "49.8352"
+        },
+        {
+            "city": "Minsk",
+            "latitude": "53.9022",
+            "longitude": "27.5618"
+        },
+        {
+            "city": "Brussels",
+            "latitude": "50.8467",
+            "longitude": "4.3517"
+        },
+        {
+            "city": "Antwerp",
+            "latitude": "51.2211",
+            "longitude": "4.3997"
+        },
+        {
+            "city": "Gent",
+            "latitude": "51.0536",
+            "longitude": "3.7253"
+        },
+        {
+            "city": "Charleroi",
+            "latitude": "50.4167",
+            "longitude": "4.4442"
+        },
+        {
+            "city": "Liège",
+            "latitude": "50.625",
+            "longitude": "5.5907"
+        },
+        {
+            "city": "Schaarbeek",
+            "latitude": "50.8675",
+            "longitude": "4.3736"
+        },
+        {
+            "city": "Anderlecht",
+            "latitude": "50.8392",
+            "longitude": "4.3297"
+        },
+        {
+            "city": "Bruges",
+            "latitude": "51.2089",
+            "longitude": "3.2242"
+        },
+        {
+            "city": "Sarajevo",
+            "latitude": "43.8667",
+            "longitude": "18.4167"
+        },
+        {
+            "city": "Banja Luka",
+            "latitude": "44.7667",
+            "longitude": "17.1833"
+        },
+        {
+            "city": "Mostar",
+            "latitude": "43.3494",
+            "longitude": "17.8125"
+        },
+        {
+            "city": "Sofia",
+            "latitude": "42.6975",
+            "longitude": "23.3241"
+        },
+        {
+            "city": "Plovdiv",
+            "latitude": "42.1433",
+            "longitude": "24.7489"
+        },
+        {
+            "city": "Varna",
+            "latitude": "43.2078",
+            "longitude": "27.9169"
+        },
+        {
+            "city": "Zagreb",
+            "latitude": "45.8",
+            "longitude": "15.95"
+        },
+        {
+            "city": "Split",
+            "latitude": "43.51",
+            "longitude": "16.45"
+        },
+        {
+            "city": "Rijeka",
+            "latitude": "45.3297",
+            "longitude": "14.4322"
+        },
+        {
+            "city": "Osijek",
+            "latitude": "45.5603",
+            "longitude": "18.6703"
+        },
+        {
+            "city": "Zadar",
+            "latitude": "44.1167",
+            "longitude": "15.2167"
+        },
+        {
+            "city": "Dubrovnik",
+            "latitude": "42.6403",
+            "longitude": "18.1083"
+        },
+        {
+            "city": "Nicosia",
+            "latitude": "35.1725",
+            "longitude": "33.365"
+        },
+        {
+            "city": "Limassol",
+            "latitude": "34.675",
+            "longitude": "33.0443"
+        },
+        {
+            "city": "Prague",
+            "latitude": "50.0833",
+            "longitude": "14.4167"
+        },
+        {
+            "city": "Brno",
+            "latitude": "49.1953",
+            "longitude": "16.6083"
+        },
+        {
+            "city": "Ostrava",
+            "latitude": "49.8356",
+            "longitude": "18.2925"
+        },
+        {
+            "city": "Plzeň",
+            "latitude": "49.7414",
+            "longitude": "13.3825"
+        },
+        {
+            "city": "Liberec",
+            "latitude": "50.77",
+            "longitude": "15.0584"
+        },
+        {
+            "city": "Copenhagen",
+            "latitude": "55.6786",
+            "longitude": "12.5635"
+        },
+        {
+            "city": "Aarhus",
+            "latitude": "56.1572",
+            "longitude": "10.2107"
+        },
+        {
+            "city": "Odense",
+            "latitude": "55.4004",
+            "longitude": "10.3833"
+        },
+        {
+            "city": "Aalborg",
+            "latitude": "57.0337",
+            "longitude": "9.9166"
+        },
+        {
+            "city": "Esbjerg",
+            "latitude": "55.467",
+            "longitude": "8.45"
+        },
+        {
+            "city": "Tallinn",
+            "latitude": "59.4372",
+            "longitude": "24.745"
+        },
+        {
+            "city": "Tartu",
+            "latitude": "58.38",
+            "longitude": "26.7225"
+        },
+        {
+            "city": "Tórshavn",
+            "latitude": "62",
+            "longitude": "-6.7833"
+        },
+        {
+            "city": "Helsinki",
+            "latitude": "60.1756",
+            "longitude": "24.9342"
+        },
+        {
+            "city": "Espoo",
+            "latitude": "60.21",
+            "longitude": "24.66"
+        },
+        {
+            "city": "Tampere",
+            "latitude": "61.4981",
+            "longitude": "23.7608"
+        },
+        {
+            "city": "Turku",
+            "latitude": "60.4517",
+            "longitude": "22.27"
+        },
+        {
+            "city": "Lahti",
+            "latitude": "60.9833",
+            "longitude": "25.6556"
+        },
+        {
+            "city": "Paris",
+            "latitude": "48.8566",
+            "longitude": "2.3522"
+        },
+        {
+            "city": "Nice",
+            "latitude": "43.7034",
+            "longitude": "7.2663"
+        },
+        {
+            "city": "Toulouse",
+            "latitude": "43.6045",
+            "longitude": "1.444"
+        },
+        {
+            "city": "Marseille",
+            "latitude": "43.2964",
+            "longitude": "5.37"
+        },
+        {
+            "city": "Rennes",
+            "latitude": "48.1147",
+            "longitude": "-1.6794"
+        },
+        {
+            "city": "Nantes",
+            "latitude": "47.2181",
+            "longitude": "-1.5528"
+        },
+        {
+            "city": "Montpellier",
+            "latitude": "43.6119",
+            "longitude": "3.8772"
+        },
+        {
+            "city": "Lyon",
+            "latitude": "45.76",
+            "longitude": "4.84"
+        },
+        {
+            "city": "Strasbourg",
+            "latitude": "48.5833",
+            "longitude": "7.7458"
+        },
+        {
+            "city": "Nancy",
+            "latitude": "48.6936",
+            "longitude": "6.1846"
+        },
+        {
+            "city": "Metz",
+            "latitude": "49.1203",
+            "longitude": "6.1778"
+        },
+        {
+            "city": "Brest",
+            "latitude": "48.39",
+            "longitude": "-4.49"
+        },
+        {
+            "city": "Bordeaux",
+            "latitude": "44.84",
+            "longitude": "-0.58"
+        },
+        {
+            "city": "Lille",
+            "latitude": "50.6278",
+            "longitude": "3.0583"
+        },
+        {
+            "city": "Le Havre",
+            "latitude": "49.49",
+            "longitude": "0.1"
+        },
+        {
+            "city": "Dijon",
+            "latitude": "47.3167",
+            "longitude": "5.0167"
+        },
+        {
+            "city": "Calais",
+            "latitude": "50.9481",
+            "longitude": "1.8564"
+        },
+        {
+            "city": "Tbilisi",
+            "latitude": "41.7225",
+            "longitude": "44.7925"
+        },
+        {
+            "city": "Berlin",
+            "latitude": "52.5167",
+            "longitude": "13.3833"
+        },
+        {
+            "city": "Hamburg",
+            "latitude": "53.55",
+            "longitude": "10"
+        },
+        {
+            "city": "Munich",
+            "latitude": "48.1372",
+            "longitude": "11.5755"
+        },
+        {
+            "city": "Cologne",
+            "latitude": "50.9422",
+            "longitude": "6.9578"
+        },
+        {
+            "city": "Frankfurt",
+            "latitude": "50.1136",
+            "longitude": "8.6797"
+        },
+        {
+            "city": "Bremen",
+            "latitude": "53.1153",
+            "longitude": "8.7975"
+        },
+        {
+            "city": "Stuttgart",
+            "latitude": "48.7761",
+            "longitude": "9.1775"
+        },
+        {
+            "city": "Düsseldorf",
+            "latitude": "51.2311",
+            "longitude": "6.7724"
+        },
+        {
+            "city": "Dortmund",
+            "latitude": "51.5139",
+            "longitude": "7.4653"
+        },
+        {
+            "city": "Essen",
+            "latitude": "51.4508",
+            "longitude": "7.0131"
+        },
+        {
+            "city": "Dresden",
+            "latitude": "51.0493",
+            "longitude": "13.7384"
+        },
+        {
+            "city": "Leipzig",
+            "latitude": "51.35",
+            "longitude": "12.3833"
+        },
+        {
+            "city": "Hannover",
+            "latitude": "52.3744",
+            "longitude": "9.7386"
+        },
+        {
+            "city": "Nuremberg",
+            "latitude": "49.4528",
+            "longitude": "11.0778"
+        },
+        {
+            "city": "Kiel",
+            "latitude": "54.3233",
+            "longitude": "10.1394"
+        },
+        {
+            "city": "Gibraltar",
+            "latitude": "36.1324",
+            "longitude": "-5.3781"
+        },
+        {
+            "city": "Athens",
+            "latitude": "37.9794",
+            "longitude": "23.7161"
+        },
+        {
+            "city": "Piraeus",
+            "latitude": "37.95",
+            "longitude": "23.7"
+        },
+        {
+            "city": "Thessaloníki",
+            "latitude": "40.6333",
+            "longitude": "22.95"
+        },
+        {
+            "city": "Ródos",
+            "latitude": "36.4412",
+            "longitude": "28.2225"
+        },
+        {
+            "city": "Kateríni",
+            "latitude": "40.2667",
+            "longitude": "22.5"
+        },
+        {
+            "city": "Kórinthos",
+            "latitude": "37.9333",
+            "longitude": "22.9333"
+        },
+        {
+            "city": "Budapest",
+            "latitude": "47.4983",
+            "longitude": "19.0408"
+        },
+        {
+            "city": "Debrecen",
+            "latitude": "47.53",
+            "longitude": "21.6392"
+        },
+        {
+            "city": "Szeged",
+            "latitude": "46.25",
+            "longitude": "20.1667"
+        },
+        {
+            "city": "Miskolc",
+            "latitude": "48.1",
+            "longitude": "20.7833"
+        },
+        {
+            "city": "Pécs",
+            "latitude": "46.0708",
+            "longitude": "18.2331"
+        },
+        {
+            "city": "Győr",
+            "latitude": "47.6842",
+            "longitude": "17.6344"
+        },
+        {
+            "city": "Nyíregyháza",
+            "latitude": "47.95",
+            "longitude": "21.7167"
+        },
+        {
+            "city": "Kecskemét",
+            "latitude": "46.9074",
+            "longitude": "19.6917"
+        },
+        {
+            "city": "Székesfehérvár",
+            "latitude": "47.2",
+            "longitude": "18.4167"
+        },
+        {
+            "city": "Szombathely",
+            "latitude": "47.2333",
+            "longitude": "16.6333"
+        },
+        {
+            "city": "Szolnok",
+            "latitude": "47.1747",
+            "longitude": "20.1764"
+        },
+        {
+            "city": "Tatabánya",
+            "latitude": "47.5862",
+            "longitude": "18.3949"
+        },
+        {
+            "city": "Sopron",
+            "latitude": "47.6833",
+            "longitude": "16.5833"
+        },
+        {
+            "city": "Kaposvár",
+            "latitude": "46.3667",
+            "longitude": "17.7833"
+        },
+        {
+            "city": "Veszprém",
+            "latitude": "47.1",
+            "longitude": "17.9167"
+        },
+        {
+            "city": "Békéscsaba",
+            "latitude": "46.6833",
+            "longitude": "21.0833"
+        },
+        {
+            "city": "Zalaegerszeg",
+            "latitude": "46.8392",
+            "longitude": "16.8511"
+        },
+        {
+            "city": "Eger",
+            "latitude": "47.8989",
+            "longitude": "20.3747"
+        },
+        {
+            "city": "Nagykanizsa",
+            "latitude": "46.4558",
+            "longitude": "16.9975"
+        },
+        {
+            "city": "Dunaújváros",
+            "latitude": "46.9833",
+            "longitude": "18.9167"
+        },
+        {
+            "city": "Hódmezővásárhely",
+            "latitude": "46.4303",
+            "longitude": "20.3189"
+        },
+        {
+            "city": "Salgótarján",
+            "latitude": "48.0853",
+            "longitude": "19.7867"
+        },
+        {
+            "city": "Szekszárd",
+            "latitude": "46.3558",
+            "longitude": "18.7039"
+        },
+        {
+            "city": "Siófok",
+            "latitude": "46.9",
+            "longitude": "18.05"
+        },
+        {
+            "city": "Dunaharaszti",
+            "latitude": "47.3553",
+            "longitude": "19.0844"
+        },
+        {
+            "city": "Makó",
+            "latitude": "46.22",
+            "longitude": "20.4789"
+        },
+        {
+            "city": "Keszthely",
+            "latitude": "46.7675",
+            "longitude": "17.2463"
+        },
+        {
+            "city": "Gyömrő",
+            "latitude": "47.4353",
+            "longitude": "19.3986"
+        },
+        {
+            "city": "Mohács",
+            "latitude": "45.9958",
+            "longitude": "18.6797"
+        },
+        {
+            "city": "Pécel",
+            "latitude": "47.4911",
+            "longitude": "19.3419"
+        },
+        {
+            "city": "Mezőkövesd",
+            "latitude": "47.8067",
+            "longitude": "20.5647"
+        },
+        {
+            "city": "Balatonfüred",
+            "latitude": "46.95",
+            "longitude": "17.8833"
+        },
+        {
+            "city": "Reykjavík",
+            "latitude": "64.1475",
+            "longitude": "-21.935"
+        },
+        {
+            "city": "Dublin",
+            "latitude": "53.3425",
+            "longitude": "-6.2658"
+        },
+        {
+            "city": "Cork",
+            "latitude": "51.9",
+            "longitude": "-8.4731"
+        },
+        {
+            "city": "Rome",
+            "latitude": "41.8931",
+            "longitude": "12.4828"
+        },
+        {
+            "city": "Milan",
+            "latitude": "45.4669",
+            "longitude": "9.19"
+        },
+        {
+            "city": "Napoli",
+            "latitude": "40.8333",
+            "longitude": "14.25"
+        },
+        {
+            "city": "Torino",
+            "latitude": "45.0667",
+            "longitude": "7.7"
+        },
+        {
+            "city": "Palermo",
+            "latitude": "38.1157",
+            "longitude": "13.3613"
+        },
+        {
+            "city": "Genoa",
+            "latitude": "44.4072",
+            "longitude": "8.934"
+        },
+        {
+            "city": "Bologna",
+            "latitude": "44.4939",
+            "longitude": "11.3428"
+        },
+        {
+            "city": "Venice",
+            "latitude": "45.4397",
+            "longitude": "12.3319"
+        },
+        {
+            "city": "Verona",
+            "latitude": "45.4386",
+            "longitude": "10.9928"
+        },
+        {
+            "city": "Pristina",
+            "latitude": "42.6667",
+            "longitude": "21.1667"
+        },
+        {
+            "city": "Riga",
+            "latitude": "56.9475",
+            "longitude": "24.1069"
+        },
+        {
+            "city": "Daugavpils",
+            "latitude": "55.8714",
+            "longitude": "26.5161"
+        },
+        {
+            "city": "Vaduz",
+            "latitude": "47.1415",
+            "longitude": "9.5215"
+        },
+        {
+            "city": "Vilnius",
+            "latitude": "54.6833",
+            "longitude": "25.2833"
+        },
+        {
+            "city": "Luxembourg",
+            "latitude": "49.6106",
+            "longitude": "6.1328"
+        },
+        {
+            "city": "Skopje",
+            "latitude": "41.9833",
+            "longitude": "21.4333"
+        },
+        {
+            "city": "Valletta",
+            "latitude": "35.8978",
+            "longitude": "14.5125"
+        },
+        {
+            "city": "Birkirkara",
+            "latitude": "35.9",
+            "longitude": "14.4667"
+        },
+        {
+            "city": "Chisinau",
+            "latitude": "47.0056",
+            "longitude": "28.8575"
+        },
+        {
+            "city": "Tiraspol",
+            "latitude": "46.8319",
+            "longitude": "29.5767"
+        },
+        {
+            "city": "Monaco",
+            "latitude": "43.7396",
+            "longitude": "7.4069"
+        },
+        {
+            "city": "Podgorica",
+            "latitude": "42.4397",
+            "longitude": "19.2661"
+        },
+        {
+            "city": "Pljevlja",
+            "latitude": "43.3566",
+            "longitude": "19.3502"
+        },
+        {
+            "city": "Ulcinj",
+            "latitude": "41.9236",
+            "longitude": "19.2056"
+        },
+        {
+            "city": "Nikšić",
+            "latitude": "42.78",
+            "longitude": "18.94"
+        },
+        {
+            "city": "The Hague",
+            "latitude": "52.08",
+            "longitude": "4.27"
+        },
+        {
+            "city": "Amsterdam",
+            "latitude": "52.35",
+            "longitude": "4.9166"
+        },
+        {
+            "city": "Rotterdam",
+            "latitude": "51.92",
+            "longitude": "4.48"
+        },
+        {
+            "city": "Utrecht",
+            "latitude": "52.1003",
+            "longitude": "5.12"
+        },
+        {
+            "city": "Eindhoven",
+            "latitude": "51.43",
+            "longitude": "5.5"
+        },
+        {
+            "city": "Groningen",
+            "latitude": "53.2204",
+            "longitude": "6.58"
+        },
+        {
+            "city": "Oslo",
+            "latitude": "59.9111",
+            "longitude": "10.7528"
+        },
+        {
+            "city": "Bergen",
+            "latitude": "60.3925",
+            "longitude": "5.3233"
+        },
+        {
+            "city": "Trondheim",
+            "latitude": "63.44",
+            "longitude": "10.4"
+        },
+        {
+            "city": "Stavanger",
+            "latitude": "58.9701",
+            "longitude": "5.7333"
+        },
+        {
+            "city": "Tromsø",
+            "latitude": "69.6489",
+            "longitude": "18.9551"
+        },
+        {
+            "city": "Molde",
+            "latitude": "62.7483",
+            "longitude": "7.1833"
+        },
+        {
+            "city": "Lillehammer",
+            "latitude": "61.1161",
+            "longitude": "10.4578"
+        },
+        {
+            "city": "Warsaw",
+            "latitude": "52.2167",
+            "longitude": "21.0333"
+        },
+        {
+            "city": "Kraków",
+            "latitude": "50.0614",
+            "longitude": "19.9372"
+        },
+        {
+            "city": "Łódź",
+            "latitude": "51.7769",
+            "longitude": "19.4547"
+        },
+        {
+            "city": "Wrocław",
+            "latitude": "51.1077",
+            "longitude": "17.0353"
+        },
+        {
+            "city": "Poznań",
+            "latitude": "52.4",
+            "longitude": "16.9167"
+        },
+        {
+            "city": "Gdańsk",
+            "latitude": "54.3667",
+            "longitude": "18.6333"
+        },
+        {
+            "city": "Szczecin",
+            "latitude": "53.4247",
+            "longitude": "14.5553"
+        },
+        {
+            "city": "Lisbon",
+            "latitude": "38.7452",
+            "longitude": "-9.1604"
+        },
+        {
+            "city": "Vila Nova de Gaia",
+            "latitude": "41.1333",
+            "longitude": "-8.6167"
+        },
+        {
+            "city": "Porto",
+            "latitude": "41.1495",
+            "longitude": "-8.6108"
+        },
+        {
+            "city": "Braga",
+            "latitude": "41.5333",
+            "longitude": "-8.4167"
+        },
+        {
+            "city": "Guimarães",
+            "latitude": "41.445",
+            "longitude": "-8.2908"
+        },
+        {
+            "city": "Bucharest",
+            "latitude": "44.4",
+            "longitude": "26.0833"
+        },
+        {
+            "city": "Cluj-Napoca",
+            "latitude": "46.78",
+            "longitude": "23.5594"
+        },
+        {
+            "city": "Timişoara",
+            "latitude": "45.7597",
+            "longitude": "21.23"
+        },
+        {
+            "city": "Braşov",
+            "latitude": "45.65",
+            "longitude": "25.6"
+        },
+        {
+            "city": "Constanţa",
+            "latitude": "44.1733",
+            "longitude": "28.6383"
+        },
+        {
+            "city": "Craiova",
+            "latitude": "44.3333",
+            "longitude": "23.8167"
+        },
+        {
+            "city": "Moscow",
+            "latitude": "55.7558",
+            "longitude": "37.6178"
+        },
+        {
+            "city": "Saint Petersburg",
+            "latitude": "59.95",
+            "longitude": "30.3167"
+        },
+        {
+            "city": "Rostov",
+            "latitude": "47.2333",
+            "longitude": "39.7167"
+        },
+        {
+            "city": "Krasnodar",
+            "latitude": "45.0333",
+            "longitude": "38.9833"
+        },
+        {
+            "city": "Sochi",
+            "latitude": "43.5853",
+            "longitude": "39.7203"
+        },
+        {
+            "city": "San Marino",
+            "latitude": "43.932",
+            "longitude": "12.4484"
+        },
+        {
+            "city": "Belgrade",
+            "latitude": "44.8167",
+            "longitude": "20.4667"
+        },
+        {
+            "city": "Novi Sad",
+            "latitude": "45.2644",
+            "longitude": "19.8317"
+        },
+        {
+            "city": "Niš",
+            "latitude": "43.3192",
+            "longitude": "21.8961"
+        },
+        {
+            "city": "Subotica",
+            "latitude": "46.0983",
+            "longitude": "19.67"
+        },
+        {
+            "city": "Bratislava",
+            "latitude": "48.1447",
+            "longitude": "17.1128"
+        },
+        {
+            "city": "Košice",
+            "latitude": "48.7167",
+            "longitude": "21.25"
+        },
+        {
+            "city": "Žilina",
+            "latitude": "49.2167",
+            "longitude": "18.7333"
+        },
+        {
+            "city": "Banská Bystrica",
+            "latitude": "48.7353",
+            "longitude": "19.1453"
+        },
+        {
+            "city": "Nitra",
+            "latitude": "48.3147",
+            "longitude": "18.0875"
+        },
+        {
+            "city": "Trnava",
+            "latitude": "48.3777",
+            "longitude": "17.5862"
+        },
+        {
+            "city": "Trenčín",
+            "latitude": "48.8942",
+            "longitude": "18.0406"
+        },
+        {
+            "city": "Poprad",
+            "latitude": "49.05",
+            "longitude": "20.3"
+        },
+        {
+            "city": "Ljubljana",
+            "latitude": "46.05",
+            "longitude": "14.5167"
+        },
+        {
+            "city": "Maribor",
+            "latitude": "46.55",
+            "longitude": "15.6333"
+        },
+        {
+            "city": "Kranj",
+            "latitude": "46.2389",
+            "longitude": "14.3556"
+        },
+        {
+            "city": "Celje",
+            "latitude": "46.2291",
+            "longitude": "15.2641"
+        },
+        {
+            "city": "Barcelona",
+            "latitude": "41.3825",
+            "longitude": "2.1769"
+        },
+        {
+            "city": "Madrid",
+            "latitude": "40.4189",
+            "longitude": "-3.6919"
+        },
+        {
+            "city": "Sevilla",
+            "latitude": "37.3828",
+            "longitude": "-5.9731"
+        },
+        {
+            "city": "Valencia",
+            "latitude": "39.4667",
+            "longitude": "-0.375"
+        },
+        {
+            "city": "Zaragoza",
+            "latitude": "41.6483",
+            "longitude": "-0.883"
+        },
+        {
+            "city": "Málaga",
+            "latitude": "36.7167",
+            "longitude": "-4.4167"
+        },
+        {
+            "city": "Las Palmas",
+            "latitude": "28.1272",
+            "longitude": "-15.4314"
+        },
+        {
+            "city": "Bilbao",
+            "latitude": "43.2622",
+            "longitude": "-2.9533"
+        },
+        {
+            "city": "Córdoba",
+            "latitude": "37.8833",
+            "longitude": "-4.7667"
+        },
+        {
+            "city": "Valladolid",
+            "latitude": "41.652",
+            "longitude": "-4.7286"
+        },
+        {
+            "city": "Stockholm",
+            "latitude": "59.3294",
+            "longitude": "18.0686"
+        },
+        {
+            "city": "Gothenburg",
+            "latitude": "57.6717",
+            "longitude": "11.981"
+        },
+        {
+            "city": "Malmö",
+            "latitude": "55.5932",
+            "longitude": "13.0214"
+        },
+        {
+            "city": "Uppsala",
+            "latitude": "59.8498",
+            "longitude": "17.6389"
+        },
+        {
+            "city": "Bern",
+            "latitude": "46.948",
+            "longitude": "7.4474"
+        },
+        {
+            "city": "Zürich",
+            "latitude": "47.3786",
+            "longitude": "8.54"
+        },
+        {
+            "city": "Geneva",
+            "latitude": "46.2",
+            "longitude": "6.15"
+        },
+        {
+            "city": "Basel",
+            "latitude": "47.5606",
+            "longitude": "7.5906"
+        },
+        {
+            "city": "Lausanne",
+            "latitude": "46.5333",
+            "longitude": "6.6333"
+        },
+        {
+            "city": "Sankt Gallen",
+            "latitude": "47.4233",
+            "longitude": "9.3772"
+        },
+        {
+            "city": "Thun",
+            "latitude": "46.759",
+            "longitude": "7.63"
+        },
+        {
+            "city": "Istanbul",
+            "latitude": "41.01",
+            "longitude": "28.9603"
+        },
+        {
+            "city": "Ankara",
+            "latitude": "39.93",
+            "longitude": "32.85"
+        },
+        {
+            "city": "İzmir",
+            "latitude": "38.4127",
+            "longitude": "27.1384"
+        },
+        {
+            "city": "Bursa",
+            "latitude": "40.1833",
+            "longitude": "29.0667"
+        },
+        {
+            "city": "Antalya",
+            "latitude": "36.9081",
+            "longitude": "30.6956"
+        },
+        {
+            "city": "Konya",
+            "latitude": "37.8714",
+            "longitude": "32.4847"
+        },
+        {
+            "city": "Adana",
+            "latitude": "37",
+            "longitude": "35.325"
+        },
+        {
+            "city": "Kyiv",
+            "latitude": "50.45",
+            "longitude": "30.5236"
+        },
+        {
+            "city": "Kharkiv",
+            "latitude": "50",
+            "longitude": "36.2292"
+        },
+        {
+            "city": "Odesa",
+            "latitude": "46.4775",
+            "longitude": "30.7326"
+        },
+        {
+            "city": "Dnipro",
+            "latitude": "48.45",
+            "longitude": "34.9833"
+        },
+        {
+            "city": "Donetsk",
+            "latitude": "48.0089",
+            "longitude": "37.8042"
+        },
+        {
+            "city": "Lviv",
+            "latitude": "49.8419",
+            "longitude": "24.0315"
+        },
+        {
+            "city": "London",
+            "latitude": "51.5072",
+            "longitude": "-0.1275"
+        },
+        {
+            "city": "Birmingham",
+            "latitude": "52.48",
+            "longitude": "-1.9025"
+        },
+        {
+            "city": "Manchester",
+            "latitude": "53.4794",
+            "longitude": "-2.2453"
+        },
+        {
+            "city": "Leeds",
+            "latitude": "53.7997",
+            "longitude": "-1.5492"
+        },
+        {
+            "city": "Newcastle",
+            "latitude": "55.0077",
+            "longitude": "-1.6578"
+        },
+        {
+            "city": "Glasgow",
+            "latitude": "55.8609",
+            "longitude": "-4.2514"
+        },
+        {
+            "city": "Liverpool",
+            "latitude": "53.4",
+            "longitude": "-2.9833"
+        },
+        {
+            "city": "Nottingham",
+            "latitude": "52.95",
+            "longitude": "-1.15"
+        },
+        {
+            "city": "Edinburgh",
+            "latitude": "55.953",
+            "longitude": "-3.189"
+        },
+        {
+            "city": "Stoke-on-Trent",
+            "latitude": "53",
+            "longitude": "-2.1833"
+        },
+        {
+            "city": "Belfast",
+            "latitude": "54.5964",
+            "longitude": "-5.93"
+        },
+        {
+            "city": "Aberdeen",
+            "latitude": "57.15",
+            "longitude": "-2.11"
+        },
+        {
+            "city": "Ipswich",
+            "latitude": "52.0594",
+            "longitude": "1.1556"
+        },
+        {
+            "city": "Middlesbrough",
+            "latitude": "54.5767",
+            "longitude": "-1.2355"
+        },
+        {
+            "city": "Oxford",
+            "latitude": "51.7519",
+            "longitude": "-1.2578"
+        },
+        {
+            "city": "Vatican City",
+            "latitude": "41.9",
+            "longitude": "12.4478"
+        }
+    ]
+}
