@@ -33,23 +33,27 @@ const Map = (props) => {
           }
         });
 
-        let marker = null;
+        let guessMarker = null;
+        let cityMarker = null;
         document
           .querySelector("#clearButton")
           .addEventListener("click", function () {
-            document.querySelector("result").innerHTML = "result";
-            marker.remove();
+            guessMarker.remove();
+            cityMarker.remove();
           });
 
         map.on("click", function (e) {
-          console.log(JSON.stringify(e.lngLat.wrap()));
-          const paris = new LngLat(19, 47.5);
-          console.log(Math.round(paris.distanceTo(e.lngLat) / 1000));
-          if (marker) {
-            marker.remove();
+          const budapest = new LngLat(19, 47.5);
+          let message =
+            Math.round(budapest.distanceTo(e.lngLat) / 1000) + " km away.";
+          if (guessMarker) {
+            guessMarker.remove();
           }
-          marker = new mapboxgl.Marker()
+          guessMarker = new mapboxgl.Marker()
             .setLngLat([e.lngLat.lng, e.lngLat.lat])
+            .addTo(map);
+          cityMarker = new mapboxgl.Marker({ color: "green" })
+            .setLngLat(budapest)
             .addTo(map);
         });
         map.resize();
@@ -62,8 +66,9 @@ const Map = (props) => {
   return (
     <div>
       <div ref={(el) => (mapContainer.current = el)} style={styles} />
+      <div>
       <button id="clearButton">Evaluate</button>
-      <div id="result"></div>
+      </div>
     </div>
   );
 };
