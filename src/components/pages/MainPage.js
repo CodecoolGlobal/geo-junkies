@@ -6,7 +6,5 @@ export default function MainPage() {
   GetCities();
   const cities = useContext(CityContext)[0];
 
-  return (
-    <div>{cities ? cities.map((e) => <p>{e.city}</p>) : "Loading..."}</div>
-  );
+  return <div></div>;
 }
