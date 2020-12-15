@@ -2,6 +2,7 @@ import MainComponent from "./components/MainComponent";
 import { CityContextProvider } from "./contexts/CityContext";
 import { HighScoreContextProvider } from "./contexts/HighScoreContext";
 import { BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
