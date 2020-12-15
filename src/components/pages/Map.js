@@ -11,6 +11,35 @@ const styles = {
 const Map = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
+  const cityArray = [
+    {
+      city: "Tirana",
+      latitude: "41.33",
+      longitude: "19.82",
+    },
+    {
+      city: "Andorra la Vella",
+      latitude: "42.5",
+      longitude: "1.5",
+    },
+    {
+      city: "Yerevan",
+      latitude: "40.1814",
+      longitude: "44.5144",
+    },
+    {
+      city: "Wien",
+      latitude: "48.2083",
+      longitude: "16.3731",
+    },
+    {
+      city: "Graz",
+      latitude: "47.0667",
+      longitude: "15.4333",
+    },
+  ];
+
+  const [currentCity, setCurrentCity] = useState(cityArray[0]);
 
   useEffect(() => {
     mapboxgl.accessToken =
@@ -32,7 +61,7 @@ const Map = (props) => {
         let popup = null;
 
         map.on("click", (e) => {
-          mapClickHandler(e, map, guessMarker, cityMarker, popup);
+          mapClickHandler(e, map, guessMarker, cityMarker, popup, currentCity);
         });
         map.resize();
       });
@@ -43,6 +72,7 @@ const Map = (props) => {
 
   return (
     <div>
+      <p>{currentCity.city}</p>
       <div ref={(el) => (mapContainer.current = el)} style={styles} />
       <div>
         <button id="clearButton">Evaluate</button>
@@ -68,9 +98,16 @@ function disableInteractives(map) {
   });
 }
 
-const mapClickHandler = (e, map, guessMarker, cityMarker, popup) => {
-  const budapest = new LngLat(19, 47.5);
-  let message = Math.round(budapest.distanceTo(e.lngLat) / 1000) + " km away.";
+const mapClickHandler = (
+  e,
+  map,
+  guessMarker,
+  cityMarker,
+  popup,
+  currentCity
+) => {
+  const city = new LngLat(currentCity.longitude, currentCity.latitude);
+  let message = Math.round(city.distanceTo(e.lngLat) / 1000) + " km away.";
   if (guessMarker) {
     guessMarker.remove();
   }
@@ -78,11 +115,11 @@ const mapClickHandler = (e, map, guessMarker, cityMarker, popup) => {
     .setLngLat([e.lngLat.lng, e.lngLat.lat])
     .addTo(map);
   popup = new mapboxgl.Popup({ offset: 38 })
-    .setLngLat(budapest)
+    .setLngLat(city)
     .setHTML(`<h3 class="popup">${message}</h3>`)
     .addTo(map);
   cityMarker = new mapboxgl.Marker({ color: "green" })
-    .setLngLat(budapest)
+    .setLngLat(city)
     .addTo(map);
 
   document.querySelector("#clearButton").addEventListener("click", function () {
