@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 
 const styles = {
-  width: "100vw",
-  height: "calc(100vh - 80px)",
-  position: "absolute",
+  width: "80vw",
+  height: "calc(100vh - 180px)",
+  // position: "absolute",
 };
 
 const Map = (props) => {
@@ -32,8 +32,22 @@ const Map = (props) => {
             map.removeLayer(layer.id);
           }
         });
+
+        let marker = null;
+        document
+          .querySelector("#clearButton")
+          .addEventListener("click", function () {
+            marker.remove();
+          });
+
         map.on("click", function (e) {
           console.log(JSON.stringify(e.lngLat.wrap()));
+          if (marker) {
+            marker.remove();
+          }
+          marker = new mapboxgl.Marker()
+            .setLngLat([e.lngLat.lng, e.lngLat.lat])
+            .addTo(map);
         });
         map.resize();
       });
@@ -42,7 +56,12 @@ const Map = (props) => {
     if (!map) initializeMap({ setMap, mapContainer });
   }, [map]);
 
-  return <div ref={(el) => (mapContainer.current = el)} style={styles} />;
+  return (
+    <div>
+      <div ref={(el) => (mapContainer.current = el)} style={styles} />;
+      <button id="clearButton">Evaluate</button>
+    </div>
+  );
 };
 
 export default Map;
