@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import mapboxgl, { LngLat } from "mapbox-gl";
+import MapContainer from "../elements/MapContainer";
 
 const styles = {
   width: "80vw",
@@ -60,11 +61,11 @@ const Map = (props) => {
   }, [map]);
 
   return (
-    <div>
+    <MapContainer>
       <div ref={(el) => (mapContainer.current = el)} style={styles} />
       <button id="clearButton">Evaluate</button>
       <div id="result"></div>
-    </div>
+    </MapContainer>
   );
 };
 
