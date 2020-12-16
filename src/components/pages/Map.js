@@ -63,7 +63,7 @@ const Map = (props) => {
       <p>{currentCity.city}</p>
       <div ref={(el) => (mapContainer.current = el)} style={styles} />
       <div>
-        <button id="clearButton">Evaluate</button>
+        <button id="clearButton">Next City</button>
       </div>
     </MapContainer>
   );
