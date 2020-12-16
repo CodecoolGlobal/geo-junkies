@@ -9,6 +9,11 @@ import "mapbox-gl/dist/mapbox-gl.css";
 const MapBox = ReactMapboxGl({
   accessToken:
     "pk.eyJ1Ijoia296bWFydGludXMiLCJhIjoiY2tpb2VwNW91MGh6bDJ6bWxkbzdlemUyeCJ9.JcDXIp8INuk9kw1H3BAt8Q",
+  dragPan: false,
+  doubleClickZoom: false,
+  touchZoomRotate: false,
+  scrollZoom: false,
+  dragRotate: false,
 });
 
 // const styles = {
@@ -72,16 +77,19 @@ const Map = (props) => {
       <MapBox
         style="mapbox://styles/mapbox/streets-v11"
         containerStyle={{
-          height: "100vh",
-          width: "100vw",
+          height: "680px",
+          width: "800px",
         }}
-        center={[15, 55]}
+        center={[15, 57]}
         zoom={[2.75]}
-      >
-        <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
-          <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
-        </Layer>
-      </MapBox>
+        onStyleLoad={(map, event) =>
+          map.style.stylesheet.layers.forEach(function (layer) {
+            if (layer.type === "symbol") {
+              map.removeLayer(layer.id);
+            }
+          })
+        }
+      ></MapBox>
       ;
       <div>
         <button id="clearButton">Next City</button>
@@ -104,7 +112,7 @@ function disableInteractives(map) {
   map.scrollZoom.disable();
   map.doubleClickZoom.disable();
   map.dragPan.disable();
-  map.style.stylesheet.layers.forEach(function (layer) {
+  MapBox.style.stylesheet.layers.forEach(function (layer) {
     if (layer.type === "symbol") {
       map.removeLayer(layer.id);
     }
