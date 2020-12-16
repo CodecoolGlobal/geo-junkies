@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import mapboxgl, { LngLat } from "mapbox-gl";
 import MapContainer from "../elements/MapContainer";
 import "../../style/marker.css";
+import data from "../files/europeanCities.json";
 
 const styles = {
   width: "80vw",
@@ -14,33 +15,17 @@ let isPointSelected = false;
 const Map = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
-  const cityArray = [
-    {
-      city: "Tirana",
-      latitude: "41.33",
-      longitude: "19.82",
-    },
-    {
-      city: "Andorra la Vella",
-      latitude: "42.5",
-      longitude: "1.5",
-    },
-    {
-      city: "Yerevan",
-      latitude: "40.1814",
-      longitude: "44.5144",
-    },
-    {
-      city: "Wien",
-      latitude: "48.2083",
-      longitude: "16.3731",
-    },
-    {
-      city: "Graz",
-      latitude: "47.0667",
-      longitude: "15.4333",
-    },
-  ];
+
+  let selectedCities = [];
+    while (selectedCities.length < 5) {
+      let cityIndex = Math.floor(Math.random() * data.european_cities.length);
+      let actualCity = data.european_cities[cityIndex];
+      if (!selectedCities.includes(actualCity)) {
+        selectedCities.push(actualCity);
+      }
+    }
+
+  const cityArray = selectedCities;
 
   const [currentCity, setCurrentCity] = useState(cityArray[0]);
 
