@@ -16,6 +16,7 @@ const NavbarLink = styled(Link)`
   padding: 5px;
   font-weight: bold;
   font-size: 1.5em;
+  letter-spacing: 0.025em;
   border-radius: 10px;
   visibility: ${(props) =>
     useLocation().pathname === props.to ? "hidden" : ""};
