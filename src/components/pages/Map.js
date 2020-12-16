@@ -203,7 +203,16 @@ const Map = (props) => {
             id="clearButton"
             className={cityMarkerClass}
             onClick={(map, e) =>
-              buttonHandler(setCityMarkerClass, setIsPointSelected)
+              buttonHandler(
+                setCityMarkerClass,
+                setIsPointSelected,
+                currentRound,
+                setCurrentRound,
+                selectedCities,
+                setCurrentCity,
+                setMarkerLng,
+                setMarkerLat
+              )
             }
           >
             Next City
@@ -258,9 +267,26 @@ const mapClickHandler = (
   // });
 };
 
-const buttonHandler = (setCityMarkerClass, setIsPointSelected) => {
+const buttonHandler = (
+  setCityMarkerClass,
+  setIsPointSelected,
+  currentRound,
+  setCurrentRound,
+  selectedCities,
+  setCurrentCity,
+  setMarkerLng,
+  setMarkerLat
+) => {
   setCityMarkerClass("hidden");
   setIsPointSelected(false);
+  setCurrentRound(currentRound + 1);
+  if (currentRound + 1 < 5) {
+    setCurrentCity(selectedCities[currentRound + 1]);
+    setMarkerLng(selectedCities[currentRound + 1].longitude);
+    setMarkerLat(selectedCities[currentRound + 1].latitude);
+  } else {
+    console.log("ende");
+  }
 };
 
 export default Map;
