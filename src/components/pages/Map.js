@@ -3,66 +3,86 @@ import mapboxgl, { LngLat } from "mapbox-gl";
 import MapContainer from "../elements/MapContainer";
 import "../../style/marker.css";
 import data from "../files/europeanCities.json";
+import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 
-const styles = {
-  // width: "80vw",
-  // height: "calc(100vh - 180px)",
-  width: "800px",
-  height: "800px",
-  // position: "absolute",
-};
+const MapBox = ReactMapboxGl({
+  accessToken:
+    "pk.eyJ1Ijoia296bWFydGludXMiLCJhIjoiY2tpb2VwNW91MGh6bDJ6bWxkbzdlemUyeCJ9.JcDXIp8INuk9kw1H3BAt8Q",
+});
+
+// const styles = {
+//   // width: "80vw",
+//   // height: "calc(100vh - 180px)",
+//   width: "800px",
+//   height: "800px",
+//   // position: "absolute",
+// };
 
 let isPointSelected = false;
 const roundNumber = 5;
 let currentRound = 0;
 let selectedCities = [];
-let currentCity= null;
+let currentCity = null;
 
 const Map = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
 
-  
   citySelector();
 
   // const cityArray = selectedCities;
 
   currentCity = selectedCities[currentRound];
 
-  useEffect(() => {
-    mapboxgl.accessToken =
-      "pk.eyJ1Ijoia296bWFydGludXMiLCJhIjoiY2tpb2VwNW91MGh6bDJ6bWxkbzdlemUyeCJ9.JcDXIp8INuk9kw1H3BAt8Q";
-    const initializeMap = ({ setMap, mapContainer }) => {
-      const map = new mapboxgl.Map({
-        container: mapContainer.current,
-        style: "mapbox://styles/mapbox/streets-v11",
-        center: [15,55],
-        zoom: 2.75,
-      });
+  // useEffect(() => {
+  //   // mapboxgl.accessToken =
+  //   //   "pk.eyJ1Ijoia296bWFydGludXMiLCJhIjoiY2tpb2VwNW91MGh6bDJ6bWxkbzdlemUyeCJ9.JcDXIp8INuk9kw1H3BAt8Q";
 
-      map.on("load", () => {
-        setMap(map);
-        disableInteractives(map);
+  //   const initializeMap = ({ setMap, mapContainer }) => {
+  //     const map = new mapboxgl.Map({
+  //       container: mapContainer.current,
+  //       style: "mapbox://styles/mapbox/streets-v11",
+  //       center: [15,55],
+  //       zoom: 2.75,
+  //     });
 
-        map.on("click", (e) => {
-          if (isPointSelected) {
-            e.preventDefault();
-          } else {
-            mapClickHandler(e, map, currentCity);
-            
-          }
-        });
-        map.resize();
-      });
-    };
+  //     map.on("load", () => {
+  //       setMap(map);
+  //       disableInteractives(map);
 
-    if (!map) initializeMap({ setMap, mapContainer });
-  }, [map, currentCity]);
+  //       map.on("click", (e) => {
+  //         if (isPointSelected) {
+  //           e.preventDefault();
+  //         } else {
+  //           mapClickHandler(e, map, currentCity);
+
+  //         }
+  //       });
+  //       map.resize();
+  //     });
+  //   };
+
+  //   if (!map) initializeMap({ setMap, mapContainer });
+  // }, [map, currentCity]);
 
   return (
     <MapContainer>
       <p>{currentCity.city}</p>
-      <div ref={(el) => (mapContainer.current = el)} style={styles} />
+      <MapBox
+        style="mapbox://styles/mapbox/streets-v11"
+        containerStyle={{
+          height: "100vh",
+          width: "100vw",
+        }}
+        center={[15, 55]}
+        zoom={[2.75]}
+      >
+        <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
+          <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+        </Layer>
+      </MapBox>
+      ;
       <div>
         <button id="clearButton">Next City</button>
       </div>
