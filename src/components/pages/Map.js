@@ -69,6 +69,16 @@ const Map = (props) => {
   );
 };
 
+function citySelector() {
+  while (selectedCities.length < roundNumber) {
+    let cityIndex = Math.floor(Math.random() * data.european_cities.length);
+    let actualCity = data.european_cities[cityIndex];
+    if (!selectedCities.includes(actualCity)) {
+      selectedCities.push(actualCity);
+    }
+  }
+}
+
 function disableInteractives(map) {
   map.scrollZoom.disable();
   map.doubleClickZoom.disable();
