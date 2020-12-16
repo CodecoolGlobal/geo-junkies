@@ -7,7 +7,7 @@ const NavbarContainer = styled.div`
   left: 0;
   top: 0;
   width: 10%;
-  height: 50%;
+  min-height: 50%;
   background-color: lightgrey;
   opacity: 0.6;
   z-index: 9999;
