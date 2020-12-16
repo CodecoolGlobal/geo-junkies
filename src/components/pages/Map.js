@@ -6,6 +6,8 @@ import data from "../files/europeanCities.json";
 import styled from "styled-components";
 import ReactMapboxGl, { Layer, Feature, Marker, Popup } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import greenMarkerImage from "../../components/images/greenmarker.png";
+import redMarkerImage from "../../components/images/redmarker.png";
 
 const SetUsernameButton = styled.button`
   border-radius: 10px;
@@ -168,10 +170,7 @@ const Map = (props) => {
             offset={-6}
             className={cityMarkerClass}
           >
-            <img
-              src="https://img.icons8.com/color/48/000000/marker.png"
-              alt=""
-            />
+            <img src={greenMarkerImage} alt="" />
           </Marker>
           <Popup
             coordinates={[markerLng, markerLat]}
@@ -185,10 +184,7 @@ const Map = (props) => {
             coordinates={[guessLng, guessLat]}
             offset={-6}
           >
-            <img
-              src="https://img.icons8.com/color/48/000000/marker.png"
-              alt=""
-            />
+            <img src={redMarkerImage} alt="" />
           </Marker>
         </MapBox>
         <div>
