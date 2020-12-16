@@ -6,10 +6,15 @@ export const HighScoreContextProvider = (props) => {
 	const [highScore, setHighScore] = useState([
 		{
 			name: "Sandy",
-      scores: [2500, 4900, 3000]},
-      {
-      name: "Oli",
-			scores: [2140, 600, 330000],
+			score: 3000,
+		},
+		{
+			name: "Oli",
+			score: 2140,
+		},
+		{
+			name: "Sandy",
+			score: 4000,
 		},
 	]);
 
