@@ -8,7 +8,8 @@ const FooterContainer = styled.div`
   height: 5%;
   background-color: lightgrey;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
   opacity: 0.6;
   z-index: 8888;
 `;
