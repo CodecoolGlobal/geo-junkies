@@ -11,23 +11,21 @@ const styles = {
 };
 
 let isPointSelected = false;
+const roundNumber = 5;
+let currentRound = 0;
+let selectedCities = [];
+let currentCity= null;
 
 const Map = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
 
-  let selectedCities = [];
-    while (selectedCities.length < 5) {
-      let cityIndex = Math.floor(Math.random() * data.european_cities.length);
-      let actualCity = data.european_cities[cityIndex];
-      if (!selectedCities.includes(actualCity)) {
-        selectedCities.push(actualCity);
-      }
-    }
+  
+  citySelector();
 
-  const cityArray = selectedCities;
+  // const cityArray = selectedCities;
 
-  const [currentCity, setCurrentCity] = useState(cityArray[0]);
+  currentCity = selectedCities[currentRound];
 
   useEffect(() => {
     mapboxgl.accessToken =
@@ -56,7 +54,7 @@ const Map = (props) => {
     };
 
     if (!map) initializeMap({ setMap, mapContainer });
-  }, [map]);
+  }, [map, currentCity]);
 
   return (
     <MapContainer>
@@ -107,6 +105,8 @@ const mapClickHandler = (e, map, currentCity) => {
   isPointSelected = true;
 
   document.querySelector("#clearButton").addEventListener("click", function () {
+    currentRound++;
+    currentCity = selectedCities[currentRound];
     guessMarker.remove();
     cityMarker.remove();
     popup.remove();
