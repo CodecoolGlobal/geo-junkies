@@ -38,6 +38,7 @@ const Map = (props) => {
   const [currentCity, setCurrentCity] = useState(selectedCities[currentRound]);
   const [markerLng, setMarkerLng] = useState(currentCity.longitude);
   const [markerLat, setMarkerLat] = useState(currentCity.latitude);
+  const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
   // citySelector(setSelectedCities);
 
   // useEffect(() => {
@@ -98,8 +99,15 @@ const Map = (props) => {
               }
             })
           }
+          onClick={(map, e) =>
+            mapClickHandler(e, map, currentCity, setCityMarkerClass)
+          }
         >
-          <Marker coordinates={[markerLng, markerLat]} offset={-6}>
+          <Marker
+            coordinates={[markerLng, markerLat]}
+            offset={-6}
+            className={cityMarkerClass}
+          >
             <img
               src="https://img.icons8.com/color/48/000000/marker.png"
               alt=""
@@ -107,7 +115,9 @@ const Map = (props) => {
           </Marker>
         </MapBox>
         <div>
-          <button id="clearButton">Next City</button>
+          <button id="clearButton" className={cityMarkerClass}>
+            Next City
+          </button>
         </div>
       </MapContainer>
     );
@@ -139,19 +149,21 @@ function citySelector() {
 //   });
 // }
 
-const mapClickHandler = (e, map, currentCity) => {
-  const city = new LngLat(currentCity.longitude, currentCity.latitude);
+const mapClickHandler = (e, map, currentCity, setCityMarkerClass) => {
+  const city = new mapboxgl.LngLat(currentCity.longitude, currentCity.latitude);
   let message = Math.round(city.distanceTo(e.lngLat) / 1000) + " km away.";
-  let guessMarker = new ReactMapboxGl.Marker()
-    .setLngLat([e.lngLat.lng, e.lngLat.lat])
-    .addTo(map);
-  let popup = new ReactMapboxGl.Popup({ offset: 38 })
-    .setLngLat(city)
-    .setHTML(`<h3 class="popup">${message}</h3>`)
-    .addTo(map);
-  let cityMarker = new ReactMapboxGl.Marker({ color: "green" })
-    .setLngLat(city)
-    .addTo(map);
+  setCityMarkerClass("show");
+
+  // let guessMarker = new ReactMapboxGl.Marker()
+  //   .setLngLat([e.lngLat.lng, e.lngLat.lat])
+  //   .addTo(map);
+  // let popup = new ReactMapboxGl.Popup({ offset: 38 })
+  //   .setLngLat(city)
+  //   .setHTML(`<h3 class="popup">${message}</h3>`)
+  //   .addTo(map);
+  // let cityMarker = new ReactMapboxGl.Marker({ color: "green" })
+  //   .setLngLat(city)
+  //   .addTo(map);
 
   isPointSelected = true;
 
