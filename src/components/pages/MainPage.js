@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import "../../App.css";
+import "../../style/App.css";
 
 const MainPageContainer = styled.div`
   width: 100%;
@@ -8,6 +8,9 @@ const MainPageContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-size: 1.3em;
+  letter-spacing: 0.2em;
+  font-weight: bold;
 `;
 
 export default function MainPage() {

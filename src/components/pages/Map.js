@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import mapboxgl, { LngLat } from "mapbox-gl";
-import MapContainer from "../elements/MapContainer";
+import * as MapStyle from "../elements/MapContainer";
 import "../../style/marker.css";
 import data from "../files/europeanCities.json";
 import styled from "styled-components";
@@ -8,41 +8,6 @@ import ReactMapboxGl, { Layer, Feature, Marker, Popup } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import greenMarkerImage from "../../components/images/greenmarker.png";
 import redMarkerImage from "../../components/images/redmarker.png";
-
-const SetUsernameButton = styled.button`
-  border-radius: 10px;
-  width: 80px;
-  padding: 5px;
-  font-size: 1em;
-  font-weight: bold;
-  outline: none;
-  margin-top: 10px;
-`;
-
-const UsernameLabel = styled.label`
-  font-size: 1em;
-`;
-
-const UsernameInput = styled.input`
-  font-size: 1em;
-  margin-top: 5px;
-  border-radius: 5px;
-  padding-left: 3px;
-  outline: none;
-`;
-
-const UsernameContainer = styled.div`
-  position: fixed;
-  top: 40%;
-  left: 45%;
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  font-weight: bold;
-  background-color: lightgrey;
-  opacity: 0.9;
-  border: 1px solid black;
-`;
 
 const MapBox = ReactMapboxGl({
   accessToken:
@@ -114,13 +79,15 @@ const Map = (props) => {
   // }, [map, currentCity]);
 
   let content = (
-    <MapContainer>
-      <UsernameContainer id="usernameContainer">
+    <MapStyle.MapContainer>
+      <MapStyle.UsernameContainer id="usernameContainer">
         <p>
-          <UsernameLabel>Please enter your name:</UsernameLabel>
+          <MapStyle.UsernameLabel>
+            Please enter your name:
+          </MapStyle.UsernameLabel>
         </p>
         <p>
-          <UsernameInput
+          <MapStyle.UsernameInput
             type="text"
             id="username"
             name="username"
@@ -128,27 +95,34 @@ const Map = (props) => {
           />
         </p>
         <p>
-          <SetUsernameButton
+          <MapStyle.SetUsernameButton
             onClick={() => {
               setUsername(document.querySelector("#username").value);
             }}
           >
             Submit
-          </SetUsernameButton>
+          </MapStyle.SetUsernameButton>
         </p>
-      </UsernameContainer>
-    </MapContainer>
+      </MapStyle.UsernameContainer>
+    </MapStyle.MapContainer>
   );
   if (currentCity && username) {
     content = (
-      <MapContainer>
-        <p>Current user: {username}</p>
-        <p>{currentCity.city}</p>
+      <MapStyle.MapContainer>
+        <MapStyle.UserAndCityContainer>
+          <MapStyle.InfoParagraph>
+            Current user: <MapStyle.InfoSpan>{username}</MapStyle.InfoSpan>
+          </MapStyle.InfoParagraph>
+          <MapStyle.InfoParagraph>
+            City Name: <MapStyle.InfoSpan>{currentCity.city}</MapStyle.InfoSpan>
+          </MapStyle.InfoParagraph>
+        </MapStyle.UserAndCityContainer>
         <MapBox
           style="mapbox://styles/mapbox/streets-v11"
           containerStyle={{
             height: "680px",
             width: "800px",
+            border: "1px solid grey",
           }}
           center={[15, 57]}
           zoom={[2.75]}
@@ -199,7 +173,7 @@ const Map = (props) => {
           </Marker>
         </MapBox>
         <div>
-          <button
+          <MapStyle.NextCityButton
             id="clearButton"
             className={cityMarkerClass}
             onClick={(map, e) =>
@@ -216,9 +190,9 @@ const Map = (props) => {
             }
           >
             Next City
-          </button>
+          </MapStyle.NextCityButton>
         </div>
-      </MapContainer>
+      </MapStyle.MapContainer>
     );
   }
 
