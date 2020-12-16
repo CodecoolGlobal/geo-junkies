@@ -5,8 +5,10 @@ import "../../style/marker.css";
 import data from "../files/europeanCities.json";
 
 const styles = {
-  width: "80vw",
-  height: "calc(100vh - 180px)",
+  // width: "80vw",
+  // height: "calc(100vh - 180px)",
+  width: "800px",
+  height: "800px",
   // position: "absolute",
 };
 
@@ -34,7 +36,7 @@ const Map = (props) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/mapbox/streets-v11",
-        center: [25, 55],
+        center: [15,55],
         zoom: 2.75,
       });
 
@@ -47,6 +49,7 @@ const Map = (props) => {
             e.preventDefault();
           } else {
             mapClickHandler(e, map, currentCity);
+            
           }
         });
         map.resize();
