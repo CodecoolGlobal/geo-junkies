@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import mapboxgl, { LngLat } from "mapbox-gl";
 import MapContainer from "../elements/MapContainer";
+import "../../style/marker.css";
 
 const styles = {
   width: "80vw",
@@ -8,9 +9,40 @@ const styles = {
   // position: "absolute",
 };
 
+let isPointSelected = false;
+
 const Map = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
+  const cityArray = [
+    {
+      city: "Tirana",
+      latitude: "41.33",
+      longitude: "19.82",
+    },
+    {
+      city: "Andorra la Vella",
+      latitude: "42.5",
+      longitude: "1.5",
+    },
+    {
+      city: "Yerevan",
+      latitude: "40.1814",
+      longitude: "44.5144",
+    },
+    {
+      city: "Wien",
+      latitude: "48.2083",
+      longitude: "16.3731",
+    },
+    {
+      city: "Graz",
+      latitude: "47.0667",
+      longitude: "15.4333",
+    },
+  ];
+
+  const [currentCity, setCurrentCity] = useState(cityArray[0]);
 
   useEffect(() => {
     mapboxgl.accessToken =
@@ -25,33 +57,14 @@ const Map = (props) => {
 
       map.on("load", () => {
         setMap(map);
-        map.scrollZoom.disable();
-        map.doubleClickZoom.disable();
-        map.dragPan.disable();
-        map.style.stylesheet.layers.forEach(function (layer) {
-          if (layer.type === "symbol") {
-            map.removeLayer(layer.id);
-          }
-        });
+        disableInteractives(map);
 
-        let marker = null;
-        document
-          .querySelector("#clearButton")
-          .addEventListener("click", function () {
-            document.querySelector("result").innerHTML = "result";
-            marker.remove();
-          });
-
-        map.on("click", function (e) {
-          console.log(JSON.stringify(e.lngLat.wrap()));
-          const paris = new LngLat(19, 47.5);
-          console.log(Math.round(paris.distanceTo(e.lngLat) / 1000));
-          if (marker) {
-            marker.remove();
+        map.on("click", (e) => {
+          if (isPointSelected) {
+            e.preventDefault();
+          } else {
+            mapClickHandler(e, map, currentCity);
           }
-          marker = new mapboxgl.Marker()
-            .setLngLat([e.lngLat.lng, e.lngLat.lat])
-            .addTo(map);
         });
         map.resize();
       });
@@ -62,11 +75,48 @@ const Map = (props) => {
 
   return (
     <MapContainer>
+      <p>{currentCity.city}</p>
       <div ref={(el) => (mapContainer.current = el)} style={styles} />
-      <button id="clearButton">Evaluate</button>
-      <div id="result"></div>
+      <div>
+        <button id="clearButton">Evaluate</button>
+      </div>
     </MapContainer>
   );
+};
+
+function disableInteractives(map) {
+  map.scrollZoom.disable();
+  map.doubleClickZoom.disable();
+  map.dragPan.disable();
+  map.style.stylesheet.layers.forEach(function (layer) {
+    if (layer.type === "symbol") {
+      map.removeLayer(layer.id);
+    }
+  });
+}
+
+const mapClickHandler = (e, map, currentCity) => {
+  const city = new LngLat(currentCity.longitude, currentCity.latitude);
+  let message = Math.round(city.distanceTo(e.lngLat) / 1000) + " km away.";
+  let guessMarker = new mapboxgl.Marker()
+    .setLngLat([e.lngLat.lng, e.lngLat.lat])
+    .addTo(map);
+  let popup = new mapboxgl.Popup({ offset: 38 })
+    .setLngLat(city)
+    .setHTML(`<h3 class="popup">${message}</h3>`)
+    .addTo(map);
+  let cityMarker = new mapboxgl.Marker({ color: "green" })
+    .setLngLat(city)
+    .addTo(map);
+
+  isPointSelected = true;
+
+  document.querySelector("#clearButton").addEventListener("click", function () {
+    guessMarker.remove();
+    cityMarker.remove();
+    popup.remove();
+    isPointSelected = false;
+  });
 };
 
 export default Map;
