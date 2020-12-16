@@ -15,7 +15,7 @@ export default function MainComponent() {
 			<Navbar />
 			<Content>
 				<Route exact path="/" component={MainPage} />
-				{/* <Route path="/map" component={Map} /> */}
+				<Route path="/map" component={Map} />
 				<Route path="/scores" component={HighScores} />
 			</Content>
 			<Footer />
