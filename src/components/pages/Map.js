@@ -54,11 +54,13 @@ const MapBox = ReactMapboxGl({
   dragRotate: false,
 });
 
-let isPointSelected = false;
 const roundNumber = 5;
-let currentRound = 0;
+// let isPointSelected = false;
 
 const Map = (props) => {
+  const [isPointSelected, setIsPointSelected] = useState(false);
+  const [currentRound, setCurrentRound] = useState(0);
+
   const [selectedCities, setSelectedCities] = useState(citySelector());
   const [currentCity, setCurrentCity] = useState(selectedCities[currentRound]);
   const [markerLng, setMarkerLng] = useState(currentCity.longitude);
@@ -68,6 +70,10 @@ const Map = (props) => {
   const [guessLat, setGuessLat] = useState(null);
   const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
   const [username, setUsername] = useState(null);
+
+  // useEffect(() => {
+
+  // }, []);
 
   // useEffect(() => {
   //   setCurrentCity(selectedCities[0]);
@@ -153,16 +159,21 @@ const Map = (props) => {
               }
             })
           }
-          onClick={(map, e) =>
-            mapClickHandler(
-              e,
-              map,
-              currentCity,
-              setCityMarkerClass,
-              setGuessLng,
-              setGuessLat,
-              setPopupMessage
-            )
+          onClick={
+            isPointSelected
+              ? null
+              : (map, e) => {
+                  mapClickHandler(
+                    e,
+                    map,
+                    currentCity,
+                    setCityMarkerClass,
+                    setGuessLng,
+                    setGuessLat,
+                    setPopupMessage,
+                    setIsPointSelected
+                  );
+                }
           }
         >
           <Marker
@@ -188,7 +199,13 @@ const Map = (props) => {
           </Marker>
         </MapBox>
         <div>
-          <button id="clearButton" className={cityMarkerClass}>
+          <button
+            id="clearButton"
+            className={cityMarkerClass}
+            onClick={(map, e) =>
+              buttonHandler(setCityMarkerClass, setIsPointSelected)
+            }
+          >
             Next City
           </button>
         </div>
@@ -218,7 +235,8 @@ const mapClickHandler = (
   setCityMarkerClass,
   setGuessLng,
   setGuessLat,
-  setPopupMessage
+  setPopupMessage,
+  setIsPointSelected
 ) => {
   const city = new mapboxgl.LngLat(currentCity.longitude, currentCity.latitude);
   let message = Math.round(city.distanceTo(e.lngLat) / 1000) + " km away.";
@@ -226,8 +244,9 @@ const mapClickHandler = (
   setGuessLng(e.lngLat.lng);
   setGuessLat(e.lngLat.lat);
   setCityMarkerClass("show");
-
-  isPointSelected = true;
+  setIsPointSelected(true);
+  // console.log(isPointSelected);
+  // console.log(isPointSelected);
 
   // document.querySelector("#clearButton").addEventListener("click", function () {
   //   currentRound++;
@@ -237,6 +256,11 @@ const mapClickHandler = (
   //   popup.remove();
   //   isPointSelected = false;
   // });
+};
+
+const buttonHandler = (setCityMarkerClass, setIsPointSelected) => {
+  setCityMarkerClass("hidden");
+  setIsPointSelected(false);
 };
 
 export default Map;
