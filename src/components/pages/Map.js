@@ -16,24 +16,11 @@ const MapBox = ReactMapboxGl({
   dragRotate: false,
 });
 
-// const styles = {
-//   // width: "80vw",
-//   // height: "calc(100vh - 180px)",
-//   width: "800px",
-//   height: "800px",
-//   // position: "absolute",
-// };
-
 let isPointSelected = false;
 const roundNumber = 5;
 let currentRound = 0;
-// let selectedCities = [];
-// let currentCity = null;
 
 const Map = (props) => {
-  // const [map, setMap] = useState(null);
-  // const mapContainer = useRef(null);
-  // currentCity = selectedCities[currentRound];
   const [selectedCities, setSelectedCities] = useState(citySelector());
   const [currentCity, setCurrentCity] = useState(selectedCities[currentRound]);
   const [markerLng, setMarkerLng] = useState(currentCity.longitude);
@@ -42,7 +29,6 @@ const Map = (props) => {
   const [guessLng, setGuessLng] = useState(null);
   const [guessLat, setGuessLat] = useState(null);
   const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
-  // citySelector(setSelectedCities);
 
   // useEffect(() => {
   //   setCurrentCity(selectedCities[0]);
@@ -166,17 +152,6 @@ function citySelector() {
   return selectedCities;
 }
 
-// function disableInteractives(map) {
-//   map.scrollZoom.disable();
-//   map.doubleClickZoom.disable();
-//   map.dragPan.disable();
-//   MapBox.style.stylesheet.layers.forEach(function (layer) {
-//     if (layer.type === "symbol") {
-//       map.removeLayer(layer.id);
-//     }
-//   });
-// }
-
 const mapClickHandler = (
   e,
   map,
@@ -192,17 +167,6 @@ const mapClickHandler = (
   setGuessLng(e.lngLat.lng);
   setGuessLat(e.lngLat.lat);
   setCityMarkerClass("show");
-
-  // let guessMarker = new ReactMapboxGl.Marker()
-  //   .setLngLat([e.lngLat.lng, e.lngLat.lat])
-  //   .addTo(map);
-  // let popup = new ReactMapboxGl.Popup({ offset: 38 })
-  //   .setLngLat(city)
-  //   .setHTML(`<h3 class="popup">${message}</h3>`)
-  //   .addTo(map);
-  // let cityMarker = new ReactMapboxGl.Marker({ color: "green" })
-  //   .setLngLat(city)
-  //   .addTo(map);
 
   isPointSelected = true;
 
