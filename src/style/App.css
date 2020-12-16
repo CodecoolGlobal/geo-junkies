@@ -13,7 +13,7 @@ body,
   margin-top: 2%;
   width: 33%;
   height: calc(100vw * 0.28); /*450*/
-  background: url("./components/images/Earth2.jpg");
+  background: url("../components/images/Earth2.jpg");
   border-radius: 50%;
   background-size: calc(100vw * 0.58);
   box-shadow: inset 8px 36px 80px 36px rgb(0, 0, 0),
@@ -30,4 +30,15 @@ body,
   to {
     background-position: calc(100vw * 0.58) 0px; /*905*/
   }
+}
+
+@font-face {
+  font-family: "Athene";
+  src: local("Athene"), url(../components/files/Athene.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Chantelli";
+  src: local("Chantelli_Antiqua"),
+    url(../components/files/Chantelli_Antiqua.ttf) format("truetype");
 }

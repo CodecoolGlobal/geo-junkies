@@ -6,3 +6,8 @@ h3.popup {
 .hidden {
   visibility: hidden;
 }
+
+.mapboxgl-popup-content {
+  border-radius: 5px;
+  border: 1px solid grey;
+}
