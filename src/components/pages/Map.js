@@ -35,6 +35,7 @@ const Map = (props) => {
   const [guessLat, setGuessLat] = useState(null);
   const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
   const [username, setUsername] = useState(null);
+  const [actualScore, setActualScore] = useState(0);
 
   // useEffect(() => {
 
@@ -109,14 +110,6 @@ const Map = (props) => {
   if (currentCity && username) {
     content = (
       <MapStyle.MapContainer>
-        <MapStyle.UserAndCityContainer>
-          <MapStyle.InfoParagraph>
-            Current user: <MapStyle.InfoSpan>{username}</MapStyle.InfoSpan>
-          </MapStyle.InfoParagraph>
-          <MapStyle.InfoParagraph>
-            City Name: <MapStyle.InfoSpan>{currentCity.city}</MapStyle.InfoSpan>
-          </MapStyle.InfoParagraph>
-        </MapStyle.UserAndCityContainer>
         <MapBox
           style="mapbox://styles/mapbox/streets-v11"
           containerStyle={{
@@ -145,7 +138,9 @@ const Map = (props) => {
                     setGuessLng,
                     setGuessLat,
                     setPopupMessage,
-                    setIsPointSelected
+                    setIsPointSelected,
+                    actualScore,
+                    setActualScore
                   );
                 }
           }
@@ -172,7 +167,16 @@ const Map = (props) => {
             <img src={redMarkerImage} alt="" />
           </Marker>
         </MapBox>
-        <div>
+        <MapStyle.UserAndCityContainer>
+          <MapStyle.InfoParagraph>
+            Current user: <MapStyle.InfoSpan>{username}</MapStyle.InfoSpan>
+          </MapStyle.InfoParagraph>
+          <MapStyle.InfoParagraph>
+            City Name: <MapStyle.InfoSpan>{currentCity.city}</MapStyle.InfoSpan>
+          </MapStyle.InfoParagraph>
+          <MapStyle.ScoreParagraph>
+            Actual score: <MapStyle.InfoSpan>{actualScore}</MapStyle.InfoSpan>
+          </MapStyle.ScoreParagraph>
           <MapStyle.NextCityButton
             id="clearButton"
             className={cityMarkerClass}
@@ -191,7 +195,7 @@ const Map = (props) => {
           >
             Next City
           </MapStyle.NextCityButton>
-        </div>
+        </MapStyle.UserAndCityContainer>
       </MapStyle.MapContainer>
     );
   }
@@ -219,15 +223,20 @@ const mapClickHandler = (
   setGuessLng,
   setGuessLat,
   setPopupMessage,
-  setIsPointSelected
+  setIsPointSelected,
+  actualScore,
+  setActualScore
 ) => {
   const city = new mapboxgl.LngLat(currentCity.longitude, currentCity.latitude);
-  let message = Math.round(city.distanceTo(e.lngLat) / 1000) + " km away.";
+  let distance = Math.round(city.distanceTo(e.lngLat) / 1000);
+  let message = distance + " km away.";
   setPopupMessage(message);
   setGuessLng(e.lngLat.lng);
   setGuessLat(e.lngLat.lat);
   setCityMarkerClass("show");
   setIsPointSelected(true);
+  let score = 1000 - distance > 0 ? 1000 - distance : 0;
+  setActualScore(actualScore + score);
   // console.log(isPointSelected);
   // console.log(isPointSelected);
 
