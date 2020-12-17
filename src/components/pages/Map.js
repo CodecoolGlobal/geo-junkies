@@ -204,9 +204,9 @@ const Map = (props) => {
             Next City
           </MapStyle.NextCityButton>
           <Link to="/">
-            <button id="endGameButton" className="hidden">
+            <MapStyle.NextCityButton id="endGameButton" className="hidden">
               Finish Game
-            </button>
+            </MapStyle.NextCityButton>
           </Link>
         </MapStyle.UserAndCityContainer>
       </MapStyle.MapContainer>
