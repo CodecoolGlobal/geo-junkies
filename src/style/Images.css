@@ -1,19 +1,26 @@
 #sandy {
-  background: url("../components/images/back1.jpg");
-  background-size: cover;
+	background: url("../components/images/back1.jpg");
+	background-size: cover;
 }
 
 #marci {
-  background: url("../components/images/back1.jpg");
-  background-size: cover;
+	background: url("../components/images/back1.jpg");
+	background-size: cover;
 }
 
 #oli {
-  background: url("../components/images/back1.jpg");
-  background-size: cover;
+	background: url("../components/images/oliver1.jpg");
+	background-size: cover;
 }
 
 #szoba {
-  background: url("../components/images/szoba.jpg");
-  background-size: cover;
+	background: url("../components/images/szoba.jpg");
+	background-size: cover;
+}
+
+#icon {
+	background: url("../components/images/logo.png");
+	background-size: cover;
+	height: 200px;
+	width: 200px;
 }
