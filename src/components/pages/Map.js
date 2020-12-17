@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
+import { HighScoreContext } from "../../contexts/HighScoreContext";
 import mapboxgl, { LngLat } from "mapbox-gl";
 import * as MapStyle from "../elements/MapContainer";
 import "../../style/marker.css";
 import data from "../files/europeanCities.json";
-import styled from "styled-components";
 import ReactMapboxGl, { Layer, Feature, Marker, Popup } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import greenMarkerImage from "../../components/images/greenmarker.png";
@@ -36,6 +36,8 @@ const Map = (props) => {
   const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
   const [username, setUsername] = useState(null);
   const [actualScore, setActualScore] = useState(0);
+
+  const setHighScore = useContext(HighScoreContext)[1];
 
   // useEffect(() => {
 
@@ -189,7 +191,10 @@ const Map = (props) => {
                 selectedCities,
                 setCurrentCity,
                 setMarkerLng,
-                setMarkerLat
+                setMarkerLat,
+                actualScore,
+                setHighScore,
+                username
               )
             }
           >
@@ -258,7 +263,10 @@ const buttonHandler = (
   selectedCities,
   setCurrentCity,
   setMarkerLng,
-  setMarkerLat
+  setMarkerLat,
+  actualScore,
+  setHighScore,
+  username
 ) => {
   setCityMarkerClass("hidden");
   setIsPointSelected(false);
@@ -269,6 +277,10 @@ const buttonHandler = (
     setMarkerLat(selectedCities[currentRound + 1].latitude);
   } else {
     console.log("ende");
+    setHighScore((prevScore) => [
+      ...prevScore,
+      { name: username, score: actualScore },
+    ]);
   }
 };
 
