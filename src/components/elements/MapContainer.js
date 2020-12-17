@@ -13,8 +13,10 @@ export const MapContainer = styled.div`
 `;
 
 export const UserAndCityContainer = styled.div`
-  height: 30%;
+  height: 35%;
   width: 25%;
+  padding: 1% 0 1% 0;
+  font-size: 1.1em;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -41,7 +43,7 @@ export const NextCityButton = styled.button`
   margin-top: 5px;
   border-radius: 5px;
   padding: 5px;
-  width: 100px;
+  width: 120px;
   font-size: 1em;
   outline: none;
   letter-spacing: 0.1em;
