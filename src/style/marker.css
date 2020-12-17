@@ -11,3 +11,7 @@ h3.popup {
   border-radius: 5px;
   border: 1px solid grey;
 }
+
+.displayNone {
+  display: none;
+}

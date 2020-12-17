@@ -204,7 +204,7 @@ const Map = (props) => {
             Next City
           </MapStyle.NextCityButton>
           <Link to="/">
-            <MapStyle.NextCityButton id="endGameButton" className="hidden">
+            <MapStyle.NextCityButton id="endGameButton" className="displayNone">
               Finish Game
             </MapStyle.NextCityButton>
           </Link>
@@ -289,7 +289,7 @@ const buttonHandler = (
       { name: username, score: actualScore },
     ]);
     document.querySelector("#theEnd").innerHTML = "THE END";
-    document.querySelector("#endGameButton").classList.remove("hidden");
+    document.querySelector("#endGameButton").classList.remove("displayNone");
   }
 };
 
