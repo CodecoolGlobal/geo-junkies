@@ -42,6 +42,7 @@ export const InfoSpan = styled.span`
 export const NextCityButton = styled.button`
   margin-top: 5px;
   border-radius: 5px;
+  border: 1px solid black;
   padding: 5px;
   width: 120px;
   font-size: 1em;
