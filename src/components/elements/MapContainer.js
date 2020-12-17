@@ -6,13 +6,27 @@ export const MapContainer = styled.div`
   right: 0;
   width: 90%;
   height: 95%;
-  padding-left: 5%;
+  overflow: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 `;
 
 export const UserAndCityContainer = styled.div`
-  width: 800px;
+  height: 30%;
+  width: 25%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  background-color: lightgrey;
+  opacity: 0.7;
+  border-radius: 20px;
+`;
+
+export const ScoreParagraph = styled.div`
+  letter-spacing: 0.02em;
 `;
 
 export const InfoParagraph = styled.div`
@@ -27,6 +41,7 @@ export const NextCityButton = styled.button`
   margin-top: 5px;
   border-radius: 5px;
   padding: 5px;
+  width: 100px;
   font-size: 1em;
   outline: none;
   letter-spacing: 0.1em;
