@@ -21,7 +21,6 @@ const MapBox = ReactMapboxGl({
 });
 
 const roundNumber = 5;
-// let isPointSelected = false;
 
 const Map = (props) => {
   const [isPointSelected, setIsPointSelected] = useState(false);
@@ -39,50 +38,6 @@ const Map = (props) => {
   const [actualScore, setActualScore] = useState(0);
 
   const setHighScore = useContext(HighScoreContext)[1];
-
-  // useEffect(() => {
-  //   return ()=> {
-
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   setCurrentCity(selectedCities[0]);
-  //   setMarkerLng(currentCity.longitude);
-  //   setMarkerLat(currentCity.latitude);
-  // }, []);
-  // const cityArray = selectedCities;
-
-  // useEffect(() => {
-  //   // mapboxgl.accessToken =
-  //   //   "pk.eyJ1Ijoia296bWFydGludXMiLCJhIjoiY2tpb2VwNW91MGh6bDJ6bWxkbzdlemUyeCJ9.JcDXIp8INuk9kw1H3BAt8Q";
-
-  //   const initializeMap = ({ setMap, mapContainer }) => {
-  //     const map = new mapboxgl.Map({
-  //       container: mapContainer.current,
-  //       style: "mapbox://styles/mapbox/streets-v11",
-  //       center: [15,55],
-  //       zoom: 2.75,
-  //     });
-
-  //     map.on("load", () => {
-  //       setMap(map);
-  //       disableInteractives(map);
-
-  //       map.on("click", (e) => {
-  //         if (isPointSelected) {
-  //           e.preventDefault();
-  //         } else {
-  //           mapClickHandler(e, map, currentCity);
-
-  //         }
-  //       });
-  //       map.resize();
-  //     });
-  //   };
-
-  //   if (!map) initializeMap({ setMap, mapContainer });
-  // }, [map, currentCity]);
 
   let content = (
     <MapStyle.MapContainer>
@@ -250,17 +205,6 @@ const mapClickHandler = (
   setIsPointSelected(true);
   let score = 1000 - distance > 0 ? 1000 - distance : 0;
   setActualScore(actualScore + score);
-  // console.log(isPointSelected);
-  // console.log(isPointSelected);
-
-  // document.querySelector("#clearButton").addEventListener("click", function () {
-  //   currentRound++;
-  //   currentCity = selectedCities[currentRound];
-  //   guessMarker.remove();
-  //   cityMarker.remove();
-  //   popup.remove();
-  //   isPointSelected = false;
-  // });
 };
 
 const buttonHandler = (
