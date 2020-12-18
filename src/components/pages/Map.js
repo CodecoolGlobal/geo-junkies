@@ -90,18 +90,7 @@ const Map = (props) => {
             isPointSelected
               ? null
               : (map, e) => {
-                  mapClickHandler(
-                    e,
-                    map,
-                    currentCity,
-                    setCityMarkerClass,
-                    setGuessLng,
-                    setGuessLat,
-                    setPopupMessage,
-                    setIsPointSelected,
-                    actualScore,
-                    setActualScore
-                  );
+                  mapClickHandler(e, map);
                 }
           }
         >
@@ -140,21 +129,7 @@ const Map = (props) => {
           <MapStyle.NextCityButton
             id="clearButton"
             className={cityMarkerClass}
-            onClick={(map, e) =>
-              buttonHandler(
-                setCityMarkerClass,
-                setIsPointSelected,
-                currentRound,
-                setCurrentRound,
-                selectedCities,
-                setCurrentCity,
-                setMarkerLng,
-                setMarkerLat,
-                actualScore,
-                setHighScore,
-                username
-              )
-            }
+            onClick={(map, e) => buttonHandler()}
           >
             Next City
           </MapStyle.NextCityButton>
@@ -167,6 +142,40 @@ const Map = (props) => {
       </MapStyle.MapContainer>
     );
   }
+
+  const mapClickHandler = (e, map) => {
+    const city = new mapboxgl.LngLat(
+      currentCity.longitude,
+      currentCity.latitude
+    );
+    let distance = Math.round(city.distanceTo(e.lngLat) / 1000);
+    let message = distance + " km away.";
+    setPopupMessage(message);
+    setGuessLng(e.lngLat.lng);
+    setGuessLat(e.lngLat.lat);
+    setCityMarkerClass("show");
+    setIsPointSelected(true);
+    let score = 1000 - distance > 0 ? 1000 - distance : 0;
+    setActualScore(actualScore + score);
+  };
+
+  const buttonHandler = () => {
+    setCityMarkerClass("hidden");
+    setCurrentRound(currentRound + 1);
+    if (currentRound + 1 < 5) {
+      setIsPointSelected(false);
+      setCurrentCity(selectedCities[currentRound + 1]);
+      setMarkerLng(selectedCities[currentRound + 1].longitude);
+      setMarkerLat(selectedCities[currentRound + 1].latitude);
+    } else {
+      setHighScore((prevScore) => [
+        ...prevScore,
+        { name: username, score: actualScore },
+      ]);
+      document.querySelector("#theEnd").innerHTML = "THE END";
+      document.querySelector("#endGameButton").classList.remove("displayNone");
+    }
+  };
 
   return content;
 };
@@ -182,59 +191,5 @@ function citySelector() {
   }
   return selectedCities;
 }
-
-const mapClickHandler = (
-  e,
-  map,
-  currentCity,
-  setCityMarkerClass,
-  setGuessLng,
-  setGuessLat,
-  setPopupMessage,
-  setIsPointSelected,
-  actualScore,
-  setActualScore
-) => {
-  const city = new mapboxgl.LngLat(currentCity.longitude, currentCity.latitude);
-  let distance = Math.round(city.distanceTo(e.lngLat) / 1000);
-  let message = distance + " km away.";
-  setPopupMessage(message);
-  setGuessLng(e.lngLat.lng);
-  setGuessLat(e.lngLat.lat);
-  setCityMarkerClass("show");
-  setIsPointSelected(true);
-  let score = 1000 - distance > 0 ? 1000 - distance : 0;
-  setActualScore(actualScore + score);
-};
-
-const buttonHandler = (
-  setCityMarkerClass,
-  setIsPointSelected,
-  currentRound,
-  setCurrentRound,
-  selectedCities,
-  setCurrentCity,
-  setMarkerLng,
-  setMarkerLat,
-  actualScore,
-  setHighScore,
-  username
-) => {
-  setCityMarkerClass("hidden");
-  setCurrentRound(currentRound + 1);
-  if (currentRound + 1 < 5) {
-    setIsPointSelected(false);
-    setCurrentCity(selectedCities[currentRound + 1]);
-    setMarkerLng(selectedCities[currentRound + 1].longitude);
-    setMarkerLat(selectedCities[currentRound + 1].latitude);
-  } else {
-    setHighScore((prevScore) => [
-      ...prevScore,
-      { name: username, score: actualScore },
-    ]);
-    document.querySelector("#theEnd").innerHTML = "THE END";
-    document.querySelector("#endGameButton").classList.remove("displayNone");
-  }
-};
 
 export default Map;

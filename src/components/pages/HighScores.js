@@ -18,7 +18,6 @@ const PlayersContainer = styled.div`
 
 export default function HighScores() {
   const players = useContext(HighScoreContext)[0];
-  const setPlayers = useContext(HighScoreContext)[1];
 
   const getTop10Scores = () => {
     players.sort(function (a, b) {
@@ -27,7 +26,6 @@ export default function HighScores() {
     return players.reverse().slice(0, 10);
   };
 
-  // setPlayers((prev) => [...prev, { name: "Marci", score: 9000 }]);
   let content = <p>No Scores Saved</p>;
 
   if (players && players.length > 0) {
@@ -45,7 +43,7 @@ export default function HighScores() {
           </thead>
           <tbody>
             {orderedPlayers.map((player, index) => (
-              <tr>
+              <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{player.name}</td>
                 <td>{player.score}</td>
