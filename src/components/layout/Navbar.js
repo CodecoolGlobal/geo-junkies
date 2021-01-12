@@ -31,6 +31,7 @@ export default function Navbar(props) {
       <NavbarLinks>
         <React.Fragment>
           <NavbarLink to="/">Home</NavbarLink>
+          <NavbarLink to="/login">Login</NavbarLink>
           <NavbarLink to="/map">Play Game</NavbarLink>
           <NavbarLink to="/scores">High Scores</NavbarLink>
           <NavbarLink to="/about">About</NavbarLink>

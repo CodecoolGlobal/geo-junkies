@@ -31,6 +31,7 @@ const LoginPage = (props) => {
         });
         return history.push("/");
       }
+      console.log(response);
       Object.entries(response).forEach(([k, v]) => {
         v.forEach((value) => {
           setErrorMessage((old) => [...old, value]);
