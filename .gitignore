@@ -24,4 +24,4 @@ yarn-error.log*
 
 
 .eslintcache
-.components/files/ApiRequestURL.json
+src/components/files/ApiRequestURL.json
