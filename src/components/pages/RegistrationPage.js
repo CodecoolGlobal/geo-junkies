@@ -8,7 +8,6 @@ import "../../style/Forms.css";
 
 const RegistrationPageDiv = styled.div`
   text-align: center;
-  padding-left: 50px;
 `;
 
 const RegistrationPage = (props) => {
@@ -31,7 +30,7 @@ const RegistrationPage = (props) => {
       }
       Object.entries(response).forEach(([k, v]) => {
         v.forEach((value) => {
-          setErrorMessage((old) => [...old, k + ": " + value]);
+          setErrorMessage((old) => [...old, value]);
         });
       });
     });
@@ -39,26 +38,22 @@ const RegistrationPage = (props) => {
 
   return (
     <RegistrationPageDiv>
-      <div id="main">
-        <div id="content_div">
-          <form method="post" onSubmit={handleSubmit}>
-            <h2>Registration</h2>
-            <label>Username:</label>
-            <input type="text" name="username" />
-            <label>Email:</label>
-            <input type="email" name="email" />
-            <label>Password:</label>
-            <input type="text" name="password" />
-            <label>Confirm password:</label>
-            <input type="text" name="password_confirm" />
-            <button type="submit">Register</button>
-          </form>
-          <div>
-            {errorMessage === null
-              ? ""
-              : errorMessage.map((data, index) => <p key={index}>{data}</p>)}
-          </div>
-        </div>
+      <div id="content_div">
+        <form method="post" onSubmit={handleSubmit}>
+          <h2>Registration</h2>
+          <label>Username:</label>
+          <input type="text" name="username" />
+          <label>Email:</label>
+          <input type="email" name="email" />
+          <label>Password:</label>
+          <input type="text" name="password" />
+          <label>Confirm password:</label>
+          <input type="text" name="password_confirm" />
+          <button type="submit">Register</button>
+        </form>
+        {errorMessage === null
+          ? ""
+          : errorMessage.map((data, index) => <div key={index}>{data}</div>)}
       </div>
     </RegistrationPageDiv>
   );
