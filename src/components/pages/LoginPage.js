@@ -8,7 +8,6 @@ import "../../style/Forms.css";
 
 const LoginPageDiv = styled.div`
   text-align: center;
-  padding-left: 50px;
 `;
 
 const LoginPage = (props) => {
@@ -43,22 +42,22 @@ const LoginPage = (props) => {
 
   return (
     <LoginPageDiv>
-      <div id="main_login">
-        <div id="content_div_login">
-          <h2>Login</h2>
-          <form method="post" onSubmit={handleSubmit}>
-            <label>Email:</label>
-            <input type="email" name="email" />
-            <label>Password: </label>
-            <input type="text" name="password" />
-            <button type="submit">Login</button>
-          </form>
-          <div>
-            {errorMessage === null
-              ? ""
-              : errorMessage.map((data, index) => <p key={index}>{data}</p>)}
-          </div>
-        </div>
+      <div id="content_div_login">
+        <h2>Login</h2>
+        <form method="post" onSubmit={handleSubmit}>
+          <label>Email:</label>
+          <input type="email" name="email" />
+          <label>Password: </label>
+          <input type="text" name="password" />
+          <button type="submit">Login</button>
+        </form>
+        {errorMessage === null
+          ? ""
+          : errorMessage.map((data, index) => (
+              <div>
+                <p key={index}>{data}</p>
+              </div>
+            ))}
       </div>
     </LoginPageDiv>
   );
