@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { UserContext } from "../../contexts/UserContext";
 import UsePostData from "../../hooks/UsePostData";
 import APIs from "../files/ApiRequestURL.json";
+import "../../style/Forms.css";
 
 const LoginPageDiv = styled.div`
   text-align: center;
