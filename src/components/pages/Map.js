@@ -156,7 +156,13 @@ const Map = (props) => {
     setCityMarkerClass("show");
     setIsPointSelected(true);
     let score =
-      currentCity.handicap - distance > 0 ? currentCity.handicap - distance : 0;
+      // currentCity.handicap - distance > 0 ? currentCity.handicap - distance : 0;
+      currentCity.handicap - distance > 0
+        ? Math.round(
+            ((currentCity.handicap - distance) / currentCity.handicap) * 1000
+          )
+        : 0;
+
     setActualScore(actualScore + score);
   };
 
