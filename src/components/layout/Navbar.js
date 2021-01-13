@@ -35,7 +35,8 @@ const RegNavbarLink = styled(Link)`
   font-size: 1.5em;
   letter-spacing: 0.025em;
   border-radius: 10px;
-  visibility: ${(props) => (props.user.token ? "hidden" : "")};
+  visibility: ${(props) =>
+    !props.user.token && props.to !== useLocation().pathname ? "" : "hidden"};
   &:hover {
     color: black;
   }
@@ -57,7 +58,12 @@ export default function Navbar(props) {
           ) : (
             <NavbarLink to="/logout">Logout</NavbarLink>
           )}
-          <NavbarLink to="/choose">Play Game</NavbarLink>
+          <NavbarLink
+            style={{ visibility: user.token ? "visible" : "hidden" }}
+            to="/choose"
+          >
+            Play Game
+          </NavbarLink>
           {user.token && <NavbarLink to="/profile">My profile</NavbarLink>}
           <NavbarLink to="/scores">High Scores</NavbarLink>
           <NavbarLink to="/about">About</NavbarLink>
