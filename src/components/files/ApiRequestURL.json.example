@@ -1,5 +1,7 @@
 {
   "login": "http://geo-junkies.com/api/login",
   "logout": "http://geo-junkies.com/api/logout",
-  "registration": "http://geo-junkies.com/api/registration"
+  "registration": "http://geo-junkies.com/api/registration",
+  "maps":"http://geo-junkies.com/api/maps",
+  "cities":"http://geo-junkies.com/api/map"
 }
