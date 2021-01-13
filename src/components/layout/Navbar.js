@@ -36,7 +36,7 @@ const RegNavbarLink = styled(Link)`
   letter-spacing: 0.025em;
   border-radius: 10px;
   visibility: ${(props) =>
-    !props.user.token && props.to !== useLocation().pathname ? "" : "hidden"};
+    props.to !== useLocation().pathname ? "" : "hidden"};
   &:hover {
     color: black;
   }
@@ -50,9 +50,7 @@ export default function Navbar(props) {
       <NavbarLinks>
         <React.Fragment>
           <NavbarLink to="/">Home</NavbarLink>
-          <RegNavbarLink user={user} to="/registration">
-            Registration
-          </RegNavbarLink>
+          <RegNavbarLink to="/registration">Registration</RegNavbarLink>
           {!user.token ? (
             <NavbarLink to="/login">Login</NavbarLink>
           ) : (
