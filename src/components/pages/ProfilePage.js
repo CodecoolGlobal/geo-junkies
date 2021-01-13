@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
-import { HighScoreContext } from "../../contexts/HighScoreContext";
 import { UserContext } from "../../contexts/UserContext";
 import "../../style/high-score.css";
+import APIs from "../files/ApiRequestURL.json";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const ProfileContainer = styled.div`
   margin-top: 5%;
@@ -64,17 +66,23 @@ const ProfileContainer = styled.div`
 
 export default function ProfilePage() {
   const user = useContext(UserContext)[0];
-  const players = useContext(HighScoreContext)[0];
+  const [scores, setScores] = useState();
   const [mapId, setMapId] = useState(1);
+  const [errorMessage, setErrorMessage] = useState([]);
 
-  const getTop10Scores = () => {
-    players.sort(function (a, b) {
-      return a.score - b.score;
+  useEffect(async () => {
+    let responseData = await axios({
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json, text/plain, */*",
+        Authorization: "Bearer " + user.token,
+      },
+      url: `${APIs.highscore}${mapId}`,
     });
-    return players.reverse().slice(0, 10);
-  };
+    setScores(responseData.data);
+  }, [mapId]);
 
-  const switchMap = (mapId) => {
+  const switchMap = async (mapId) => {
     setMapId(mapId);
     markActive(mapId);
   };
@@ -87,95 +95,93 @@ export default function ProfilePage() {
     document
       .querySelector(`button[data-mapId="${mapId}"]`)
       .classList.add("active");
-    // const otherMode = mode === 'login' ? 'register' : 'login';
   };
 
-  let content = <p>No Scores Saved</p>;
+  let content = (
+    <div>
+      <ProfileContainer>
+        <h2>my username</h2>
+        <h2>registration date</h2>
+        <h1 className="score-title">My Scores</h1>
+        <div className="buttonBox">
+          <button
+            id="leftButton"
+            className="active map-title"
+            data-mapid="1"
+            onClick={() => switchMap(1)}
+          >
+            Africa
+          </button>
+          <button
+            className="map-title"
+            data-mapid="6"
+            onClick={() => switchMap(6)}
+          >
+            Asia
+          </button>
+          <button
+            className="map-title"
+            data-mapid="4"
+            onClick={() => switchMap(4)}
+          >
+            Australia
+          </button>
+          <button
+            className="map-title"
+            data-mapid="5"
+            onClick={() => switchMap(5)}
+          >
+            Europe
+          </button>
+          <button
+            className="map-title"
+            data-mapid="7"
+            onClick={() => switchMap(7)}
+          >
+            Hungary
+          </button>
+          <button
+            className="map-title"
+            data-mapid="3"
+            onClick={() => switchMap(3)}
+          >
+            S. America
+          </button>
+          <button
+            className="map-title"
+            id="rightButton"
+            data-mapid="2"
+            onClick={() => switchMap(2)}
+          >
+            Usa
+          </button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th className="rank">Rank</th>
+              <th className="players">Score</th>
+              <th className="scores">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {scores
+              ? scores.map((player, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{player.score}</td>
+                    <td>{player.created_at}</td>
+                  </tr>
+                ))
+              : ""}
+          </tbody>
+        </table>
+      </ProfileContainer>
+      {errorMessage === null
+        ? ""
+        : errorMessage.map((data, index) => <div key={index}>{data}</div>)}
+    </div>
+  );
 
-  if (players && players.length > 0) {
-    const orderedPlayers = getTop10Scores();
-    content = (
-      <div>
-        <ProfileContainer>
-          <h2>my username</h2>
-          <h2>registration date</h2>
-          <h1 className="score-title">My Scores</h1>
-          <div className="buttonBox">
-            <button
-              id="leftButton"
-              className="active map-title"
-              data-mapid="1"
-              onClick={() => switchMap(1)}
-            >
-              Africa
-            </button>
-            <button
-              className="map-title"
-              data-mapid="6"
-              onClick={() => switchMap(6)}
-            >
-              Asia
-            </button>
-            <button
-              className="map-title"
-              data-mapid="4"
-              onClick={() => switchMap(4)}
-            >
-              Australia
-            </button>
-            <button
-              className="map-title"
-              data-mapid="5"
-              onClick={() => switchMap(5)}
-            >
-              Europe
-            </button>
-            <button
-              className="map-title"
-              data-mapid="7"
-              onClick={() => switchMap(7)}
-            >
-              Hungary
-            </button>
-            <button
-              className="map-title"
-              data-mapid="3"
-              onClick={() => switchMap(3)}
-            >
-              S. America
-            </button>
-            <button
-              className="map-title"
-              id="rightButton"
-              data-mapid="2"
-              onClick={() => switchMap(2)}
-            >
-              Usa
-            </button>
-          </div>
-
-          <table>
-            <thead>
-              <tr>
-                <th className="rank">Rank</th>
-                <th className="players">Players</th>
-                <th className="scores">Scores</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orderedPlayers.map((player, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{player.name}</td>
-                  <td>{player.score}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </ProfileContainer>
-      </div>
-    );
-  }
-
-  return content;
+  return user.token ? content : <Redirect to="/" />;
 }
