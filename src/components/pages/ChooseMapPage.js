@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import "../../style/Choose.css";
 import { Redirect } from "react-router-dom";
+import { ActualMapContext } from "../../contexts/ActualMapContext";
 
 const ChoosePageDiv = styled.div`
   text-align: center;
@@ -17,6 +18,7 @@ const ChooseMapPage = (props) => {
   const history = useHistory();
   const user = useContext(UserContext)[0];
   const setCities = useContext(CityContext)[1];
+  const setActualMap = useContext(ActualMapContext)[1];
   const [errorMessage, setErrorMessage] = useState([]);
 
   const mapData = UseGetData(APIs.maps, user.token, setErrorMessage)[1];
@@ -27,6 +29,7 @@ const ChooseMapPage = (props) => {
       setErrorMessage([]);
       if (response.status === 200) {
         setCities(response.data);
+        setActualMap({ id: id });
         return history.push("/map");
       } else {
         Object.entries(response).forEach(([k, v]) => {
