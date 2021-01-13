@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { HighScoreContext } from "../../contexts/HighScoreContext";
 import mapboxgl, { LngLat } from "mapbox-gl";
@@ -10,6 +10,9 @@ import greenMarkerImage from "../../components/images/greenmarker.png";
 import redMarkerImage from "../../components/images/redmarker.png";
 import { UserContext } from "../../contexts/UserContext";
 import { CityContext } from "../../contexts/CityContext";
+import { ActualMapContext } from "../../contexts/ActualMapContext";
+import UsePostData from "../../hooks/UsePostData";
+import APIs from "../files/ApiRequestURL.json";
 
 const MapBox = ReactMapboxGl({
   accessToken:
@@ -27,7 +30,8 @@ const Map = (props) => {
   const [isPointSelected, setIsPointSelected] = useState(false);
   const [currentRound, setCurrentRound] = useState(0);
   const cities = useContext(CityContext)[0];
-  const [selectedCities, setSelectedCities] = useState(citySelector(cities));
+  const actualMap = useContext(ActualMapContext)[0];
+  const selectedCities = useState(citySelector(cities))[0];
   const [currentCity, setCurrentCity] = useState(selectedCities[currentRound]);
   const [markerLng, setMarkerLng] = useState(currentCity.longitude);
   const [markerLat, setMarkerLat] = useState(currentCity.latitude);
@@ -35,38 +39,11 @@ const Map = (props) => {
   const [guessLng, setGuessLng] = useState(null);
   const [guessLat, setGuessLat] = useState(null);
   const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
-
   const user = useContext(UserContext)[0];
   const [actualScore, setActualScore] = useState(0);
-  const setHighScore = useContext(HighScoreContext)[1];
+  const [highScore, setHighScore] = useContext(HighScoreContext);
 
   let content = "";
-  // <MapStyle.MapContainer>
-  /* <MapStyle.UsernameContainer id="usernameContainer">
-        <p>
-          <MapStyle.UsernameLabel>
-            Please enter your name:
-          </MapStyle.UsernameLabel>
-        </p>
-        <p>
-          <MapStyle.UsernameInput
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Username"
-          />
-        </p>
-        <p>
-          <MapStyle.SetUsernameButton
-            onClick={() => {
-              setUsername(document.querySelector("#username").value);
-            }}
-          >
-            Submit
-          </MapStyle.SetUsernameButton>
-        </p>
-      </MapStyle.UsernameContainer> */
-  /* </MapStyle.MapContainer> */
   if (currentCity && user.username) {
     content = (
       <MapStyle.MapContainer>
@@ -175,10 +152,21 @@ const Map = (props) => {
       setMarkerLng(selectedCities[currentRound + 1].longitude);
       setMarkerLat(selectedCities[currentRound + 1].latitude);
     } else {
-      setHighScore((prevScore) => [
-        ...prevScore,
-        { name: user.username, score: actualScore },
-      ]);
+      // setHighScore((prevScore) => [
+      //   ...prevScore,
+      //   { name: user.username, score: actualScore },
+      // ]);
+
+      UsePostData(
+        APIs.highscores,
+        user.token,
+        { map: actualMap.id, score: actualScore },
+        (response) => {
+          if (response.status === 200) {
+            console.log(response);
+          }
+        }
+      );
       document.querySelector("#theEnd").innerHTML = "THE END";
       document.querySelector("#endGameButton").classList.remove("displayNone");
     }
