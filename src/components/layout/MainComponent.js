@@ -10,6 +10,7 @@ import RegistrationPage from "../pages/RegistrationPage";
 import LoginPage from "../pages/LoginPage";
 import LogoutPage from "../pages/LogoutPage";
 import Map from "../pages/Map";
+import ProfilePage from "../pages/ProfilePage";
 import HighScores from "../pages/HighScores";
 import AboutPage from "../pages/AboutPage";
 
@@ -23,6 +24,7 @@ export default function MainComponent() {
         <Route path="/login" component={LoginPage} />
         <Route path="/logout" component={LogoutPage} />
         <Route path="/map" component={Map} />
+        <Route path="/profile" component={ProfilePage} />
         <Route path="/scores" component={HighScores} />
         <Route path="/about" component={AboutPage} />
       </Content>
