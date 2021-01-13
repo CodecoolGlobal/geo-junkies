@@ -6,6 +6,7 @@ import { CityContext } from "../../contexts/CityContext";
 import APIs from "../files/ApiRequestURL.json";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import "../../style/Choose.css";
 
 const ChoosePageDiv = styled.div`
   text-align: center;
@@ -38,13 +39,18 @@ const ChooseMapPage = (props) => {
 
   return (
     <ChoosePageDiv>
-      {mapData
-        ? mapData.map((map, index) => (
-            <div key={index} onClick={(e) => chooseClickHandler(e, map.id)}>
-              {map.name}
-            </div>
-          ))
-        : ""}
+      <div id="choose_container_div">
+        <h2>Select stage</h2>
+        <div id="choose_stages">
+          {mapData
+            ? mapData.map((map, index) => (
+                <div key={index} onClick={(e) => chooseClickHandler(e, map.id)}>
+                  {map.name}
+                </div>
+              ))
+            : ""}
+        </div>
+      </div>
       {errorMessage === null
         ? ""
         : errorMessage.map((data, index) => <div key={index}>{data}</div>)}
