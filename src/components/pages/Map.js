@@ -4,12 +4,12 @@ import { HighScoreContext } from "../../contexts/HighScoreContext";
 import mapboxgl, { LngLat } from "mapbox-gl";
 import * as MapStyle from "../elements/MapContainer";
 import "../../style/marker.css";
-import data from "../files/europeanCities.json";
 import ReactMapboxGl, { Layer, Feature, Marker, Popup } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import greenMarkerImage from "../../components/images/greenmarker.png";
 import redMarkerImage from "../../components/images/redmarker.png";
 import { UserContext } from "../../contexts/UserContext";
+import { CityContext } from "../../contexts/CityContext";
 
 const MapBox = ReactMapboxGl({
   accessToken:
@@ -26,8 +26,8 @@ const roundNumber = 5;
 const Map = (props) => {
   const [isPointSelected, setIsPointSelected] = useState(false);
   const [currentRound, setCurrentRound] = useState(0);
-
-  const [selectedCities, setSelectedCities] = useState(citySelector());
+  const cities = useContext(CityContext)[0];
+  const [selectedCities, setSelectedCities] = useState(citySelector(cities));
   const [currentCity, setCurrentCity] = useState(selectedCities[currentRound]);
   const [markerLng, setMarkerLng] = useState(currentCity.longitude);
   const [markerLat, setMarkerLat] = useState(currentCity.latitude);
@@ -77,8 +77,8 @@ const Map = (props) => {
             width: "800px",
             border: "1px solid grey",
           }}
-          center={[15, 57]}
-          zoom={[2.75]}
+          center={[currentCity.longitude_center, currentCity.latitude_center]}
+          zoom={[currentCity.zoom]}
           onStyleLoad={(map, event) =>
             map.style.stylesheet.layers.forEach(function (layer) {
               if (layer.type === "symbol") {
@@ -121,7 +121,7 @@ const Map = (props) => {
             Current user: <MapStyle.InfoSpan>{user.username}</MapStyle.InfoSpan>
           </MapStyle.InfoParagraph>
           <MapStyle.InfoParagraph id="theEnd">
-            City Name: <MapStyle.InfoSpan>{currentCity.city}</MapStyle.InfoSpan>
+            City Name: <MapStyle.InfoSpan>{currentCity.name}</MapStyle.InfoSpan>
           </MapStyle.InfoParagraph>
           <MapStyle.ScoreParagraph>
             Actual score: <MapStyle.InfoSpan>{actualScore}</MapStyle.InfoSpan>
@@ -155,7 +155,8 @@ const Map = (props) => {
     setGuessLat(e.lngLat.lat);
     setCityMarkerClass("show");
     setIsPointSelected(true);
-    let score = 1000 - distance > 0 ? 1000 - distance : 0;
+    let score =
+      currentCity.handicap - distance > 0 ? currentCity.handicap - distance : 0;
     setActualScore(actualScore + score);
   };
 
@@ -180,11 +181,11 @@ const Map = (props) => {
   return content;
 };
 
-function citySelector() {
+function citySelector(cities) {
   let selectedCities = [];
   while (selectedCities.length < roundNumber) {
-    let cityIndex = Math.floor(Math.random() * data.european_cities.length);
-    let actualCity = data.european_cities[cityIndex];
+    let cityIndex = Math.floor(Math.random() * cities.length);
+    let actualCity = cities[cityIndex];
     if (!selectedCities.includes(actualCity)) {
       selectedCities.push(actualCity);
     }
