@@ -1,37 +1,37 @@
 .score-title {
-	font-size: 3rem;
-	text-align: center;
-	color: grey;
-	text-decoration: none;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	padding: 5px;
-	font-weight: bold;
-	font-size: 1.5em;
-	border-radius: 10px;
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(231, 231, 195);
+  text-decoration: none;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1.5em;
+  border-radius: 10px;
 }
 
 table {
-	text-align: center;
-	border: 1px solid black;
+  text-align: center;
+  border: 1px solid black;
 }
 
 thead {
-	font-size: 1rem;
-	text-align: center;
-	color: grey;
-	text-decoration: none;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	padding: 5px;
-	font-weight: bold;
-	font-size: 1.5em;
-	border-radius: 10px;
-	background-color: lightgrey;
+  font-size: 1rem;
+  text-align: center;
+  color: rgb(231, 231, 195);
+  text-decoration: none;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1.5em;
+  border-radius: 10px;
+  background-color: lightgrey;
 }
 
 tbody tr:nth-child(odd) {
-	background-color: #cad4e4;
+  background-color: #cad4e4;
 }
 
 .rank {
-	width: 10%;
+  width: 10%;
 }
