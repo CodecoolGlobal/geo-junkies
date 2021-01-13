@@ -1,0 +1,27 @@
+#choose_container_div {
+  max-width: 30%;
+  box-shadow: 0 0 0 1px rgba(14, 41, 57, 0.12), 0 2px 5px rgba(14, 41, 57, 0.44),
+    inset 0 -1px 2px rgba(14, 41, 57, 0.15);
+  padding: 20px 2% 10px;
+  background: linear-gradient(#fff, #f2f6f9);
+  border-radius: 30px;
+  margin: 5% auto auto;
+}
+
+#choose_stages {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#choose_stages > div {
+  margin: 20px 5px;
+  padding: 10px;
+  border: 2px solid darkslategrey;
+  border-radius: 15px;
+  outline: none;
+}
+
+#choose_stages > div:hover {
+  color: white;
+  background-color: darkslategrey;
+}
