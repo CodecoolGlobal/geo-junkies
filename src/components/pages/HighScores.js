@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "../../style/high-score.css";
 import APIs from "../files/ApiRequestURL.json";
-import useGetData from "../../hooks/UseGet";
 import axios from "axios";
 
 const PlayersContainer = styled.div`
