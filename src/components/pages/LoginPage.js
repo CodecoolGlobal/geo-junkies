@@ -53,11 +53,7 @@ const LoginPage = (props) => {
         </form>
         {errorMessage === null
           ? ""
-          : errorMessage.map((data, index) => (
-              <div>
-                <p key={index}>{data}</p>
-              </div>
-            ))}
+          : errorMessage.map((data, index) => <div key={index}>{data}</div>)}
       </div>
     </LoginPageDiv>
   );
