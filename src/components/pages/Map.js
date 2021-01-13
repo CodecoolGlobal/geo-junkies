@@ -9,6 +9,7 @@ import ReactMapboxGl, { Layer, Feature, Marker, Popup } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import greenMarkerImage from "../../components/images/greenmarker.png";
 import redMarkerImage from "../../components/images/redmarker.png";
+import { UserContext } from "../../contexts/UserContext";
 
 const MapBox = ReactMapboxGl({
   accessToken:
@@ -34,14 +35,14 @@ const Map = (props) => {
   const [guessLng, setGuessLng] = useState(null);
   const [guessLat, setGuessLat] = useState(null);
   const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
-  const [username, setUsername] = useState(null);
-  const [actualScore, setActualScore] = useState(0);
 
+  const user = useContext(UserContext)[0];
+  const [actualScore, setActualScore] = useState(0);
   const setHighScore = useContext(HighScoreContext)[1];
 
-  let content = (
-    <MapStyle.MapContainer>
-      <MapStyle.UsernameContainer id="usernameContainer">
+  let content = "";
+  // <MapStyle.MapContainer>
+  /* <MapStyle.UsernameContainer id="usernameContainer">
         <p>
           <MapStyle.UsernameLabel>
             Please enter your name:
@@ -64,10 +65,9 @@ const Map = (props) => {
             Submit
           </MapStyle.SetUsernameButton>
         </p>
-      </MapStyle.UsernameContainer>
-    </MapStyle.MapContainer>
-  );
-  if (currentCity && username) {
+      </MapStyle.UsernameContainer> */
+  /* </MapStyle.MapContainer> */
+  if (currentCity && user.username) {
     content = (
       <MapStyle.MapContainer>
         <MapBox
@@ -118,7 +118,7 @@ const Map = (props) => {
         </MapBox>
         <MapStyle.UserAndCityContainer>
           <MapStyle.InfoParagraph>
-            Current user: <MapStyle.InfoSpan>{username}</MapStyle.InfoSpan>
+            Current user: <MapStyle.InfoSpan>{user.username}</MapStyle.InfoSpan>
           </MapStyle.InfoParagraph>
           <MapStyle.InfoParagraph id="theEnd">
             City Name: <MapStyle.InfoSpan>{currentCity.city}</MapStyle.InfoSpan>
@@ -170,7 +170,7 @@ const Map = (props) => {
     } else {
       setHighScore((prevScore) => [
         ...prevScore,
-        { name: username, score: actualScore },
+        { name: user.username, score: actualScore },
       ]);
       document.querySelector("#theEnd").innerHTML = "THE END";
       document.querySelector("#endGameButton").classList.remove("displayNone");
