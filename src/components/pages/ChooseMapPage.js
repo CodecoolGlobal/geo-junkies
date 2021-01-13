@@ -7,6 +7,7 @@ import APIs from "../files/ApiRequestURL.json";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import "../../style/Choose.css";
+import { Redirect } from "react-router-dom";
 
 const ChoosePageDiv = styled.div`
   text-align: center;
@@ -37,7 +38,7 @@ const ChooseMapPage = (props) => {
     });
   };
 
-  return (
+  return user.token ? (
     <ChoosePageDiv>
       <div id="choose_container_div">
         <h2>Select stage</h2>
@@ -55,6 +56,8 @@ const ChooseMapPage = (props) => {
         ? ""
         : errorMessage.map((data, index) => <div key={index}>{data}</div>)}
     </ChoosePageDiv>
+  ) : (
+    <Redirect to="/" />
   );
 };
 
