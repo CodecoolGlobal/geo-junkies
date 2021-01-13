@@ -58,6 +58,7 @@ export default function Navbar(props) {
             <NavbarLink to="/logout">Logout</NavbarLink>
           )}
           <NavbarLink to="/map">Play Game</NavbarLink>
+          {user.token && <NavbarLink to="/profile">My profile</NavbarLink>}
           <NavbarLink to="/scores">High Scores</NavbarLink>
           <NavbarLink to="/about">About</NavbarLink>
         </React.Fragment>
