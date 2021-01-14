@@ -13,7 +13,7 @@ export const MapContainer = styled.div`
 `;
 
 export const UserAndCityContainer = styled.div`
-  height: 35%;
+  height: 55%;
   width: 25%;
   padding: 1% 0 1% 0;
   font-size: 1.1em;
