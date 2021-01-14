@@ -109,7 +109,7 @@ const Map = (props) => {
           <MapStyle.InfoParagraph>
             Round:{" "}
             <MapStyle.InfoSpan>
-              {currentRound > 5 ? 5 : currentRound + 1}
+              {currentRound > 4 ? 5 : currentRound + 1}
             </MapStyle.InfoSpan>
           </MapStyle.InfoParagraph>
           <MapStyle.ScoreParagraph>
