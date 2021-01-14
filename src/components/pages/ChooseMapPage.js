@@ -9,9 +9,18 @@ import { useHistory } from "react-router-dom";
 import "../../style/Choose.css";
 import { Redirect } from "react-router-dom";
 import { ActualMapContext } from "../../contexts/ActualMapContext";
+import CardContainer from "../elements/CardContainer";
+import "../../style/Images.css";
 
 const ChoosePageDiv = styled.div`
   text-align: center;
+`;
+
+const Image = styled.div`
+  width: 200px;
+  height: 170px;
+  border: 1px solid darkgrey;
+  border-radius: 5px;
 `;
 
 const ChooseMapPage = (props) => {
@@ -44,13 +53,19 @@ const ChooseMapPage = (props) => {
   return user.token ? (
     <ChoosePageDiv>
       <div id="choose_container_div">
-        <h2>Select stage</h2>
+        <h2>Select map</h2>
         <div id="choose_stages">
           {mapData
             ? mapData.map((map, index) => (
-                <div key={index} onClick={(e) => chooseClickHandler(e, map)}>
-                  {map.name}
-                </div>
+                <CardContainer
+                  key={index}
+                  onClick={(e) => chooseClickHandler(e, map)}
+                >
+                  <p>{map.name}</p>
+                  <Image id={`map-${map.id}`}></Image>
+                  <p>handicap: {map.handicap}</p>
+                  <p>rounds: {map.rounds}</p>
+                </CardContainer>
               ))
             : ""}
         </div>
