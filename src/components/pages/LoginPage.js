@@ -48,7 +48,7 @@ const LoginPage = (props) => {
           <label>Email:</label>
           <input type="email" name="email" />
           <label>Password: </label>
-          <input type="text" name="password" />
+          <input type="password" name="password" />
           <button type="submit">Login</button>
         </form>
         {errorMessage === null
