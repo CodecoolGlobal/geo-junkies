@@ -23,13 +23,13 @@ const ChooseMapPage = (props) => {
 
   const mapData = UseGetData(APIs.maps, user.token, setErrorMessage)[1];
 
-  const chooseClickHandler = (event, id) => {
+  const chooseClickHandler = (event, map) => {
     event.stopPropagation();
-    UsePostData(APIs.cities, user.token, { id: id }, (response) => {
+    UsePostData(APIs.cities, user.token, { id: map.id }, (response) => {
       setErrorMessage([]);
       if (response.status === 200) {
         setCities(response.data);
-        setActualMap({ id: id });
+        setActualMap({ name: map.name, id: map.id, handicap: map.handicap });
         return history.push("/map");
       } else {
         Object.entries(response).forEach(([k, v]) => {
@@ -48,7 +48,7 @@ const ChooseMapPage = (props) => {
         <div id="choose_stages">
           {mapData
             ? mapData.map((map, index) => (
-                <div key={index} onClick={(e) => chooseClickHandler(e, map.id)}>
+                <div key={index} onClick={(e) => chooseClickHandler(e, map)}>
                   {map.name}
                 </div>
               ))
