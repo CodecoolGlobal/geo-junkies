@@ -4,6 +4,6 @@
   "registration": "http://geo-junkies.com/api/registration",
   "maps":"http://geo-junkies.com/api/maps",
   "cities":"http://geo-junkies.com/api/map",
-  "highscores" :"http://127.0.0.1:8000/api/highscores"
+  "highscores" :"http://127.0.0.1:8000/api/highscores/"
   "highscore": "http://geo-junkies.com/api/highscore/"
 }
