@@ -1,6 +1,6 @@
 #sandy {
-	background: url("../components/images/sandy.jpeg");
-	background-size: cover;
+  background: url("../components/images/sandy.jpeg");
+  background-size: cover;
 }
 
 #marci {
@@ -9,18 +9,53 @@
 }
 
 #oli {
-	background: url("../components/images/oliver1.jpg");
-	background-size: cover;
+  background: url("../components/images/oliver1.jpg");
+  background-size: cover;
 }
 
 #szoba {
-	background: url("../components/images/szoba.jpg");
-	background-size: cover;
+  background: url("../components/images/szoba.jpg");
+  background-size: cover;
 }
 
 #icon {
-	background: url("../components/images/logo.png");
-	background-size: cover;
-	height: 200px;
-	width: 200px;
+  background: url("../components/images/logo.png");
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+}
+
+#map-1 {
+  background: url("../components/images/africa.jpg");
+  background-size: cover;
+}
+
+#map-2 {
+  background: url("../components/images/usa.jpg");
+  background-size: cover;
+}
+
+#map-3 {
+  background: url("../components/images/south_america.jpeg");
+  background-size: cover;
+}
+
+#map-4 {
+  background: url("../components/images/australia.jpg");
+  background-size: cover;
+}
+
+#map-5 {
+  background: url("../components/images/europe.jpg");
+  background-size: cover;
+}
+
+#map-6 {
+  background: url("../components/images/asia.jpg");
+  background-size: cover;
+}
+
+#map-7 {
+  background: url("../components/images/hungary.jpg");
+  background-size: cover;
 }
