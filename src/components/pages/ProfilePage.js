@@ -100,8 +100,9 @@ export default function ProfilePage() {
   let content = (
     <div>
       <ProfileContainer>
-        <h2>my username</h2>
-        <h2>registration date</h2>
+        <div>
+          <h2>{user.username}</h2>
+        </div>
         <h1 className="score-title">My Scores</h1>
         <div className="buttonBox">
           <button
