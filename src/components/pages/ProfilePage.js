@@ -70,17 +70,20 @@ export default function ProfilePage() {
   const [mapId, setMapId] = useState(1);
   const [errorMessage, setErrorMessage] = useState([]);
 
-  useEffect(async () => {
-    let responseData = await axios({
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json, text/plain, */*",
-        Authorization: "Bearer " + user.token,
-      },
-      url: `${APIs.highscore}${mapId}`,
-    });
-    setScores(responseData.data);
-  }, [mapId]);
+  useEffect(() => {
+    const getHighScore = async () => {
+      const responseData = await axios({
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json, text/plain, */*",
+          Authorization: "Bearer " + user.token,
+        },
+        url: `${APIs.highscore}${mapId}`,
+      });
+      setScores(responseData.data);
+    };
+    getHighScore().catch((error) => setErrorMessage(error.response.data));
+  }, [mapId, user.token]);
 
   const switchMap = async (mapId) => {
     setMapId(mapId);
