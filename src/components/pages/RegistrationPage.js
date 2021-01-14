@@ -46,9 +46,9 @@ const RegistrationPage = (props) => {
           <label>Email:</label>
           <input type="email" name="email" />
           <label>Password:</label>
-          <input type="text" name="password" />
+          <input type="password" name="password" />
           <label>Confirm password:</label>
-          <input type="text" name="password_confirm" />
+          <input type="password" name="password_confirm" />
           <button type="submit">Register</button>
         </form>
         {errorMessage === null
