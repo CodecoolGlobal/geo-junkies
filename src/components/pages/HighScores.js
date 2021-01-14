@@ -5,11 +5,9 @@ import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
 import PlayersContainer from "../elements/PlayerContainer";
 
-
 export default function HighScores() {
 	const [players, setPlayers] = useState([]);
 	const [mapId, setMapId] = useState(1);
-	const [errorMessage, setErrorMessage] = useState([]);
 
 	useEffect(() => {
 		axios
@@ -103,9 +101,6 @@ export default function HighScores() {
 					</tbody>
 				</table>
 			</PlayersContainer>
-			{errorMessage === null
-				? ""
-				: errorMessage.map((data, index) => <div key={index}>{data}</div>)}
 		</div>
 	);
 
