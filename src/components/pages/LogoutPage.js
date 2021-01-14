@@ -19,6 +19,7 @@ const LogoutPage = (props) => {
       }
     });
     return history.goBack("");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return "";

@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { HighScoreContext } from "../../contexts/HighScoreContext";
+// eslint-disable-next-line no-unused-vars
 import mapboxgl, { LngLat } from "mapbox-gl";
 import * as MapStyle from "../elements/MapContainer";
 import "../../style/marker.css";
+// eslint-disable-next-line no-unused-vars
 import ReactMapboxGl, { Layer, Feature, Marker, Popup } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import greenMarkerImage from "../../components/images/greenmarker.png";
@@ -41,13 +42,13 @@ const Map = (props) => {
   const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
   const user = useContext(UserContext)[0];
   const [actualScore, setActualScore] = useState(0);
-  const [highScore, setHighScore] = useContext(HighScoreContext);
 
   let content = "";
   if (currentCity && user.username) {
     content = (
       <MapStyle.MapContainer>
         <MapBox
+          // eslint-disable-next-line react/style-prop-object
           style="mapbox://styles/mapbox/streets-v11"
           containerStyle={{
             height: "680px",
@@ -90,7 +91,6 @@ const Map = (props) => {
             coordinates={[guessLng, guessLat]}
             offset={-6}
           >
-            {console.log(guessLat, guessLng)}
             <img src={redMarkerImage} alt="" />
           </Marker>
         </MapBox>
@@ -173,18 +173,12 @@ const Map = (props) => {
       setMarkerLng(selectedCities[currentRound + 1].longitude);
       setMarkerLat(selectedCities[currentRound + 1].latitude);
     } else {
-      // setHighScore((prevScore) => [
-      //   ...prevScore,
-      //   { name: user.username, score: actualScore },
-      // ]);
-
       UsePostData(
         APIs.highscores,
         user.token,
         { map: actualMap.id, score: actualScore },
         (response) => {
           if (response.status === 200) {
-            console.log(response);
           }
         }
       );

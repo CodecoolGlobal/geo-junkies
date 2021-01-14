@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import "../../style/high-score.css";
 import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
