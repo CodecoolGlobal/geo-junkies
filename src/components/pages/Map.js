@@ -95,41 +95,48 @@ const Map = (props) => {
           </Marker>
         </MapBox>
         <MapStyle.UserAndCityContainer>
-          <h3 style={{ fontWeight: 100 }}>
-            <MapStyle.InfoSpan>{actualMap.name}</MapStyle.InfoSpan>
-          </h3>
-          <MapStyle.InfoParagraph>
-            Current handicap:{" "}
-            <MapStyle.InfoSpan>{actualMap.handicap}</MapStyle.InfoSpan>
-          </MapStyle.InfoParagraph>
-          <MapStyle.InfoParagraph>
-            Username: <MapStyle.InfoSpan>{user.username}</MapStyle.InfoSpan>
-          </MapStyle.InfoParagraph>
-          <p>- - - - - -</p>
-          <MapStyle.InfoParagraph>
-            Round:{" "}
-            <MapStyle.InfoSpan>
-              {currentRound > 4 ? 5 : currentRound + 1}
-            </MapStyle.InfoSpan>
-          </MapStyle.InfoParagraph>
-          <MapStyle.ScoreParagraph>
-            Actual score: <MapStyle.InfoSpan>{actualScore}</MapStyle.InfoSpan>
-          </MapStyle.ScoreParagraph>
-          <MapStyle.InfoParagraph id="theEnd">
-            City Name: <MapStyle.InfoSpan>{currentCity.name}</MapStyle.InfoSpan>
-          </MapStyle.InfoParagraph>
-          <MapStyle.NextCityButton
-            id="clearButton"
-            className={cityMarkerClass}
-            onClick={(map, e) => buttonHandler()}
-          >
-            Next City
-          </MapStyle.NextCityButton>
-          <Link to="/">
-            <MapStyle.NextCityButton id="endGameButton" className="displayNone">
-              Finish Game
+          <MapStyle.MapDataContainer>
+            <h3 style={{ fontWeight: 100 }}>
+              <MapStyle.InfoSpan>{actualMap.name}</MapStyle.InfoSpan>
+            </h3>
+            <MapStyle.InfoParagraph>
+              Current handicap:{" "}
+              <MapStyle.InfoSpan>{actualMap.handicap}</MapStyle.InfoSpan>
+            </MapStyle.InfoParagraph>
+            <MapStyle.InfoParagraph>
+              Username: <MapStyle.InfoSpan>{user.username}</MapStyle.InfoSpan>
+            </MapStyle.InfoParagraph>
+          </MapStyle.MapDataContainer>
+          <MapStyle.ActualInfoContainer>
+            <MapStyle.InfoParagraph>
+              Round:{" "}
+              <MapStyle.InfoSpan>
+                {currentRound > 4 ? 5 : currentRound + 1}
+              </MapStyle.InfoSpan>
+            </MapStyle.InfoParagraph>
+            <MapStyle.ScoreParagraph>
+              Actual score: <MapStyle.InfoSpan>{actualScore}</MapStyle.InfoSpan>
+            </MapStyle.ScoreParagraph>
+            <MapStyle.InfoParagraph id="theEnd">
+              City Name:{" "}
+              <MapStyle.InfoSpan>{currentCity.name}</MapStyle.InfoSpan>
+            </MapStyle.InfoParagraph>
+            <MapStyle.NextCityButton
+              id="clearButton"
+              className={cityMarkerClass}
+              onClick={(map, e) => buttonHandler()}
+            >
+              Next City
             </MapStyle.NextCityButton>
-          </Link>
+            <Link to="/">
+              <MapStyle.EndGameButton
+                id="endGameButton"
+                className="displayNone"
+              >
+                Finish Game
+              </MapStyle.EndGameButton>
+            </Link>
+          </MapStyle.ActualInfoContainer>
         </MapStyle.UserAndCityContainer>
       </MapStyle.MapContainer>
     );
@@ -148,7 +155,6 @@ const Map = (props) => {
     setCityMarkerClass("show");
     setIsPointSelected(true);
     let score =
-      // currentCity.handicap - distance > 0 ? currentCity.handicap - distance : 0;
       currentCity.handicap - distance > 0
         ? Math.round(
             ((currentCity.handicap - distance) / currentCity.handicap) * 1000
@@ -182,7 +188,7 @@ const Map = (props) => {
           }
         }
       );
-      document.querySelector("#theEnd").innerHTML = "THE END";
+      document.querySelector("#theEnd").innerHTML = `THE END`;
       document.querySelector("#endGameButton").classList.remove("displayNone");
     }
   };
