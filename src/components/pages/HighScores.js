@@ -73,18 +73,6 @@ export default function HighScores() {
 			.then((result) => setPlayers(result.data.highscores));
 	}, [mapId]);
 
-	// useEffect(async () => {
-	//   let responseData = await axios({
-	//     headers: {
-	//       "Content-Type": "application/json",
-	//       Accept: "application/json, text/plain, */*",
-	//       Authorization: "Bearer " + user.token,
-	//     },
-	//     url: `${APIs.highscore}${mapId}`,
-	//   });
-	//   setScores(responseData.data);
-	// }, [mapId]);
-
 	const switchMap = async (mapId) => {
 		setMapId(mapId);
 		markActive(mapId);
