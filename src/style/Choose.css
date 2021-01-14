@@ -1,5 +1,5 @@
 #choose_container_div {
-  max-width: 30%;
+  max-width: 70%;
   box-shadow: 0 0 0 1px rgba(14, 41, 57, 0.12), 0 2px 5px rgba(14, 41, 57, 0.44),
     inset 0 -1px 2px rgba(14, 41, 57, 0.15);
   padding: 20px 2% 10px;
@@ -11,6 +11,7 @@
 #choose_stages {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 #choose_stages > div {
