@@ -90,19 +90,34 @@ const Map = (props) => {
             coordinates={[guessLng, guessLat]}
             offset={-6}
           >
+            {console.log(guessLat, guessLng)}
             <img src={redMarkerImage} alt="" />
           </Marker>
         </MapBox>
         <MapStyle.UserAndCityContainer>
+          <h3 style={{ fontWeight: 100 }}>
+            <MapStyle.InfoSpan>{actualMap.name}</MapStyle.InfoSpan>
+          </h3>
           <MapStyle.InfoParagraph>
-            Current user: <MapStyle.InfoSpan>{user.username}</MapStyle.InfoSpan>
+            Current handicap:{" "}
+            <MapStyle.InfoSpan>{actualMap.handicap}</MapStyle.InfoSpan>
           </MapStyle.InfoParagraph>
-          <MapStyle.InfoParagraph id="theEnd">
-            City Name: <MapStyle.InfoSpan>{currentCity.name}</MapStyle.InfoSpan>
+          <MapStyle.InfoParagraph>
+            Username: <MapStyle.InfoSpan>{user.username}</MapStyle.InfoSpan>
+          </MapStyle.InfoParagraph>
+          <p>- - - - - -</p>
+          <MapStyle.InfoParagraph>
+            Round:{" "}
+            <MapStyle.InfoSpan>
+              {currentRound > 5 ? 5 : currentRound + 1}
+            </MapStyle.InfoSpan>
           </MapStyle.InfoParagraph>
           <MapStyle.ScoreParagraph>
             Actual score: <MapStyle.InfoSpan>{actualScore}</MapStyle.InfoSpan>
           </MapStyle.ScoreParagraph>
+          <MapStyle.InfoParagraph id="theEnd">
+            City Name: <MapStyle.InfoSpan>{currentCity.name}</MapStyle.InfoSpan>
+          </MapStyle.InfoParagraph>
           <MapStyle.NextCityButton
             id="clearButton"
             className={cityMarkerClass}
