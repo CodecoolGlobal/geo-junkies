@@ -11,6 +11,7 @@ import { Redirect } from "react-router-dom";
 import { ActualMapContext } from "../../contexts/ActualMapContext";
 import CardContainer from "../elements/CardContainer";
 import "../../style/Images.css";
+import { MathComponent } from "mathjax-react";
 
 const ChoosePageDiv = styled.div`
   text-align: center;
@@ -69,6 +70,9 @@ const ChooseMapPage = (props) => {
               ))
             : ""}
         </div>
+        <MathComponent
+          tex={String.raw`point=\frac{handicap - {distance}}{handicap} * {1000}`}
+        />
       </div>
       {errorMessage === null
         ? ""
