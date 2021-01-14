@@ -1,0 +1,9 @@
+{
+  "login": "https://gentle-savannah-93060.herokuapp.com/api/login",
+  "logout": "https://gentle-savannah-93060.herokuapp.com/api/logout",
+  "registration": "https://gentle-savannah-93060.herokuapp.com/api/registration",
+  "maps": "https://gentle-savannah-93060.herokuapp.com/api/maps",
+  "cities": "https://gentle-savannah-93060.herokuapp.com/api/map",
+  "highscores": "https://gentle-savannah-93060.herokuapp.com/api/highscores",
+  "highscore": "https://gentle-savannah-93060.herokuapp.com/api/highscore/"
+}
