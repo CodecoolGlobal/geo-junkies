@@ -53,7 +53,11 @@ const RegistrationPage = (props) => {
         </form>
         {errorMessage === null
           ? ""
-          : errorMessage.map((data, index) => <div key={index}>{data}</div>)}
+          : errorMessage.map((data, index) => (
+              <div id="error_msg" key={index}>
+                {data}
+              </div>
+            ))}
       </div>
     </RegistrationPageDiv>
   );
