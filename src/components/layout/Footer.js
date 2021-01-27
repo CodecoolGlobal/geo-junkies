@@ -14,7 +14,7 @@ const Sponsor = styled.div`
 export default function Footer() {
   return (
     <FooterContainer>
-      <CopyRight>Copyright 2020 - Geo Junkies</CopyRight>
+      <CopyRight>Copyright 2021 - Geo Junkies</CopyRight>
       <Sponsor>Sponsored by Márton Kozma</Sponsor>
     </FooterContainer>
   );
