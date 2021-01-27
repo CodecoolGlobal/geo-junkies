@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import mapboxgl, { LngLat } from "mapbox-gl";
 import * as MapStyle from "../elements/MapContainer";
-import "../../style/marker.css";
+import "../../style/Marker.css";
 // eslint-disable-next-line no-unused-vars
 import ReactMapboxGl, { Layer, Feature, Marker, Popup } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";

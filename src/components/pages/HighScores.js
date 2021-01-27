@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../style/high-score.css";
+import "../../style/High-score.css";
 import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
 import PlayersContainer from "../elements/PlayerContainer";
