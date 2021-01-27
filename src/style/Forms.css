@@ -17,6 +17,12 @@
   min-height: 300px;
 }
 
+#error_msg {
+  font-size: larger;
+  padding: 5px;
+  color: red;
+}
+
 input {
   padding: 5px;
   margin-bottom: 10px;
