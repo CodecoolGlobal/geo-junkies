@@ -1,0 +1,5 @@
+.set-disabled {
+  cursor: default;
+  pointer-events: none;
+  text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey !important;
+}
