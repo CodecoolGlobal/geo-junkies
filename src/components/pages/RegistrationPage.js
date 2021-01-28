@@ -42,13 +42,13 @@ const RegistrationPage = (props) => {
         <form method="post" onSubmit={handleSubmit}>
           <h2>Registration</h2>
           <label>Username:</label>
-          <input type="text" name="username" />
+          <input type="text" name="username" required />
           <label>Email:</label>
-          <input type="email" name="email" />
+          <input type="email" name="email" required />
           <label>Password:</label>
-          <input type="password" name="password" />
+          <input type="password" name="password" required />
           <label>Confirm password:</label>
-          <input type="password" name="password_confirm" />
+          <input type="password" name="password_confirm" required />
           <button type="submit">Register</button>
         </form>
         {errorMessage === null
