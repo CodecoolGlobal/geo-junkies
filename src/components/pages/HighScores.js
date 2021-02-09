@@ -30,7 +30,7 @@ export default function HighScores() {
   };
 
   let content = (
-    <div>
+    <div class="container">
       <PlayersContainer>
         <h1 className="score-title">High Scores</h1>
         <div className="buttonBox">
@@ -98,9 +98,9 @@ export default function HighScores() {
             {players
               ? players.map((player, index) => (
                   <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{player.name}</td>
-                    <td>{player.score}</td>
+                    <td className="rank">{index + 1}</td>
+                    <td className="players">{player.name}</td>
+                    <td className="scores">{player.score}</td>
                   </tr>
                 ))
               : ""}

@@ -5,14 +5,13 @@ const NavbarContainer = styled.div`
   flex-direction: column;
   position: fixed;
   left: 0;
-  top: 0;
+  top: 6%;
   width: 10%;
-  min-height: 50%;
-  background-color: lightgrey;
-  opacity: 0.6;
-  z-index: 9999;
-  border-radius: 0 0 20px 0;
-  border: 1px solid darkgrey;
+  min-height: 89%;
+  background-color: black;
+  opacity: 0.9;
+  z-index: 999;
+  border: 1px solid black;
   @media screen and (max-width: 1520px) {
     font-size: 0.9em;
   }

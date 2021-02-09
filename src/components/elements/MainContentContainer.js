@@ -4,7 +4,7 @@ const Content = styled.div`
   position: fixed;
   top: 6%;
   right: 0;
-  width: 85%;
+  width: 90%;
   height: 89%;
 `;
 
