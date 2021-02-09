@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "../../style/High-score.css";
+// import "../../style/High-score.css";
 import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
-import PlayersContainer from "../elements/PlayerContainer";
+import { PlayersContainer } from "../elements/PlayerContainer";
 
 export default function HighScores() {
 	const [players, setPlayers] = useState([]);
@@ -16,23 +16,31 @@ export default function HighScores() {
 
 	const switchMap = async (mapId) => {
 		setMapId(mapId);
-  };
-  
-  const countries = ['Africa', 'USA', 'S. America', 'Australia', 'Europe','Asia', 'Hungary'];
+	};
+
+	const countries = [
+		"Africa",
+		"USA",
+		"S. America",
+		"Australia",
+		"Europe",
+		"Asia",
+		"Hungary",
+	];
 
 	let content = (
 		<div className="container">
-			<div className="player-container">
+			<PlayersContainer>
 				<h1 className="title">High Scores</h1>
 				<div className="buttonBox">
-          {countries.map((country, index) => (
-            <button
-              className={`map-title ${index+1 === mapId ? "active" : ""}`}
-              data-mapid={index + 1}
-              onClick={() => switchMap(index + 1)}>
-              {country}
-            </button>
-          ))}
+					{countries.map((country, index) => (
+						<button
+							className={`map-title ${index + 1 === mapId ? "active" : ""}`}
+							data-mapid={index + 1}
+							onClick={() => switchMap(index + 1)}>
+							{country}
+						</button>
+					))}
 				</div>
 				<table>
 					<thead>
@@ -54,7 +62,7 @@ export default function HighScores() {
 							: ""}
 					</tbody>
 				</table>
-			</div>
+			</PlayersContainer>
 		</div>
 	);
 
