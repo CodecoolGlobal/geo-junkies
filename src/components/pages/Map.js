@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import axios from "axios";
 // eslint-disable-next-line no-unused-vars
 import mapboxgl, { LngLat } from "mapbox-gl";
 import * as MapStyle from "../elements/MapContainer";
@@ -14,6 +14,7 @@ import { CityContext } from "../../contexts/CityContext";
 import { ActualMapContext } from "../../contexts/ActualMapContext";
 import UsePostData from "../../hooks/UsePostData";
 import APIs from "../files/ApiRequestURL.json";
+import EndGameModal from "../layout/EndGameModal";
 
 const MapBox = ReactMapboxGl({
   accessToken:
@@ -42,7 +43,19 @@ const Map = (props) => {
   const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
   const user = useContext(UserContext)[0];
   const [actualScore, setActualScore] = useState(0);
+  const [modalState, setModalState] = useState(false);
+  const [nextButtonText, setNextButtonText] = useState("Next City");
+  const [highscores, setHighscores] = useState([]);
 
+  useEffect(() => {
+    axios
+      .get(`${APIs.highscores}/${actualMap.id}`)
+      .then((result) =>
+        setHighscores(result.data.highscores.map((data) => data.score))
+      );
+  }, [actualMap.id]);
+
+  /* eslint react/prop-types: 0 */
   let content = "";
   if (currentCity && user.username) {
     content = (
@@ -126,18 +139,15 @@ const Map = (props) => {
               className={cityMarkerClass}
               onClick={(map, e) => buttonHandler()}
             >
-              Next City
+              {nextButtonText}
             </MapStyle.NextCityButton>
-            <Link to="/">
-              <MapStyle.EndGameButton
-                id="endGameButton"
-                className="displayNone"
-              >
-                Finish Game
-              </MapStyle.EndGameButton>
-            </Link>
           </MapStyle.ActualInfoContainer>
         </MapStyle.UserAndCityContainer>
+        <EndGameModal
+          modalState={modalState}
+          highscores={highscores}
+          actualScore={actualScore}
+        />
       </MapStyle.MapContainer>
     );
   }
@@ -182,8 +192,10 @@ const Map = (props) => {
           }
         }
       );
-      document.querySelector("#theEnd").innerHTML = `THE END`;
-      document.querySelector("#endGameButton").classList.remove("displayNone");
+      setModalState(true);
+    }
+    if (currentRound === 3) {
+      setNextButtonText("Finish");
     }
   };
 
