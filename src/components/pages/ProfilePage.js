@@ -44,7 +44,7 @@ export default function ProfilePage() {
 
 	let content = (
 		<div className="container-profile">
-			<PlayersContainer>
+			<div className="player-container">
 				<div className="user">{user.username}</div>
 				<h1 className="title">My Scores</h1>
 				<div className="buttonBox">
@@ -101,7 +101,6 @@ export default function ProfilePage() {
 							<th className="right-row">Date</th>
 						</tr>
 					</thead>
-
 					<tbody>
 						{scores
 							? scores.map((player, index) => (
@@ -116,7 +115,7 @@ export default function ProfilePage() {
 							: ""}
 					</tbody>
 				</table>
-			</PlayersContainer>
+			</div>
 			{errorMessage === null
 				? ""
 				: errorMessage.map((data, index) => <div key={index}>{data}</div>)}
