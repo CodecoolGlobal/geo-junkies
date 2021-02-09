@@ -6,7 +6,7 @@ const Content = styled.div`
 	right: 0;
 	width: 90%;
 	height: 89%;
-	overflow-y: scroll;
+	overflow-y: auto;
 `;
 
 export default Content;
