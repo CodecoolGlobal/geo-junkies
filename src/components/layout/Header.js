@@ -5,15 +5,16 @@ import styled from "styled-components";
 import HeaderContainer from "../elements/HeaderContainer";
 
 const HeaderLink = styled(Link)`
-  color: ${(props) => (useLocation().pathname === props.to ? "grey" : "white")};
+  color: ${(props) =>
+    useLocation().pathname === props.to ? "grey" : "yellow"};
   text-decoration: none;
   font-weight: bold;
   pointer-events: ${(props) =>
     useLocation().pathname === props.to ? "none" : ""};
+  margin: auto 0 auto 0;
   &:hover {
     color: green;
   }
-  margin: auto 0 auto 0;
 `;
 
 const HeaderLogo = styled.div`
@@ -34,7 +35,7 @@ const Header = (props) => {
           {user.username ? (
             <React.Fragment>
               <span style={{ fontWeight: "normal" }}>Logged in as </span>
-              {user.username}
+              <span>{user.username}</span>
             </React.Fragment>
           ) : (
             "Not Logged in"
