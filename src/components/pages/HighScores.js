@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 // import "../../style/High-score.css";
+import { UserContext } from "../../contexts/UserContext";
 import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
 import { PlayersContainer } from "../elements/PlayerContainer";
+import ribbon from "../images/ribbon.png"
 
 export default function HighScores() {
+	const user = useContext(UserContext)[0];
 	const [players, setPlayers] = useState([]);
 	const [mapId, setMapId] = useState(1);
 
@@ -54,7 +57,15 @@ export default function HighScores() {
 						{players
 							? players.map((player, index) => (
 									<tr key={index}>
-										<td className="left-row">{index + 1}</td>
+										<td className="left-row">
+											{user.username === player.name && (
+												<img
+													className="ribbon"
+													src={ribbon}
+													alt=""></img>
+											)}
+											{index + 1}
+										</td>
 										<td className="center-row">{player.name}</td>
 										<td className="right-row">{player.score}</td>
 									</tr>
