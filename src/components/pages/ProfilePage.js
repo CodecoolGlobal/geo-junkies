@@ -3,9 +3,8 @@ import { UserContext } from "../../contexts/UserContext";
 import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import PlayersContainer from "../elements/PlayerContainer";
 import "../../style/High-score.css";
-
+import PlayersContainer from "../elements/PlayerContainer";
 
 export default function ProfilePage() {
 	const user = useContext(UserContext)[0];
@@ -44,12 +43,12 @@ export default function ProfilePage() {
 	};
 
 	let content = (
-		<div>
+		<div className="container">
 			<PlayersContainer>
 				<div>
 					<h2>{user.username}</h2>
 				</div>
-				<h1 className="score-title">My Scores</h1>
+				<h1 className="title">My Scores</h1>
 				<div className="buttonBox">
 					<button
 						id="leftButton"
