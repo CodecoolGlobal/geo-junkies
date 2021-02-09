@@ -76,7 +76,7 @@ export default function HighScores() {
 						id="rightButton"
 						data-mapid="2"
 						onClick={() => switchMap(2)}>
-						Usa
+						USA
 					</button>
 				</div>
 				<table>
