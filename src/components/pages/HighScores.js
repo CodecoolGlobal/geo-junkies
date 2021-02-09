@@ -30,9 +30,9 @@ export default function HighScores() {
   };
 
   let content = (
-    <div class="container">
+    <div className="container">
       <PlayersContainer>
-        <h1 className="score-title">High Scores</h1>
+        <h1 className="title">High Scores</h1>
         <div className="buttonBox">
           <button
             id="leftButton"
