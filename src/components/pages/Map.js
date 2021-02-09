@@ -55,7 +55,7 @@ const Map = (props) => {
       );
   }, [actualMap.id]);
 
-  /* eslint react/prop-types: 0 */
+  /* eslint "react/no-unknown-property": 0 */
   let content = "";
   if (currentCity && user.username) {
     content = (
