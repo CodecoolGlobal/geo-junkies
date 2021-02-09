@@ -43,11 +43,9 @@ export default function ProfilePage() {
 	};
 
 	let content = (
-		<div className="container">
+		<div className="container-profile">
 			<PlayersContainer>
-				<div>
-					<h2>{user.username}</h2>
-				</div>
+				<div className="user">{user.username}</div>
 				<h1 className="title">My Scores</h1>
 				<div className="buttonBox">
 					<button
@@ -103,13 +101,16 @@ export default function ProfilePage() {
 							<th className="right-row">Date</th>
 						</tr>
 					</thead>
+
 					<tbody>
 						{scores
 							? scores.map((player, index) => (
 									<tr key={index}>
 										<td className="left-row">{index + 1}</td>
 										<td className="center-row">{player.score}</td>
-										<td className="right-row">{player.created_at}</td>
+										<td className="right-row">
+											{player.created_at.split(" ")[0]}
+										</td>
 									</tr>
 							  ))
 							: ""}
