@@ -3,8 +3,11 @@ import { UserContext } from "../../contexts/UserContext";
 import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import "../../style/High-score.css";
-import PlayersContainer from "../elements/PlayerContainer";
+// import "../../style/High-score.css";
+import {
+	PlayersContainer,
+	ProfileContainer,
+} from "../elements/PlayerContainer";
 
 export default function ProfilePage() {
 	const user = useContext(UserContext)[0];
@@ -29,25 +32,33 @@ export default function ProfilePage() {
 
 	const switchMap = async (mapId) => {
 		setMapId(mapId);
-  };
-  
-  const countries = ['Africa', 'USA', 'S. America', 'Australia', 'Europe','Asia', 'Hungary'];
+	};
 
+	const countries = [
+		"Africa",
+		"USA",
+		"S. America",
+		"Australia",
+		"Europe",
+		"Asia",
+		"Hungary",
+	];
 
 	let content = (
-		<div className="container-profile">
-			<div className="player-container">
+		<ProfileContainer>
+			<PlayersContainer>
+				{/* <div className="me">ME</div> */}
 				<div className="user">{user.username}</div>
 				<h1 className="title">My Scores</h1>
 				<div className="buttonBox">
-          {countries.map((country, index) => (
-            <button
-              className={`map-title ${index+1 === mapId ? "active" : ""}`}
-              data-mapid={index + 1}
-              onClick={() => switchMap(index + 1)}>
-              {country}
-            </button>
-          ))}
+					{countries.map((country, index) => (
+						<button
+							className={`map-title ${index + 1 === mapId ? "active" : ""}`}
+							data-mapid={index + 1}
+							onClick={() => switchMap(index + 1)}>
+							{country}
+						</button>
+					))}
 				</div>
 				<table>
 					<thead>
@@ -71,11 +82,11 @@ export default function ProfilePage() {
 							: ""}
 					</tbody>
 				</table>
-			</div>
+			</PlayersContainer>
 			{errorMessage === null
 				? ""
 				: errorMessage.map((data, index) => <div key={index}>{data}</div>)}
-		</div>
+		</ProfileContainer>
 	);
 
 	return user.token ? content : <Redirect to="/" />;
