@@ -66,7 +66,7 @@ export default function ProfilePage() {
 							<tr>
 								<th className="left-row">Rank</th>
 								<th className="center-row">Score</th>
-								<th className="right-row">Date</th>
+								<th className="right-row date"> Date</th>
 							</tr>
 						</thead>
 						<tbody>
