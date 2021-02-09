@@ -97,9 +97,20 @@ export const PlayersContainer = styled.div`
 		color: white;
 	}
 
+	.table-container {
+		margin: 0px;
+		background-color: #4b4e57;
+		border: 1px solid black;
+		text-align: center;
+		min-height: 50vh;
+		max-height: 50vh;
+		display: inline-grid;
+		overflow-y: auto;
+	}
+
 	table {
 		text-align: center;
-		border: 1px solid black;
+		border: none;
 		align-content: center;
 		background-color: #4b4e57;
 	}
