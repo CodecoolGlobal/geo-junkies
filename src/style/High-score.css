@@ -1,3 +1,63 @@
+.player-container {
+  margin-top: 2%;
+	margin-left: 15%;
+	margin-bottom: 10%;
+	width: 70%;
+	border: 5px solid lightgrey;
+	padding: 10px;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	letter-spacing: 0.1em;
+}
+
+.buttonBox {
+  height: 10%;
+  margin-bottom: -3px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+button {
+    width: 50%;
+    padding: 6px 0;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    /* border-bottom: white solid 3px;
+    border-right: white solid 3px; */
+    background-color: black;
+    text-shadow: 2px 2px;
+    margin: 5px;
+    box-shadow: 2px 2px 4px #000000;
+  }
+
+  .active {
+    font-weight: 750;
+    background-color: green;
+  }
+  /* 
+  #leftButton {
+    border-radius: 15px 0 0;
+  }
+
+  #rightButton {
+    border-radius: 0 15px 0 0;
+    border-right: none;
+  } */
+
+  .map-title {
+    text-align: center;
+    color: rgba(228, 238, 34, 0.92);
+    text-decoration: none;
+    text-shadow: none;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
 .title {
 	text-align: center;
 	color: rgba(228, 238, 34, 0.92);
@@ -9,6 +69,29 @@
 	font-size: 2.5rem;
 	border-radius: 10px;
 	/* font-family: "Stencil Std", fantasy; */
+}
+
+.container-profile {
+	margin-top: 4%;
+}
+
+.user {
+	position: absolute;
+	display: inline-block;
+	text-align: center;
+	top: 6%;
+	left: 55%;
+	transform: translate(-97%, -45%);
+	/* margin-left: -30px; */
+	/* width: 5% !important; */
+	/* height: 60px; */
+	background-color: lightgray;
+	text-decoration: none;
+	text-shadow: 2px 2px 4px #000000;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 2.5rem;
+	border-radius: 10px;
 }
 
 table {
@@ -41,19 +124,23 @@ td {
 tbody {
 	text-align: center;
 	text-shadow: 2px 2px 4px #000000;
+	overflow-y: scroll;
 }
-
 /* tbody tr:nth-child(odd) {
 	background-color: #cad4e4;
 } */
 
 .left-row {
 	text-align: right;
+	width: 35%;
 }
 
 .center-row {
+	width: 30%;
+	overflow: hidden;
 }
 
 .right-row {
 	text-align: left;
+	width: 35%;
 }
