@@ -10,7 +10,7 @@ const HeaderContainer = styled.div`
   z-index: 9999;
   background-color: black;
   display: flex;
-  padding: 0.7% 20px 0px 20px;
+  padding: 0 30px 0 30px;
   justify-content: space-between;
   color: white;
 `;

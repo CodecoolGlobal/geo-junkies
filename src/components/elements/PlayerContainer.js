@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const PlayersContainer = styled.div`
-	margin-top: 5%;
+	margin-top: 1%;
 	margin-left: 15%;
 	width: 70%;
 	border: 5px solid lightgrey;

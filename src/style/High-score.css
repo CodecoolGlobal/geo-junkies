@@ -1,4 +1,4 @@
-.score-title {
+.title {
 	text-align: center;
 	color: rgba(228, 238, 34, 0.92);
 	text-decoration: none;
@@ -6,7 +6,7 @@
 	/* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
 	padding: 5px;
 	font-weight: bold;
-	font-size: 2.5em;
+	font-size: 2.5rem;
 	border-radius: 10px;
 	/* font-family: "Stencil Std", fantasy; */
 }
@@ -14,10 +14,11 @@
 table {
 	text-align: center;
 	border: 1px solid black;
+	align-content: center;
 }
 
 thead {
-	font-size: 1rem;
+	font-size: 1em;
 	text-align: center;
 	color: rgba(228, 238, 34, 0.92);
 	text-decoration: none;
@@ -31,10 +32,10 @@ thead {
 }
 
 td {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-weight: bold;
-  padding: 1%;
-  color: #a9acb5;
+	padding: 1%;
+	color: #a9acb5;
 }
 
 tbody {
@@ -46,13 +47,13 @@ tbody {
 	background-color: #cad4e4;
 } */
 
-.rank {
+.left-row {
 	text-align: right;
 }
 
-.players {
+.center-row {
 }
 
-.scores {
+.right-row {
 	text-align: left;
 }

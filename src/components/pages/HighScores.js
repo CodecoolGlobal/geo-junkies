@@ -30,9 +30,9 @@ export default function HighScores() {
   };
 
   let content = (
-    <div class="container">
+    <div className="container">
       <PlayersContainer>
-        <h1 className="score-title">High Scores</h1>
+        <h1 className="title">High Scores</h1>
         <div className="buttonBox">
           <button
             id="leftButton"
@@ -89,18 +89,18 @@ export default function HighScores() {
         <table>
           <thead>
             <tr>
-              <th className="rank">Rank</th>
-              <th className="players">Player</th>
-              <th className="scores">Score</th>
+              <th className="left-row">Rank</th>
+              <th className="center-row">Player</th>
+              <th className="right-row">Score</th>
             </tr>
           </thead>
           <tbody>
             {players
               ? players.map((player, index) => (
                   <tr key={index}>
-                    <td className="rank">{index + 1}</td>
-                    <td className="players">{player.name}</td>
-                    <td className="scores">{player.score}</td>
+                    <td className="left-row">{index + 1}</td>
+                    <td className="center-row">{player.name}</td>
+                    <td className="right-row">{player.score}</td>
                   </tr>
                 ))
               : ""}
