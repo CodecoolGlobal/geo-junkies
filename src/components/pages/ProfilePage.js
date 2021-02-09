@@ -60,28 +60,30 @@ export default function ProfilePage() {
 						</button>
 					))}
 				</div>
-				<table>
-					<thead>
-						<tr>
-							<th className="left-row">Rank</th>
-							<th className="center-row">Score</th>
-							<th className="right-row">Date</th>
-						</tr>
-					</thead>
-					<tbody>
-						{scores
-							? scores.map((player, index) => (
-									<tr key={index}>
-										<td className="left-row">{index + 1}</td>
-										<td className="center-row">{player.score}</td>
-										<td className="right-row">
-											{player.created_at.split(" ")[0]}
-										</td>
-									</tr>
-							  ))
-							: ""}
-					</tbody>
-				</table>
+				<div className="table-container">
+					<table>
+						<thead>
+							<tr>
+								<th className="left-row">Rank</th>
+								<th className="center-row">Score</th>
+								<th className="right-row">Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							{scores
+								? scores.map((player, index) => (
+										<tr key={index}>
+											<td className="left-row">{index + 1}</td>
+											<td className="center-row">{player.score}</td>
+											<td className="right-row">
+												{player.created_at.split(" ")[0]}
+											</td>
+										</tr>
+								  ))
+								: ""}
+						</tbody>
+					</table>
+				</div>
 			</PlayersContainer>
 			{errorMessage === null
 				? ""
