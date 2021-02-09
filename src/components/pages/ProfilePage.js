@@ -163,18 +163,18 @@ export default function ProfilePage() {
         <table>
           <thead>
             <tr>
-              <th className="rank">Rank</th>
-              <th className="players">Score</th>
-              <th className="scores">Date</th>
+              <th className="left-row">Rank</th>
+              <th className="center-row">Score</th>
+              <th className="right-row">Date</th>
             </tr>
           </thead>
           <tbody>
             {scores
               ? scores.map((player, index) => (
                   <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{player.score}</td>
-                    <td>{player.created_at}</td>
+                    <td className="left-row">{index + 1}</td>
+                    <td className="center-row">{player.score}</td>
+                    <td className="right-row">{player.created_at}</td>
                   </tr>
                 ))
               : ""}
