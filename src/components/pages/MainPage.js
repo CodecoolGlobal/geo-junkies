@@ -5,6 +5,8 @@ import "../../style/App.css";
 const MainPageContainer = styled.div`
   width: 100%;
   height: 100%;
+  padding-left: 5%;
+  padding-top: 5%;
   display: inline-block;
   align-items: center;
   flex-direction: column;
