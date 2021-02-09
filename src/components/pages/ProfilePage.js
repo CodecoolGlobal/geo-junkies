@@ -1,7 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import styled from "styled-components";
 import { UserContext } from "../../contexts/UserContext";
-import "../../style/High-score.css";
 import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
