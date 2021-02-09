@@ -13,6 +13,11 @@ const HeaderLink = styled(Link)`
   &:hover {
     color: green;
   }
+  margin: auto 0 auto 0;
+`;
+
+const HeaderLogo = styled.div`
+  margin: auto 0 auto 0;
 `;
 
 const Header = (props) => {
@@ -20,7 +25,7 @@ const Header = (props) => {
   return (
     <HeaderContainer>
       <React.Fragment>
-        <div>LOGO</div>
+        <HeaderLogo id="logo"></HeaderLogo>
         <HeaderLink
           to="/profile"
           className={user.token ? "" : "set-disabled"}
