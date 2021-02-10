@@ -102,6 +102,17 @@ export const PlayersContainer = styled.div`
     max-height: 50vh;
     display: inline-grid;
     overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: black;
+      border: 1px solid black;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: white;
+      border: 1px solid black;
+    }
   }
 
   table {
@@ -161,7 +172,7 @@ export const PlayersContainer = styled.div`
     word-break: keep-all;
   }
 
-  tbody tr:hover {
+  tbody .center-row:hover {
     transform: scale(1.25);
   }
 `;

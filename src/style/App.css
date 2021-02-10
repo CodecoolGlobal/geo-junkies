@@ -34,6 +34,17 @@ body,
   height: 80%;
   overflow-y: auto;
 }
+#main-describe::-webkit-scrollbar {
+  width: 10px;
+}
+#main-describe::-webkit-scrollbar-track {
+  background-color: black;
+  border: 1px solid black;
+}
+#main-describe::-webkit-scrollbar-thumb {
+  background-color: white;
+  border: 1px solid black;
+}
 
 #main-describe p {
   padding-top: 5%;
