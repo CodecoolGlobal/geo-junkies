@@ -17,8 +17,18 @@ const HeaderLink = styled(Link)`
   }
 `;
 
+const LogoContainer = styled.div`
+  display: flex;
+`;
+
 const HeaderLogo = styled.div`
   margin: auto 0 auto 0;
+`;
+
+const HeaderLogoText = styled.div`
+  margin: auto;
+  font-weight: bold;
+  color: #2be02b;
 `;
 
 const Header = (props) => {
@@ -26,7 +36,11 @@ const Header = (props) => {
   return (
     <HeaderContainer>
       <React.Fragment>
-        <HeaderLogo id="logo"></HeaderLogo>
+        <LogoContainer>
+          <HeaderLogo id="logo"></HeaderLogo>
+          <HeaderLogoText>G e o&nbsp;&nbsp;G u e s s e R</HeaderLogoText>
+        </LogoContainer>
+
         <HeaderLink
           to="/profile"
           className={user.token ? "" : "set-disabled"}
