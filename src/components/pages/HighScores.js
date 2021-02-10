@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
-import "../../style/High-score.css";
+import React, { useContext, useState, useEffect } from "react";
+// import "../../style/High-score.css";
+import { UserContext } from "../../contexts/UserContext";
 import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
-import PlayersContainer from "../elements/PlayerContainer";
+import { PlayersContainer } from "../elements/PlayerContainer";
+import ribbon from "../images/ribbon.png"
 
 export default function HighScores() {
+	const user = useContext(UserContext)[0];
 	const [players, setPlayers] = useState([]);
 	const [mapId, setMapId] = useState(1);
 
@@ -16,68 +19,31 @@ export default function HighScores() {
 
 	const switchMap = async (mapId) => {
 		setMapId(mapId);
-		markActive(mapId);
 	};
 
-	const markActive = (mapId) => {
-		let buttons = document.querySelectorAll(`button`);
-		for (const button of buttons) {
-			button.classList.remove("active");
-		}
-		document
-			.querySelector(`button[data-mapId="${mapId}"]`)
-			.classList.add("active");
-	};
+	const countries = [
+		"Africa",
+		"USA",
+		"S. America",
+		"Australia",
+		"Europe",
+		"Asia",
+		"Hungary",
+	];
 
 	let content = (
 		<div className="container">
-			<div className="player-container">
+			<PlayersContainer>
 				<h1 className="title">High Scores</h1>
 				<div className="buttonBox">
-					<button
-						id="leftButton"
-						className="active map-title"
-						data-mapid="1"
-						onClick={() => switchMap(1)}>
-						Africa
-					</button>
-					<button
-						className="map-title"
-						data-mapid="6"
-						onClick={() => switchMap(6)}>
-						Asia
-					</button>
-					<button
-						className="map-title"
-						data-mapid="4"
-						onClick={() => switchMap(4)}>
-						Australia
-					</button>
-					<button
-						className="map-title"
-						data-mapid="5"
-						onClick={() => switchMap(5)}>
-						Europe
-					</button>
-					<button
-						className="map-title"
-						data-mapid="7"
-						onClick={() => switchMap(7)}>
-						Hungary
-					</button>
-					<button
-						className="map-title"
-						data-mapid="3"
-						onClick={() => switchMap(3)}>
-						S. America
-					</button>
-					<button
-						className="map-title"
-						id="rightButton"
-						data-mapid="2"
-						onClick={() => switchMap(2)}>
-						Usa
-					</button>
+					{countries.map((country, index) => (
+						<button
+							className={`map-title ${index + 1 === mapId ? "active" : ""}`}
+							data-mapid={index + 1}
+							onClick={() => switchMap(index + 1)}>
+							{country}
+						</button>
+					))}
 				</div>
 				<table>
 					<thead>
@@ -91,7 +57,15 @@ export default function HighScores() {
 						{players
 							? players.map((player, index) => (
 									<tr key={index}>
-										<td className="left-row">{index + 1}</td>
+										<td className="left-row">
+											{user.username === player.name && (
+												<img
+													className="ribbon"
+													src={ribbon}
+													alt=""></img>
+											)}
+											{index + 1}
+										</td>
 										<td className="center-row">{player.name}</td>
 										<td className="right-row">{player.score}</td>
 									</tr>
@@ -99,7 +73,7 @@ export default function HighScores() {
 							: ""}
 					</tbody>
 				</table>
-			</div>
+			</PlayersContainer>
 		</div>
 	);
 

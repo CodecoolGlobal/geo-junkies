@@ -1,4 +1,4 @@
-.player-container {
+/* .player-container {
   margin-top: 2%;
 	margin-left: 15%;
 	margin-bottom: 10%;
@@ -20,14 +20,13 @@
   justify-content: space-around;
   align-items: flex-end;
 }
+
 button {
     width: 50%;
     padding: 6px 0;
     outline: none;
     cursor: pointer;
     border: none;
-    /* border-bottom: white solid 3px;
-    border-right: white solid 3px; */
     background-color: black;
     text-shadow: 2px 2px;
     margin: 5px;
@@ -38,15 +37,6 @@ button {
     font-weight: 750;
     background-color: green;
   }
-  /* 
-  #leftButton {
-    border-radius: 15px 0 0;
-  }
-
-  #rightButton {
-    border-radius: 0 15px 0 0;
-    border-right: none;
-  } */
 
   .map-title {
     text-align: center;
@@ -63,12 +53,10 @@ button {
 	color: rgba(228, 238, 34, 0.92);
 	text-decoration: none;
 	text-shadow: 2px 2px 4px #000000;
-	/* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
 	padding: 5px;
 	font-weight: bold;
 	font-size: 2.5rem;
 	border-radius: 10px;
-	/* font-family: "Stencil Std", fantasy; */
 }
 
 .container-profile {
@@ -82,9 +70,6 @@ button {
 	top: 6%;
 	left: 55%;
 	transform: translate(-97%, -45%);
-	/* margin-left: -30px; */
-	/* width: 5% !important; */
-	/* height: 60px; */
 	background-color: lightgray;
 	text-decoration: none;
 	text-shadow: 2px 2px 4px #000000;
@@ -106,12 +91,10 @@ thead {
 	color: rgba(228, 238, 34, 0.92);
 	text-decoration: none;
 	text-shadow: 2px 2px 4px #000000;
-	/* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
 	padding: 5px;
 	font-weight: bold;
 	font-size: 2em;
 	border-radius: 10px;
-	/* background-color: lightgrey; */
 }
 
 td {
@@ -126,9 +109,6 @@ tbody {
 	text-shadow: 2px 2px 4px #000000;
 	overflow-y: scroll;
 }
-/* tbody tr:nth-child(odd) {
-	background-color: #cad4e4;
-} */
 
 .left-row {
 	text-align: right;
@@ -143,4 +123,4 @@ tbody {
 .right-row {
 	text-align: left;
 	width: 35%;
-}
+} */
