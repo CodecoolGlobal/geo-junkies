@@ -19,7 +19,7 @@ export default function Footer() {
 	return (
 		<FooterContainer>
 			<CopyRight>Copyright 2021 - Geo Junkies</CopyRight>
-      <Logo id="logo"></Logo>
+      <Logo></Logo>
 			<Sponsor>Sponsored by Márton Kozma</Sponsor>
 		</FooterContainer>
 	);
