@@ -45,9 +45,8 @@ export default function ProfilePage() {
 	];
 
 	let content = (
-		<ProfileContainer>
+		<div>
 			<PlayersContainer>
-				{/* <div className="me">ME</div> */}
 				<div className="user">{user.username}</div>
 				<h1 className="title">My Scores</h1>
 				<div className="buttonBox">
@@ -88,7 +87,7 @@ export default function ProfilePage() {
 			{errorMessage === null
 				? ""
 				: errorMessage.map((data, index) => <div key={index}>{data}</div>)}
-		</ProfileContainer>
+		</div>
 	);
 
 	return user.token ? content : <Redirect to="/" />;
