@@ -6,10 +6,11 @@ const AboutPageContainer = styled.div`
   right: 20%;
   min-width: 50%;
   min-height: 65%;
-  background-color: lightgrey;
+  background-color: black;
   opacity: 0.9;
   border-radius: 30px;
   text-align: right;
+  color: white;
 `;
 
 export default AboutPageContainer;
