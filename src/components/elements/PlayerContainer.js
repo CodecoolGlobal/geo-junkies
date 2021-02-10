@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-export const ProfileContainer = styled.div`
-	/* margin-top: 6%; */
-`;
 
 export const PlayersContainer = styled.div`
 	margin-top: 2%;
@@ -142,8 +139,8 @@ export const PlayersContainer = styled.div`
 
 	.left-row {
 		text-align: right;
-    width: 35%;
-    overflow: visible;
+		width: 35%;
+		overflow: visible;
 	}
 
 	.center-row {
@@ -163,5 +160,9 @@ export const PlayersContainer = styled.div`
 		max-height: 1.25em;
 		padding: 0px 10px 0px 10px;
 		word-break: keep-all;
+	}
+
+	tbody tr:hover {
+		transform: scale(1.25);
 	}
 `;
