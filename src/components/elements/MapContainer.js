@@ -125,3 +125,7 @@ export const ActualInfoContainer = styled.div`
   opacity: 0.9;
   border-radius: 20px;
 `;
+
+export const CountDownContainer = styled.p`
+  font-weight: bold;
+`;
