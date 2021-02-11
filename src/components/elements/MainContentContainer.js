@@ -17,6 +17,7 @@ const Content = styled.div`
   &::-webkit-scrollbar-thumb {
     background-color: white;
     border: 1px solid black;
+    border-radius: 5px;
   }
 `;
 
