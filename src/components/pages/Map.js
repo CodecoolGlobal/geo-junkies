@@ -15,6 +15,8 @@ import { ActualMapContext } from "../../contexts/ActualMapContext";
 import UsePostData from "../../hooks/UsePostData";
 import APIs from "../files/ApiRequestURL.json";
 import EndGameModal from "../layout/EndGameModal";
+import StartGameModal from "../layout/StartGameModal";
+import Countdown from "react-countdown";
 
 const MapBox = ReactMapboxGl({
   accessToken:
@@ -26,15 +28,17 @@ const MapBox = ReactMapboxGl({
   dragRotate: false,
 });
 
-const roundNumber = 5;
+const maxRoundNumber = 5;
 
 const Map = (props) => {
   const [isPointSelected, setIsPointSelected] = useState(false);
-  const [currentRound, setCurrentRound] = useState(0);
+  const [currentRoundIndex, setCurrentRoundIndex] = useState(0);
   const cities = useContext(CityContext)[0];
   const actualMap = useContext(ActualMapContext)[0];
   const selectedCities = useState(citySelector(cities))[0];
-  const [currentCity, setCurrentCity] = useState(selectedCities[currentRound]);
+  const [currentCity, setCurrentCity] = useState(
+    selectedCities[currentRoundIndex]
+  );
   const [markerLng, setMarkerLng] = useState(currentCity.longitude);
   const [markerLat, setMarkerLat] = useState(currentCity.latitude);
   const [popupMessage, setPopupMessage] = useState("");
@@ -44,6 +48,7 @@ const Map = (props) => {
   const user = useContext(UserContext)[0];
   const [actualScore, setActualScore] = useState(0);
   const [modalState, setModalState] = useState(false);
+  const [startModalState, setStartModalState] = useState(true);
   const [nextButtonText, setNextButtonText] = useState("Next City");
   const [highscores, setHighscores] = useState([]);
 
@@ -121,10 +126,24 @@ const Map = (props) => {
             </MapStyle.InfoParagraph>
           </MapStyle.MapDataContainer>
           <MapStyle.ActualInfoContainer>
+            <MapStyle.CountDownContainer>
+              Time left:{" "}
+              {startModalState ? (
+                ""
+              ) : (
+                <Countdown
+                  key={currentRoundIndex}
+                  date={Date.now() + 10000}
+                  precision={0}
+                  renderer={(props) => props.seconds}
+                  onComplete={(e) => countdownHandler()}
+                />
+              )}
+            </MapStyle.CountDownContainer>
             <MapStyle.InfoParagraph>
               Round:{" "}
               <MapStyle.InfoSpan>
-                {currentRound > 4 ? 5 : currentRound + 1}
+                {currentRoundIndex > 4 ? 5 : currentRoundIndex + 1}
               </MapStyle.InfoSpan>
             </MapStyle.InfoParagraph>
             <MapStyle.ScoreParagraph>
@@ -132,7 +151,9 @@ const Map = (props) => {
             </MapStyle.ScoreParagraph>
             <MapStyle.InfoParagraph id="theEnd">
               City Name:{" "}
-              <MapStyle.InfoSpan>{currentCity.name}</MapStyle.InfoSpan>
+              <MapStyle.InfoSpan>
+                {startModalState ? "" : currentCity.name}
+              </MapStyle.InfoSpan>
             </MapStyle.InfoParagraph>
             <MapStyle.NextCityButton
               id="clearButton"
@@ -147,6 +168,10 @@ const Map = (props) => {
           modalState={modalState}
           highscores={highscores}
           actualScore={actualScore}
+        />
+        <StartGameModal
+          startModalState={startModalState}
+          setStartModalState={setStartModalState}
         />
       </MapStyle.MapContainer>
     );
@@ -176,12 +201,12 @@ const Map = (props) => {
 
   const buttonHandler = () => {
     setCityMarkerClass("hidden");
-    setCurrentRound(currentRound + 1);
-    if (currentRound + 1 < 5) {
+    setCurrentRoundIndex(currentRoundIndex + 1);
+    if (currentRoundIndex + 1 < 5) {
       setIsPointSelected(false);
-      setCurrentCity(selectedCities[currentRound + 1]);
-      setMarkerLng(selectedCities[currentRound + 1].longitude);
-      setMarkerLat(selectedCities[currentRound + 1].latitude);
+      setCurrentCity(selectedCities[currentRoundIndex + 1]);
+      setMarkerLng(selectedCities[currentRoundIndex + 1].longitude);
+      setMarkerLat(selectedCities[currentRoundIndex + 1].latitude);
     } else {
       UsePostData(
         APIs.highscores,
@@ -194,7 +219,34 @@ const Map = (props) => {
       );
       setModalState(true);
     }
-    if (currentRound === 3) {
+
+    if (currentRoundIndex === maxRoundNumber - 2) {
+      setNextButtonText("Finish");
+    }
+  };
+
+  const countdownHandler = (e) => {
+    setCityMarkerClass("hidden");
+    if (currentRoundIndex + 1 < maxRoundNumber) {
+      setCurrentRoundIndex(currentRoundIndex + 1);
+      setIsPointSelected(false);
+      setCurrentCity(selectedCities[currentRoundIndex + 1]);
+      setMarkerLng(selectedCities[currentRoundIndex + 1].longitude);
+      setMarkerLat(selectedCities[currentRoundIndex + 1].latitude);
+    } else {
+      UsePostData(
+        APIs.highscores,
+        user.token,
+        { map: actualMap.id, score: actualScore },
+        (response) => {
+          if (response.status === 200) {
+          }
+        }
+      );
+      setModalState(true);
+    }
+
+    if (currentRoundIndex === 3) {
       setNextButtonText("Finish");
     }
   };
@@ -204,7 +256,7 @@ const Map = (props) => {
 
 function citySelector(cities) {
   let selectedCities = [];
-  while (selectedCities.length < roundNumber) {
+  while (selectedCities.length < maxRoundNumber) {
     let cityIndex = Math.floor(Math.random() * cities.length);
     let actualCity = cities[cityIndex];
     if (!selectedCities.includes(actualCity)) {
