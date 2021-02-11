@@ -8,7 +8,6 @@ const Title = styled.h1`
   text-align: left;
   margin-top: 5%;
   margin-left: 8%;
-  color: grey;
   text-decoration: none;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   letter-spacing: 0.2em;
@@ -19,7 +18,6 @@ const Title2 = styled.h1`
   text-align: right;
   margin-right: 9%;
   padding-bottom: 4%;
-  color: grey;
   text-decoration: none;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   letter-spacing: 0.2em;

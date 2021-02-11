@@ -11,22 +11,24 @@ const NavbarLinks = styled.div`
   justify-content: space-evenly;
 `;
 
+// text-shadow: ${(props) =>
+//   useLocation().pathname === props.to
+//     ? "-1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey"
+//     : "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"};
+// border-radius: 16px;
+// border: 1px solid black;
+
 const NavbarLink = styled(Link)`
-  color: grey;
+  color: ${(props) => (useLocation().pathname === props.to ? "grey" : "white")};
   text-decoration: none;
-  text-shadow: ${(props) =>
-    useLocation().pathname === props.to
-      ? "-1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey"
-      : "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"};
   padding: 5px;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.2em;
   letter-spacing: 0.025em;
-  border-radius: 10px;
   pointer-events: ${(props) =>
     useLocation().pathname === props.to ? "none" : ""};
   &:hover {
-    color: black;
+    color: green;
   }
 `;
 

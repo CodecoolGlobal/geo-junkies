@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-const PlayersContainer = styled.div`
-  margin-top: 5%;
+export const PlayersContainer = styled.div`
+  margin-top: 2%;
   margin-left: 15%;
-  width: 80%;
+  margin-bottom: 10%;
+  width: 70%;
   border: 5px solid lightgrey;
   padding: 10px;
   background-color: #fff;
@@ -19,43 +20,160 @@ const PlayersContainer = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
+  }
 
-    button {
-      width: 50%;
-      padding: 6px 0;
-      outline: none;
-      cursor: pointer;
-      border: none;
-      border-bottom: white solid 3px;
-      border-right: white solid 3px;
-      background-color: rgba(163, 163, 163);
+  button {
+    width: 50%;
+    padding: 6px 0;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: black;
+    text-shadow: 2px 2px;
+    margin: 5px;
+    box-shadow: 2px 2px 4px #000000;
+  }
+
+  .active {
+    font-weight: 750;
+    background-color: green;
+  }
+
+  .map-title {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .title {
+    text-align: center;
+    color: rgba(228, 238, 34, 0.92);
+    text-decoration: none;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 2.5rem;
+    border-radius: 10px;
+  }
+
+  .user {
+    text-align: center;
+    color: #fefaeb;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 2.5rem;
+    background-color: #4b4e57;
+  }
+
+  .me {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    top: 7%;
+    left: 55%;
+    transform: translate(-97%, -45%);
+    background-color: lightgray;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    /* border-radius: 10px; */
+    width: 7vw;
+    height: 7vw;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .table-container {
+    margin: 0px;
+    background-color: #4b4e57;
+    border: 1px solid black;
+    text-align: center;
+    min-height: 50vh;
+    max-height: 50vh;
+    display: inline-grid;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 10px;
     }
-
-    .active {
-      font-weight: 750;
-      background-color: lightgrey;
+    &::-webkit-scrollbar-track {
+      background-color: black;
+      border: 1px solid black;
     }
-
-    #leftButton {
-      border-radius: 15px 0 0;
-    }
-
-    #rightButton {
-      border-radius: 0 15px 0 0;
-      border-right: none;
-    }
-
-    .map-title {
-      font-size: 3rem;
-      text-align: center;
-      color: rgb(231, 231, 195);
-      text-decoration: none;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-      padding: 5px;
-      font-weight: bold;
-      font-size: 1.5em;
+    &::-webkit-scrollbar-thumb {
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 5px;
     }
   }
-`;
 
-export default PlayersContainer;
+  table {
+    text-align: center;
+    border: none;
+    align-content: center;
+    background-color: #4b4e57;
+  }
+
+  thead {
+    font-size: 1em;
+    text-align: center;
+    color: rgba(228, 238, 34, 0.92);
+    text-decoration: none;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 2em;
+    border-radius: 10px;
+  }
+
+  td {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1%;
+    color: #a9acb5;
+  }
+
+  tbody {
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    overflow-y: scroll;
+  }
+
+  .left-row {
+    text-align: right;
+    width: 35%;
+    overflow: visible;
+  }
+
+  .center-row {
+    width: 30%;
+    overflow: hidden;
+  }
+
+  .right-row {
+    text-align: left;
+    width: 35%;
+  }
+
+  .date {
+    padding-left: 5px;
+  }
+  .ribbon {
+    max-height: 1.25em;
+    padding: 0px 10px 0px 10px;
+    word-break: keep-all;
+  }
+
+  tbody .center-row:hover {
+    transform: scale(1.25);
+  }
+`;

@@ -1,37 +1,126 @@
-.score-title {
-  font-size: 3rem;
-  text-align: center;
-  color: rgb(231, 231, 195);
-  text-decoration: none;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 1.5em;
-  border-radius: 10px;
+/* .player-container {
+  margin-top: 2%;
+	margin-left: 15%;
+	margin-bottom: 10%;
+	width: 70%;
+	border: 5px solid lightgrey;
+	padding: 10px;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	letter-spacing: 0.1em;
+}
+
+.buttonBox {
+  height: 10%;
+  margin-bottom: -3px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+button {
+    width: 50%;
+    padding: 6px 0;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: black;
+    text-shadow: 2px 2px;
+    margin: 5px;
+    box-shadow: 2px 2px 4px #000000;
+  }
+
+  .active {
+    font-weight: 750;
+    background-color: green;
+  }
+
+  .map-title {
+    text-align: center;
+    color: rgba(228, 238, 34, 0.92);
+    text-decoration: none;
+    text-shadow: none;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+.title {
+	text-align: center;
+	color: rgba(228, 238, 34, 0.92);
+	text-decoration: none;
+	text-shadow: 2px 2px 4px #000000;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 2.5rem;
+	border-radius: 10px;
+}
+
+.container-profile {
+	margin-top: 4%;
+}
+
+.user {
+	position: absolute;
+	display: inline-block;
+	text-align: center;
+	top: 6%;
+	left: 55%;
+	transform: translate(-97%, -45%);
+	background-color: lightgray;
+	text-decoration: none;
+	text-shadow: 2px 2px 4px #000000;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 2.5rem;
+	border-radius: 10px;
 }
 
 table {
-  text-align: center;
-  border: 1px solid black;
+	text-align: center;
+	border: 1px solid black;
+	align-content: center;
 }
 
 thead {
-  font-size: 1rem;
-  text-align: center;
-  color: rgb(231, 231, 195);
-  text-decoration: none;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 1.5em;
-  border-radius: 10px;
-  background-color: lightgrey;
+	font-size: 1em;
+	text-align: center;
+	color: rgba(228, 238, 34, 0.92);
+	text-decoration: none;
+	text-shadow: 2px 2px 4px #000000;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 2em;
+	border-radius: 10px;
 }
 
-tbody tr:nth-child(odd) {
-  background-color: #cad4e4;
+td {
+	font-size: 1.25rem;
+	font-weight: bold;
+	padding: 1%;
+	color: #a9acb5;
 }
 
-.rank {
-  width: 10%;
+tbody {
+	text-align: center;
+	text-shadow: 2px 2px 4px #000000;
+	overflow-y: scroll;
 }
+
+.left-row {
+	text-align: right;
+	width: 35%;
+}
+
+.center-row {
+	width: 30%;
+	overflow: hidden;
+}
+
+.right-row {
+	text-align: left;
+	width: 35%;
+} */

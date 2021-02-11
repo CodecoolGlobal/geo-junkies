@@ -3,6 +3,7 @@ import MainBody from "../elements/MainBody";
 import Navbar from "./Navbar";
 import Content from "../elements/MainContentContainer";
 import Footer from "./Footer";
+import Header from "./Header";
 
 import { Route } from "react-router-dom";
 import MainPage from "../pages/MainPage";
@@ -18,6 +19,7 @@ import ChooseMapPage from "../pages/ChooseMapPage";
 export default function MainComponent() {
   return (
     <MainBody>
+      <Header />
       <Navbar />
       <Content>
         <Route exact path="/" component={MainPage} />

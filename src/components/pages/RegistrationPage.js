@@ -26,7 +26,7 @@ const RegistrationPage = (props) => {
     UsePostData(APIs.registration, user.token, userObject, (response) => {
       setErrorMessage([]);
       if (response.status === 201) {
-        return history.push("/");
+        return history.push("/login");
       }
       Object.entries(response).forEach(([k, v]) => {
         v.forEach((value) => {

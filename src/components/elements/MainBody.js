@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import img from "../images/back1opac.jpg";
+import img from "../images/back1.jpg";
 
 const MainBody = styled.div`
   background-image: url(${img});

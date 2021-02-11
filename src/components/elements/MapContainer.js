@@ -1,12 +1,8 @@
 import styled from "styled-components";
 
 export const MapContainer = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 90%;
-  height: 95%;
-  overflow: auto;
+  padding-top: 1%;
+  overflow-y: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -102,7 +98,7 @@ export const MapDataContainer = styled.div`
   align-items: center;
   border: 1px solid black;
   background-color: white;
-  opacity: 0.7;
+  opacity: 0.9;
   border-radius: 20px;
   background: linear-gradient(#fff, #f2f6f9);
   box-shadow: 0 0 0 1px rgba(14, 41, 57, 0.12), 0 2px 5px rgba(14, 41, 57, 0.44),
@@ -126,26 +122,6 @@ export const ActualInfoContainer = styled.div`
   background: linear-gradient(#fff, #f2f6f9);
   box-shadow: 0 0 0 1px rgba(14, 41, 57, 0.12), 0 2px 5px rgba(14, 41, 57, 0.44),
     inset 0 -1px 2px rgba(14, 41, 57, 0.15);
-  opacity: 0.7;
+  opacity: 0.9;
   border-radius: 20px;
-`;
-
-export const EndGameButton = styled.button`
-  margin-top: 5px;
-  border-radius: 5px;
-  padding: 5px;
-  width: 180px;
-  font-size: 1em;
-  outline: none;
-  letter-spacing: 0.1em;
-  background: linear-gradient(to bottom, #22abe9 5%, #36caf0 100%);
-  box-shadow: inset 0 1px 0 0 #7bdcf4;
-  border: 1px solid #0f799e;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  text-shadow: 0 1px 0 #13506d;
-  &:hover {
-    background: linear-gradient(to bottom, #36caf0 5%, #22abe9 100%);
-  }
 `;
