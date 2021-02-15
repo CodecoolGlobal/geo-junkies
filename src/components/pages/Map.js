@@ -223,7 +223,10 @@ const Map = (props) => {
   };
 
   const countdownHandler = () => {
-    setEndModalState(true);
+    if (cityMarkerClass === "hidden") {
+      return setEndModalState(true);
+    }
+    buttonHandler();
   };
 
   return content;
