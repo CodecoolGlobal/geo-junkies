@@ -44,7 +44,7 @@ const Map = (props) => {
   const [popupMessage, setPopupMessage] = useState("");
   const [guessLng, setGuessLng] = useState(null);
   const [guessLat, setGuessLat] = useState(null);
-  const [cityMarkerClass, setCityMarkerClass] = useState("shown");
+  const [cityMarkerClass, setCityMarkerClass] = useState("hidden");
   const user = useContext(UserContext)[0];
   const [actualScore, setActualScore] = useState(0);
   const [endModalState, setEndModalState] = useState(false);
@@ -179,9 +179,6 @@ const Map = (props) => {
   const mapClickHandler = (e, map) => {
     setGuessLng(e.lngLat.lng);
     setGuessLat(e.lngLat.lat);
-    console.log(
-      "actCrd: " + currentCity.name + " - " + markerLng + " - " + markerLat
-    ); //not updating states
     const city = new mapboxgl.LngLat(markerLng, markerLat);
     const distance = Math.round(city.distanceTo(e.lngLat) / 1000);
     const message = distance + " km away.";
@@ -198,7 +195,7 @@ const Map = (props) => {
   };
 
   const buttonHandler = () => {
-    // setCityMarkerClass("hidden");
+    setCityMarkerClass("hidden");
     if (currentRoundIndex + 1 < maxRoundNumber) {
       const increasedCurrentRoundIndex = currentRoundIndex + 1;
       const newCity = selectedCities[increasedCurrentRoundIndex];
