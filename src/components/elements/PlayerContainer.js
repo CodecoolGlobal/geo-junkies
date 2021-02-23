@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import img from "../images/export2.jpg";
 
 export const PlayersContainer = styled.div`
   margin-top: 2%;
@@ -175,5 +176,15 @@ export const PlayersContainer = styled.div`
 
   tbody .center-row:hover {
     transform: scale(1.25);
+  }
+
+  #download {
+    height: 25px;
+    width: 25px;
+    background-image: url(${img});
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin-right: 20px;
   }
 `;
