@@ -4,6 +4,8 @@
   "registration": "https://amazing-noether-9380b4.netlify.app/api/registration",
   "maps":"https://amazing-noether-9380b4.netlify.app/api/maps",
   "cities":"https://amazing-noether-9380b4.netlify.app/api/map",
-  "highscores" :"http://127.0.0.1:8000/api/highscores"
-  "highscore": "http://geo-junkies.com/api/highscore/"
+  "highscores" :"http://127.0.0.1:8000/api/highscores",
+  "highscore": "http://geo-junkies.com/api/highscore/",
+  "editor": "http://geo-junkies.com/api/edit-user",
+  "export": "http://geo-junkies.com/api/export"
 }
