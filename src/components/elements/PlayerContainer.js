@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import settingsCog from "../images/settings-cog.png";
 import hoverSettingsCog from "../images/settings-cog-hover.png";
+import img from "../images/export2.jpg";
 
 export const PlayersContainer = styled.div`
   margin-top: 2%;
@@ -191,5 +192,15 @@ export const PlayersContainer = styled.div`
 
   .settings-icon:hover {
     background-image: url(${hoverSettingsCog});
+  }
+
+  #download {
+    height: 25px;
+    width: 25px;
+    background-image: url(${img});
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin-right: 20px;
   }
 `;
