@@ -4,10 +4,8 @@ import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 // import "../../style/High-score.css";
-import {
-  PlayersContainer,
-  ProfileContainer,
-} from "../elements/PlayerContainer";
+import { PlayersContainer } from "../elements/PlayerContainer";
+import { saveAs } from "file-saver";
 
 export default function ProfilePage() {
   const user = useContext(UserContext)[0];
@@ -46,14 +44,11 @@ export default function ProfilePage() {
 
   let content = (
     <div>
-      <button
-        onClick={() => console.log("export the data")}
-        style={{ backgroundColor: "blue" }}
-      >
-        Save to file
-      </button>
       <PlayersContainer>
-        <div className="user">{user.username}</div>
+        <div className="user">
+          <button id="download" onClick={() => saveDataHandler()}></button>
+          {user.username}
+        </div>
         <h1 className="title">My Scores</h1>
         <div className="buttonBox">
           {countries.map((country, index) => (
@@ -86,7 +81,7 @@ export default function ProfilePage() {
                       </td>
                     </tr>
                   ))
-                : ""}
+                : null}
             </tbody>
           </table>
         </div>
@@ -96,6 +91,32 @@ export default function ProfilePage() {
         : errorMessage.map((data, index) => <div key={index}>{data}</div>)}
     </div>
   );
+
+  const saveDataHandler = () => {
+    downloadFile().then((blob) => saveAs(blob, "data.xlsx"));
+  };
+
+  const downloadFile = async () => {
+    const options = {
+      headers: {
+        "Content-Type":
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        Accept:
+          "text/html, application/xhtml+xml, application/xml;q=0.9, image/webp, */*;q=0.8",
+        Authorization: "Bearer " + user.token,
+        "Accept-Language": "*",
+      },
+      url: `${APIs.export}`,
+      responseType: "blob",
+    };
+    return axios(options).then(
+      (response) =>
+        new Blob([response.data], {
+          type:
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        })
+    );
+  };
 
   return user.token ? content : <Redirect to="/" />;
 }
