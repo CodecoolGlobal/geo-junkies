@@ -3,6 +3,7 @@ import { UserContext } from "../../contexts/UserContext";
 import APIs from "../files/ApiRequestURL.json";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // import "../../style/High-score.css";
 import {
   PlayersContainer,
@@ -49,7 +50,9 @@ export default function ProfilePage() {
       <PlayersContainer>
         <div className="user">
           {user.username}
-          <span className="settings-icon"></span>
+          <Link to="/edit-user">
+            <span className="settings-icon"></span>
+          </Link>
         </div>
         <h1 className="title">My Scores</h1>
         <div className="buttonBox">
