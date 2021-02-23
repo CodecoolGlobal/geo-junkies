@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import settingsCog from "../images/settings-cog.png";
 
 export const PlayersContainer = styled.div`
   margin-top: 2%;
@@ -175,5 +176,15 @@ export const PlayersContainer = styled.div`
 
   tbody .center-row:hover {
     transform: scale(1.25);
+  }
+
+  .settings-icon {
+    display: inline-block;
+    background-image: url(${settingsCog});
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
   }
 `;
