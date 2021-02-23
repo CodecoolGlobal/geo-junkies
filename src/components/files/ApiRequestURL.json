@@ -1,9 +1,10 @@
 {
-  "login": "https://gentle-savannah-93060.herokuapp.com/api/login",
-  "logout": "https://gentle-savannah-93060.herokuapp.com/api/logout",
-  "registration": "https://gentle-savannah-93060.herokuapp.com/api/registration",
-  "maps": "https://gentle-savannah-93060.herokuapp.com/api/maps",
-  "cities": "https://gentle-savannah-93060.herokuapp.com/api/map",
-  "highscores": "https://gentle-savannah-93060.herokuapp.com/api/highscores",
-  "highscore": "https://gentle-savannah-93060.herokuapp.com/api/highscore/"
+  "login": "http://geo-junkies.com/api/login",
+  "logout": "http://geo-junkies.com/api/logout",
+  "registration": "http://geo-junkies.com/api/registration",
+  "maps": "http://geo-junkies.com/api/maps",
+  "cities": "http://geo-junkies.com/api/map",
+  "highscores": "http://geo-junkies.com/api/highscores",
+  "highscore": "http://geo-junkies.com/api/highscore/",
+  "export": "http://geo-junkies.com/api/export"
 }
