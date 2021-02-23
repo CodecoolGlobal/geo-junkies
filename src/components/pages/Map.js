@@ -19,6 +19,7 @@ import greenMarkerImage from "../../components/images/greenmarker.png";
 import redMarkerImage from "../../components/images/redmarker.png";
 import EndGameModal from "../layout/EndGameModal";
 import StartGameModal from "../layout/StartGameModal";
+import LoadingGameModal from "../layout/LoadingGameModal";
 
 const MapBox = ReactMapboxGl({
   accessToken:
@@ -51,6 +52,7 @@ const Map = (props) => {
   const [startModalState, setStartModalState] = useState(true);
   const [nextButtonText, setNextButtonText] = useState("Next City");
   const [highscores, setHighscores] = useState([]);
+  const [isMapLoading, setMapLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -63,7 +65,9 @@ const Map = (props) => {
   let content = "";
   if (currentCity && user.username) {
     content = (
-      <MapStyle.MapContainer>
+      <MapStyle.MapContainer
+        style={{ visibility: isMapLoading ? "hidden" : "visible" }}
+      >
         <MapBox
           // eslint-disable-next-line react/style-prop-object
           style="mapbox://styles/mapbox/streets-v11"
@@ -79,6 +83,7 @@ const Map = (props) => {
               if (layer.type === "symbol") {
                 map.removeLayer(layer.id);
               }
+              setMapLoading(false);
             })
           }
           onClick={
@@ -163,6 +168,7 @@ const Map = (props) => {
             </MapStyle.NextCityButton>
           </MapStyle.ActualInfoContainer>
         </MapStyle.UserAndCityContainer>
+
         <EndGameModal
           modalState={endModalState}
           highscores={highscores}
@@ -172,6 +178,7 @@ const Map = (props) => {
           startModalState={startModalState}
           setStartModalState={setStartModalState}
         />
+        {isMapLoading ? <LoadingGameModal /> : ""}
       </MapStyle.MapContainer>
     );
   }
