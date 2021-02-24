@@ -26,7 +26,7 @@ const EditUserPage = (props) => {
       if (response.status === 202) {
         setUser({
           username: response.data.username,
-          token: response.data.token,
+          token: user.token,
         });
         return history.push("/profile");
       }
