@@ -20,6 +20,7 @@ import redMarkerImage from "../../components/images/redmarker.png";
 import EndGameModal from "../layout/EndGameModal";
 import StartGameModal from "../layout/StartGameModal";
 import LoadingGameModal from "../layout/LoadingGameModal";
+import TimeOverModal from "../layout/TimeOverModal";
 
 const MapBox = ReactMapboxGl({
   accessToken:
@@ -50,6 +51,7 @@ const Map = (props) => {
   const [actualScore, setActualScore] = useState(0);
   const [endModalState, setEndModalState] = useState(false);
   const [startModalState, setStartModalState] = useState(true);
+  const [timeOverModalState, setTimeOverModalState] = useState(false);
   const [nextButtonText, setNextButtonText] = useState("Next City");
   const [highscores, setHighscores] = useState([]);
   const [isMapLoading, setMapLoading] = useState(true);
@@ -178,6 +180,7 @@ const Map = (props) => {
           startModalState={startModalState}
           setStartModalState={setStartModalState}
         />
+        <TimeOverModal timeOverModalState={timeOverModalState} />
         {isMapLoading ? <LoadingGameModal /> : ""}
       </MapStyle.MapContainer>
     );
@@ -231,7 +234,7 @@ const Map = (props) => {
 
   const countdownHandler = () => {
     if (cityMarkerClass === "hidden") {
-      return setEndModalState(true);
+      return setTimeOverModalState(true);
     }
     buttonHandler();
   };

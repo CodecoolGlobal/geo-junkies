@@ -45,7 +45,12 @@ const EditUserPage = (props) => {
         <h2>Edit User</h2>
         <form method="post" onSubmit={handleSubmit}>
           <label>Username:</label>
-          <input type="username" name="username" defaultValue={user.username} />
+          <input
+            type="username"
+            name="username"
+            required
+            defaultValue={user.username}
+          />
           <button type="submit">Submit</button>
         </form>
         {errorMessage === null
