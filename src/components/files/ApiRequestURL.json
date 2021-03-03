@@ -1,0 +1,11 @@
+{
+  "login": "https://arcane-depths-98911.herokuapp.com/api/login",
+  "logout": "https://arcane-depths-98911.herokuapp.com/api/logout",
+  "registration": "https://arcane-depths-98911.herokuapp.com/api/registration",
+  "maps": "https://arcane-depths-98911.herokuapp.com/api/maps",
+  "cities": "https://arcane-depths-98911.herokuapp.com/api/map",
+  "highscores": "https://arcane-depths-98911.herokuapp.com/api/highscores",
+  "highscore": "https://arcane-depths-98911.herokuapp.com/api/highscore/",
+  "editor": "https://arcane-depths-98911.herokuapp.com/api/edit-user",
+  "export": "https://arcane-depths-98911.herokuapp.com/api/export"
+}
