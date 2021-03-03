@@ -8,7 +8,8 @@ const EndGameModal = (props) => {
       style={{ display: props.modalState ? "block" : "none" }}
     >
       <EndModal.ModalContent>
-        {Math.min(...props.highscores) < props.actualScore ? (
+        {Math.min(...props.highscores) < props.actualScore ||
+        props.highscores.length < 10 ? (
           <EndModal.ModalTextContainer>
             <h1>CONGRATULATIONS!</h1>
             <h2>YOU ACHIEVED A HIGHSCORE!</h2>
