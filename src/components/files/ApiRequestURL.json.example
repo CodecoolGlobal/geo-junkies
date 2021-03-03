@@ -1,9 +1,11 @@
 {
-  "login": "http://geo-junkies.com/api/login",
-  "logout": "http://geo-junkies.com/api/logout",
-  "registration": "http://geo-junkies.com/api/registration",
-  "maps":"http://geo-junkies.com/api/maps",
-  "cities":"http://geo-junkies.com/api/map",
-  "highscores" :"http://geo-junkies.com/api/highscores",
-  "highscore": "http://geo-junkies.com/api/highscore/"
+  "login": "https://arcane-depths-98911.herokuapp.com/api/login",
+  "logout": "https://arcane-depths-98911.herokuapp.com/api/logout",
+  "registration": "https://arcane-depths-98911.herokuapp.com/api/registration",
+  "maps": "https://arcane-depths-98911.herokuapp.com/api/maps",
+  "cities": "https://arcane-depths-98911.herokuapp.com/api/map",
+  "highscores" :"http://127.0.0.1:8000/api/highscores",
+  "highscore": "http://geo-junkies.com/api/highscore/",
+  "editor": "http://geo-junkies.com/api/edit-user",
+  "export": "http://geo-junkies.com/api/export"
 }

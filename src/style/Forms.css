@@ -1,4 +1,5 @@
 #content_div,
+#content_div_edit_user,
 #content_div_login {
   max-width: 30%;
   box-shadow: 0 0 0 1px rgba(14, 41, 57, 0.12), 0 2px 5px rgba(14, 41, 57, 0.44),
@@ -18,6 +19,10 @@
 
 #content_div_login {
   min-height: 300px;
+}
+
+#content_div_edit_user {
+  min-height: 200px;
 }
 
 #error_msg {

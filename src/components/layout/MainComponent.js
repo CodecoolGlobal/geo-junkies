@@ -15,6 +15,7 @@ import ProfilePage from "../pages/ProfilePage";
 import HighScores from "../pages/HighScores";
 import AboutPage from "../pages/AboutPage";
 import ChooseMapPage from "../pages/ChooseMapPage";
+import EditUserPage from "../pages/EditUserPage";
 
 export default function MainComponent() {
   return (
@@ -31,6 +32,7 @@ export default function MainComponent() {
         <Route path="/profile" component={ProfilePage} />
         <Route path="/scores" component={HighScores} />
         <Route path="/about" component={AboutPage} />
+        <Route path="/edit-user" component={EditUserPage} />
       </Content>
       <Footer />
     </MainBody>

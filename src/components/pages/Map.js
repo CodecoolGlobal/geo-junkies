@@ -19,6 +19,8 @@ import greenMarkerImage from "../../components/images/greenmarker.png";
 import redMarkerImage from "../../components/images/redmarker.png";
 import EndGameModal from "../layout/EndGameModal";
 import StartGameModal from "../layout/StartGameModal";
+import LoadingGameModal from "../layout/LoadingGameModal";
+import TimeOverModal from "../layout/TimeOverModal";
 
 const MapBox = ReactMapboxGl({
   accessToken:
@@ -49,8 +51,10 @@ const Map = (props) => {
   const [actualScore, setActualScore] = useState(0);
   const [endModalState, setEndModalState] = useState(false);
   const [startModalState, setStartModalState] = useState(true);
+  const [timeOverModalState, setTimeOverModalState] = useState(false);
   const [nextButtonText, setNextButtonText] = useState("Next City");
   const [highscores, setHighscores] = useState([]);
+  const [isMapLoading, setMapLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -63,7 +67,9 @@ const Map = (props) => {
   let content = "";
   if (currentCity && user.username) {
     content = (
-      <MapStyle.MapContainer>
+      <MapStyle.MapContainer
+        style={{ visibility: isMapLoading ? "hidden" : "visible" }}
+      >
         <MapBox
           // eslint-disable-next-line react/style-prop-object
           style="mapbox://styles/mapbox/streets-v11"
@@ -79,6 +85,7 @@ const Map = (props) => {
               if (layer.type === "symbol") {
                 map.removeLayer(layer.id);
               }
+              setMapLoading(false);
             })
           }
           onClick={
@@ -163,6 +170,7 @@ const Map = (props) => {
             </MapStyle.NextCityButton>
           </MapStyle.ActualInfoContainer>
         </MapStyle.UserAndCityContainer>
+
         <EndGameModal
           modalState={endModalState}
           highscores={highscores}
@@ -172,6 +180,8 @@ const Map = (props) => {
           startModalState={startModalState}
           setStartModalState={setStartModalState}
         />
+        <TimeOverModal timeOverModalState={timeOverModalState} />
+        {isMapLoading ? <LoadingGameModal /> : ""}
       </MapStyle.MapContainer>
     );
   }
@@ -223,8 +233,8 @@ const Map = (props) => {
   };
 
   const countdownHandler = () => {
-    if (cityMarkerClass === "hidden") {
-      return setEndModalState(true);
+    if (cityMarkerClass === "hidden" && !endModalState) {
+      return setTimeOverModalState(true);
     }
     buttonHandler();
   };
