@@ -42,11 +42,21 @@ const RegistrationPage = (props) => {
         <form method="post" onSubmit={handleSubmit}>
           <h2>Registration</h2>
           <label>Username:</label>
-          <input type="text" name="username" required autoComplete="off" />
+          <input
+            type="text"
+            name="username"
+            required
+            autoComplete="new-password"
+          />
           <label>Email:</label>
           <input type="email" name="email" required />
           <label>Password:</label>
-          <input type="password" name="password" required />
+          <input
+            type="password"
+            name="password"
+            required
+            autoComplete="new-password"
+          />
           <label>Confirm password:</label>
           <input type="password" name="password_confirm" required />
           <button type="submit">Register</button>
